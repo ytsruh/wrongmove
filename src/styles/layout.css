@@ -49,6 +49,13 @@ nav {
     margin-left: auto;
 }
 
+.nav-right ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
 .nav-right ul > * {
     margin-right: 1rem;
     padding: 0.5rem 0.6rem;
@@ -56,4 +63,14 @@ nav {
 
 .nav-right ul > *:hover {
     cursor: pointer;
+}
+
+.nav-right .sign-in-nav {
+    align-items: center;
+    border: 2px #00DEB6 solid;
+    border-radius: 10px;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-direction: row;
 }
