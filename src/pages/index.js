@@ -1,4 +1,7 @@
 import Head from "next/head";
+import Image from 'next/image'
+
+import wrongmoveSmallLogo from '../assets/wrongmoveSmallLogo.png'
 
 export default function Home() {
   return (
@@ -9,7 +12,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div style={styles.div}>
-        <h1 style={styles.h1}>Wrongmove</h1>
+        <div className="comingSoonLogoDiv">
+          <h1>wrongmove</h1>
+          <Image src={wrongmoveSmallLogo} alt='wrongmove small logo'/>
+        </div>
         <h2 style={styles.h2}>Coming Soon</h2>
       </div>
     </div>
