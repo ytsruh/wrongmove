@@ -1,0 +1,59 @@
+body {
+    font-size: 16px;
+    font-family: EffraLt;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* layout */
+
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav, main, footer {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 78rem;
+    padding: 0 3rem;
+}
+
+/* nav */
+
+nav {
+    font-family: EffraBold;
+    color: #262637;
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+    align-items: center;
+}
+
+.nav-container .nav-right {
+    margin-left: auto;
+}
+
+.nav-right ul > * {
+    margin-right: 1rem;
+    padding: 0.5rem 0.6rem;
+}
+
+.nav-right ul > *:hover {
+    cursor: pointer;
+}
