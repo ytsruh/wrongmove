@@ -1,0 +1,17 @@
+/* fonts */
+
+@font-face {
+    font-family: EffraBold;
+    src: url(../assets/Effra_Std_Bd.ttf);
+}
+
+/* coming soon */
+
+.comingSoonLogoDiv h1 {
+    font-family: EffraBold;
+    color: #262637;
+}
+
+.comingSoonLogoDiv > * {
+    display: inline-block
+}
