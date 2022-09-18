@@ -13,7 +13,7 @@ function Nav() {
                 <ul>
                     <Link href='/buy'>Buy</Link>
                     <Link href='/rent'>Rent</Link>
-                    <Link href='/buy'>House Prices</Link>
+                    <Link href='/house-prices'>House Prices</Link>
                     <Link href='/find-agent'>Find Agent</Link>
                     <Link href='/sign-in'>Sign In</Link>
                 </ul>

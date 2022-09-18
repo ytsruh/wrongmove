@@ -14,6 +14,10 @@ export default function Home() {
           <meta name="description" content="Wrongmove homepage. The Righmove clone." />
           <link rel="icon" href="/favicon.ico" />
         </Head>
+        <div>
+          {/* // home page stuff goes here */}
+          <h1>Home</h1>
+        </div>
       </div>
   );
 }
