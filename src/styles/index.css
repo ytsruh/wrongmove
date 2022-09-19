@@ -5,6 +5,11 @@
     src: url(../assets/Effra_Std_Bd.ttf);
 }
 
+@font-face {
+    font-family: EffraLt;
+    src: url(../assets/Effra_Std_Lt.ttf);
+}
+
 /* coming soon */
 
 .comingSoonLogoDiv h1 {
@@ -14,4 +19,12 @@
 
 .comingSoonLogoDiv > * {
     display: inline-block
+}
+
+/* remove defaults */
+
+a, li, ul {
+    text-decoration: none;
+    list-style: none;
+    color: black;
 }
