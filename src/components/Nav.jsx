@@ -23,7 +23,7 @@ function Nav() {
                     <Link href='/rent'><a className="btn btn-nav">Rent</a></Link>
                     <Link href='/house-prices'><a className="btn btn-nav">House Prices</a></Link>
                     <Link href='/find-agent'><a className="btn btn-nav">Find Agent</a></Link>
-                    <Link href='/sign-in'>
+                    <Link href='/login/user'>
                         <div className="sign-in-nav">
                             <Image src={iconUserPrimary24} alt='user icon'/>
                             <p>Sign In</p>
