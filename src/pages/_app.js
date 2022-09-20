@@ -1,6 +1,7 @@
 import "../styles/index.css";
 import "../styles/layout.css"
 import "../styles/components.css"
+import "../styles/form.css"
 import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
