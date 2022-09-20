@@ -1,65 +1,51 @@
-import { useState } from "react"
-import Link from "next/link"
+import React, { useState, useMemo } from "react";
+import Link from "next/link";
+import Input from '../components/Input'
 
-function Form({ title, formArray, submitBtn, onSubmit, redirect }) {
+const prepareForm = (formArr) => {
+    return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
+};
 
-    const [formData, setFormData] = useState({})
+const Form = ({ title, formArr, submitBtn, onSubmit, redirect}) => {
+    const initialForm = useMemo(() => prepareForm(formArr), [formArr]);
+    const [form, setForm] = useState(initialForm);
 
-    const onChange = (e) => {
-        setFormData((prevState) => ({
-            ...prevState,
-            [e.target.name]: e.target.value
-        }))
-        console.log(formData)
-    }
+    const onChangeHandler = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+    const onSumbitHandler = () => onSubmit(form, () => setForm(initialForm));
 
-    const hasRedirect = !!redirect
-
-  return (
-        <form>
-            <h2 className="form-title">{title}</h2>
-                {formArray.map(({ label, name, type }, index) => (
-                    <div className="form-data" key={index}>
-                        <label htmlFor={name}>{label}</label>
-                        <input onChange={onChange} id={name} name={name} type={type}/>
-                    </div>
-                ))}
-                <button onClick={(e) => {
-                    e.preventDefault()
-                    onSubmit()
-                }}>{submitBtn}</button>
-                {hasRedirect && (
-                    <div className="redirect">
-                        <label>{redirect.label}</label>
-                        <Link href={`${redirect.label.link}`}>{redirect.link.label}</Link>
-                    </div>
-                )}
+    const hasRedirect = !!redirect;
+    return (
+        <form autoComplete={"off"}>
+            <label>{title}</label>
+            {formArr.map(({ label, name, type, placeholder }, index) => (
+                <div key={index}>
+                    <label htmlFor={name}>{label}</label>
+                    <Input
+                        id={name}
+                        name={name}
+                        type={type}
+                        value={form[name]}
+                        onChange={(e) => onChangeHandler(e)}
+                        placeholder={placeholder}
+                    />
+                </div>
+            ))}
+            <button
+                onClick={(e) => {
+                    e.preventDefault();
+                    onSumbitHandler();
+                }}
+            >
+                {submitBtn}
+            </button>
+            {hasRedirect && (
+                <div>
+                    <label>{redirect.label}</label>
+                    <Link href={redirect.link.to}>{redirect.link.label}</Link>
+                </div>
+            )}
         </form>
-  )
-}
+    );
+};
 
-// Form.defaultProps = {
-//     title: 'Sign In', 
-//     formArray: [
-//         {
-//         label: 'Email',
-//         name: 'email',
-//         type: 'email'
-//         }, 
-//         {
-//         label: 'Name',
-//         name: 'name',
-//         type: 'text'   
-//         }
-//     ],
-//     submitBtn: 'Submit',
-//     redirect: {
-//         label: `Don't have an account?`,
-//         link: {
-//             label: 'register',
-//             to: '/agent-register'
-//         }
-//     }
-// }
-
-export default Form
+export default Form;

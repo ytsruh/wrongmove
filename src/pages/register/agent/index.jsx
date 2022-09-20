@@ -1,50 +1,63 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Form from "../../../components/Form"
 
 function index() {
+
+  const onSubmitHandler = (form, callback) => {
+    console.log(form)
+    callback()
+  }
+
   return (
     <div>
       <h1>Create an account</h1>
-      <Form
+      <Form 
         title='Agent Registration'
-        formArray={formArray}
+        formArr={formArr}
         submitBtn='Register'
+        onSubmit={onSubmitHandler}
         redirect={null}
       />
     </div>
   )
 }
 
-const formArray = [
+const formArr = [
   {
     label: 'First Name',
     name: 'fname',
-    type: 'text'
+    type: 'text',
+    placeholder: 'John'
   },
   {
     label: 'Surname',
     name: 'lname',
-    type: 'text'
+    type: 'text',
+    placeholder: 'McManning'
   },
   {
     label: 'Email',
     name: 'email',
-    type: 'email'
+    type: 'email',
+    placeholder: 'john@wrongmove.com'
   },
   {
     label: 'Agent Name',
     name: 'agent-name',
-    type: 'text'
+    type: 'text',
+    placeholder: 'Wrongmove'
   },
   {
     label: 'Password',
     name: 'password',
-    type: 'password'
+    type: 'password',
+    placeholder: '*********'
   },
   {
     label: 'Confirm Password',
     name: 'confirm-password',
-    type: 'password'
+    type: 'password',
+    placeholder: '*********'
   }
 ]
 

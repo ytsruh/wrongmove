@@ -1,8 +1,8 @@
 
 
-function Input() {
+function Input(props) {
   return (
-    <div>Input</div>
+      <input placeholder={props.placeholder}/>
   )
 }
 
