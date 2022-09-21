@@ -16,7 +16,7 @@ function index() {
         formArr={formArr}
         submitBtn='Register'
         onSubmit={onSubmitHandler}
-        redirect={null}
+        redirect={redirect}
       />
     </div>
   )
@@ -27,38 +27,61 @@ const formArr = [
     label: 'First Name',
     name: 'fname',
     type: 'text',
-    placeholder: 'John'
+    placeholder: 'John',
+    required: true
   },
   {
     label: 'Surname',
     name: 'lname',
     type: 'text',
-    placeholder: 'McManning'
+    placeholder: 'McManning',
+    required: true
   },
   {
     label: 'Email',
     name: 'email',
     type: 'email',
-    placeholder: 'john@wrongmove.com'
+    placeholder: 'john@wrongmove.com',
+    required: true
+  },
+  {
+    label: 'Contact Number',
+    name: 'phone',
+    type: 'tel',
+    placeholder: '01214960830',
+    minLength: 11,
+    maxLength: 11,
+    required: true
   },
   {
     label: 'Agent Name',
     name: 'agent-name',
     type: 'text',
-    placeholder: 'Wrongmove'
+    placeholder: 'Wrongmove',
+    required: true
   },
   {
     label: 'Password',
     name: 'password',
     type: 'password',
-    placeholder: '*********'
+    placeholder: '*********',
+    required: true,
   },
   {
     label: 'Confirm Password',
     name: 'confirm-password',
     type: 'password',
-    placeholder: '*********'
+    placeholder: '*********',
+    required: true,
   }
 ]
+
+const redirect = {
+  label: 'Already have an account?',
+  link: {
+    to: '/login/agent',
+    label: 'Login'
+  }
+}
 
 export default index

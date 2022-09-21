@@ -1,6 +1,24 @@
 form {
     background-color: white;
-    padding: 30px;
     border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    padding: 30px;
+    margin: 15px;
+    min-width: 20rem;
 }
 
+form label {
+    font-size: 0.85rem;
+}
+
+form .input-div {
+    margin: 0.5rem 0;
+}
+
+form .form-redirect-container {
+    margin-top: 0.5rem;
+}
+
+form .form-redirect-container > a {
+    color: #3366CC;
+}

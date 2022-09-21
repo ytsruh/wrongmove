@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import Input from '../components/Input'
+import Button from "./Button";
 
 const prepareForm = (formArr) => {
     return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
@@ -16,9 +17,9 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect}) => {
     const hasRedirect = !!redirect;
     return (
         <form autoComplete={"off"}>
-            <label>{title}</label>
-            {formArr.map(({ label, name, type, placeholder }, index) => (
-                <div key={index}>
+            <h2>{title}</h2>
+            {formArr.map(({ label, name, type, placeholder, maxLength, minLength, required}, index) => (
+                <div className='input-div' key={index}>
                     <label htmlFor={name}>{label}</label>
                     <Input
                         id={name}
@@ -27,21 +28,26 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect}) => {
                         value={form[name]}
                         onChange={(e) => onChangeHandler(e)}
                         placeholder={placeholder}
+                        maxLength={maxLength}
+                        minLength={minLength}
+                        required={required}
                     />
                 </div>
             ))}
-            <button
+            <Button
                 onClick={(e) => {
                     e.preventDefault();
                     onSumbitHandler();
                 }}
+                submitBtn={submitBtn}
+                className='btn-primary'
             >
                 {submitBtn}
-            </button>
+            </Button>
             {hasRedirect && (
-                <div>
+                <div className="form-redirect-container">
                     <label>{redirect.label}</label>
-                    <Link href={redirect.link.to}>{redirect.link.label}</Link>
+                    <Link href={redirect.link.to}>{` ${redirect.link.label}`}</Link>
                 </div>
             )}
         </form>

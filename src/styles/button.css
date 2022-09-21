@@ -1,0 +1,14 @@
+button {
+    width: 100%;
+    border-radius: 2.5px;
+    padding: 0.8rem;
+    border: none;
+}
+
+button:hover {
+    background-color: #fff;
+}
+
+.btn-primary {
+    background-color: #65dbb8;
+}
