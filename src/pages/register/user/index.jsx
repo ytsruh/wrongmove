@@ -6,7 +6,7 @@ function index() {
         console.log(form)
         callback()
       }
-
+      
   return (
     <div>
         <h1>Create an account</h1>
