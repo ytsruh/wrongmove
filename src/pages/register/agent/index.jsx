@@ -10,14 +10,24 @@ function index() {
 
   return (
     <div>
-      <h1>Create an account</h1>
-      <Form 
-        title='Agent Registration'
-        formArr={formArr}
-        submitBtn='Register'
-        onSubmit={onSubmitHandler}
-        redirect={redirect}
-      />
+      <h1 className="text-center">Create an account</h1>
+      <div className="two-column-grid">
+        <Form 
+          title='Agent Registration'
+          formArr={formArr}
+          submitBtn='Register'
+          onSubmit={onSubmitHandler}
+          redirect={redirect}
+          />
+          <div className="center align-left right-column">
+            <h3>With an account you can:</h3>
+            <ul className="mt-1">
+              <li>🔔 Create instant property alerts</li>
+              <li>❤️ Save properties</li>
+              <li>🔎 Create & save your own search areas</li>
+            </ul>
+          </div>
+      </div>
     </div>
   )
 }
