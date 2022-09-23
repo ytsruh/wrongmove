@@ -14,5 +14,5 @@
 # misc
 .DS_Store
 *.pem
-.env*.local
+.env
 .vercel
