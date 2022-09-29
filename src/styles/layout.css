@@ -32,65 +32,8 @@ nav, main, footer {
     padding: 0 3rem;
 }
 
-/* nav */
-
-nav {
-    font-family: EffraBold;
-    color: #262637;
-    padding: 5px 0;
+@media screen and (max-width: 55rem) {
+    .container {
+        padding: 0 1rem;
+    }
 }
-
-.nav-container {
-    display: grid;
-    grid-template-columns: 0.2fr 0.8fr;
-    align-items: center;
-}
-
-    /* nav-right */
-
-    .nav-container .nav-right {
-        margin-left: auto;
-    }
-
-    .nav-right ul {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: row;
-    }
-
-    .nav-right ul > * {
-        margin-right: 1rem;
-        padding: 0.5rem 0.6rem;
-    }
-
-    .nav-right ul > *:hover {
-        cursor: pointer;
-    }
-
-    .nav-right .sign-in-nav {
-        align-items: center;
-        border: 2px #00DEB6 solid;
-        border-radius: 10px;
-        display: flex;
-        gap: 0.5rem;
-        justify-content: center;
-        flex-direction: row;
-    }
-
-    .nav-right .sign-in-nav:hover {
-        background-color: #00DEB6;
-    }
-
-    /* nav-left */
-
-    .nav-left .nav-logo-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.4rem;
-    }
-
-    .nav-left .nav-logo-container:hover {
-        cursor: pointer;
-    }

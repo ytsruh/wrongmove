@@ -15,7 +15,7 @@ function index() {
             formArr={formArr}
             submitBtn='Register'
             redirect={null}
-        onSubmit={onSubmitHandler}
+            onSubmit={onSubmitHandler}
       />    </div>
   )
 }
@@ -25,31 +25,36 @@ const formArr = [
       label: 'First Name',
       name: 'fname',
       type: 'text',
-      placeholder: 'John'
+      placeholder: 'John',
+      required: true
     },
     {
       label: 'Surname',
       name: 'lname',
       type: 'text',
-      placeholder: 'McManning'
+      placeholder: 'McManning',
+      required: true
     },
     {
       label: 'Email',
       name: 'email',
       type: 'email',
-      placeholder: 'john@wrongmove.com'
+      placeholder: 'john@wrongmove.com',
+      required: true
     },
     {
       label: 'Password',
       name: 'password',
       type: 'password',
-      placeholder: '*********'
+      placeholder: '*********',
+      required: true
     },
     {
       label: 'Confirm Password',
       name: 'confirm-password',
       type: 'password',
-      placeholder: '*********'
+      placeholder: '*********',
+      required: true
     }
   ]
   

@@ -6,8 +6,8 @@ import iconUserPrimary24 from '../assets/icons/iconUserPrimary24.png'
 function Nav() {
   return (
     <nav>
-        <div className="nav-container container">
-            <div className="nav-left">
+        <div className="nav-container">
+            <div className="nav-logo">
                 <div height='32' width='32'>
                     <Link href='/'>
                         <div className="nav-logo-container">
@@ -17,7 +17,7 @@ function Nav() {
                     </Link>
                 </div>
             </div>
-            <div className="nav-right">
+            <div className="nav-links">
                 <ul>
                     <Link href='/buy'><a className="btn btn-nav">Buy</a></Link>
                     <Link href='/rent'><a className="btn btn-nav">Rent</a></Link>
@@ -30,6 +30,14 @@ function Nav() {
                         </div>
                     </Link>
                 </ul>
+            </div>
+            <div className="hamburger">
+                <div className="burgerline"></div>
+                <div className="burgerline"></div>
+                <div className="burgerline"></div>
+            </div>
+            <div className="nav-account">
+                <Image src={iconUserPrimary24} alt='user icon'/>
             </div>
         </div>
     </nav>
