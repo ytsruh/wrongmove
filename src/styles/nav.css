@@ -59,6 +59,48 @@ nav {
         background-color: #00DEB6;
     }
 
+
+    /* nav-links-mobile-modal */
+
+    .nav-links-mobile-modal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0, 0, 0, 0.389);
+    }
+
+    .nav-links-mobile-modal-popout {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: red;
+        height: 100vh;
+        width: 18rem;
+        padding: 0.5rem;
+    }
+
+    .nav-links-popout-header {
+        display: grid;
+        grid-template-columns: 0.2fr 0.8fr;
+        font-size: 1.3rem;
+    }
+
+    .mobile-links-exit-btn {
+        
+    }
+
+        .crossline {
+            width: 1.2rem;
+            height: 2px;
+            background-color: black;
+        }
+
+    .mobile-menu-logo {
+        display: flex;
+        margin-left: auto;
+    }
     
     /* ham */
 
