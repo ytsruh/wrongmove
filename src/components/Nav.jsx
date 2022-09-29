@@ -39,6 +39,28 @@ function Nav() {
             <div className="nav-account">
                 <Image src={iconUserPrimary24} alt='user icon'/>
             </div>
+            <div className="nav-links-mobile-modal"></div>
+                <div className="nav-links-mobile-modal-popout">
+                    <div className="nav-links-popout-header">
+                        <div className="mobile-links-exit-btn">
+                            <div className="crossline"></div>
+                            <div className="crossline"></div>
+                        </div>
+                        <div className="mobile-menu-logo">
+                            <p>wrongmove</p>
+                            <Image class src={wrongmoveSmallLogo} alt='wrongmove logo - click for home' />
+                        </div>
+                    </div>
+                    <div className="nav-links-mobile-modal-content">
+                        <div className="mobile-links">
+                        {/* <ul>
+                            <li>link1</li>
+                            <li>link2</li>
+                            <li>link3</li>
+                        </ul> */}
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
   )
