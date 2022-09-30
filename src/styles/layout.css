@@ -32,6 +32,10 @@ nav, main, footer {
     padding: 0 3rem;
 }
 
+.hide {
+    display: none;
+}
+
 @media screen and (max-width: 55rem) {
     .container {
         padding: 0 1rem;

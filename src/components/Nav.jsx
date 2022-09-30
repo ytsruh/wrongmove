@@ -2,8 +2,11 @@ import Image from "next/image"
 import Link from "next/link"
 import wrongmoveSmallLogo from '../assets/wrongmoveSmallLogo.png'
 import iconUserPrimary24 from '../assets/icons/iconUserPrimary24.png'
-
+import { useState, useEffect } from 'react'
 function Nav() {
+
+    const [mobileNavToggle, setMobileNavToggle] = useState(false)
+
   return (
     <nav>
         <div className="nav-container">
@@ -31,7 +34,7 @@ function Nav() {
                     </Link>
                 </ul>
             </div>
-            <div className="hamburger">
+            <div className="hamburger" onClick={() => setMobileNavToggle(!mobileNavToggle)}>
                 <div className="burgerline"></div>
                 <div className="burgerline"></div>
                 <div className="burgerline"></div>
@@ -39,12 +42,12 @@ function Nav() {
             <div className="nav-account">
                 <Image src={iconUserPrimary24} alt='user icon'/>
             </div>
-            <div className="nav-links-mobile-modal"></div>
+            <div className={`nav-links-mobile-modal ${!mobileNavToggle ? 'hide' : ''}`}>
                 <div className="nav-links-mobile-modal-popout">
                     <div className="nav-links-popout-header">
-                        <div className="mobile-links-exit-btn">
-                            <div className="crossline"></div>
-                            <div className="crossline"></div>
+                        <div className="mobile-links-exit-btn" onClick={() => setMobileNavToggle(!mobileNavToggle)}>
+                            <div className="crossline cl1"></div>
+                            <div className="crossline cl2"></div>
                         </div>
                         <div className="mobile-menu-logo">
                             <p>wrongmove</p>
@@ -60,6 +63,7 @@ function Nav() {
                         </ul> */}
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </nav>
