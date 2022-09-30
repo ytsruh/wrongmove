@@ -7,6 +7,13 @@ function Nav() {
 
     const [mobileNavToggle, setMobileNavToggle] = useState(false)
 
+    const changeState = () => {
+        setMobileNavToggle(!mobileNavToggle)
+    }
+
+    useEffect(() => {
+    }, [mobileNavToggle])
+
   return (
     <nav>
         <div className="nav-container">
@@ -34,7 +41,7 @@ function Nav() {
                     </Link>
                 </ul>
             </div>
-            <div className="hamburger" onClick={() => setMobileNavToggle(!mobileNavToggle)}>
+            <div className="hamburger" onClick={changeState}>
                 <div className="burgerline"></div>
                 <div className="burgerline"></div>
                 <div className="burgerline"></div>
@@ -42,10 +49,10 @@ function Nav() {
             <div className="nav-account">
                 <Image src={iconUserPrimary24} alt='user icon'/>
             </div>
-            <div onClick={() => setMobileNavToggle(!mobileNavToggle)} className={`nav-links-mobile-modal ${!mobileNavToggle ? 'hide' : ''}`}></div>
+            <div onClick={changeState} className={`nav-links-mobile-modal ${!mobileNavToggle ? 'hide' : ''}`}></div>
                 <div className={`nav-links-mobile-modal-popout ${!mobileNavToggle ? 'hide' : ''}`}>
                     <div className="nav-links-popout-header">
-                        <div className="mobile-links-exit-btn" onClick={() => setMobileNavToggle(!mobileNavToggle)}>
+                        <div className="mobile-links-exit-btn" onClick={changeState}>
                             <div className="crossline cl1"></div>
                             <div className="crossline cl2"></div>
                         </div>
@@ -63,25 +70,25 @@ function Nav() {
                     <div className="nav-links-mobile-modal-content">
                         <div className="mobile-links">
                         <ul className="mobile-nav-ul">
-                            <li><h3>Buy</h3></li>
-                            <Link href='/'><li>Properties for Sale</li></Link>
-                            <Link href='/'><li>New home for Sale</li></Link>
-                            <Link href='/'><li>Property Valuation</li></Link>
-                            <Link href='/'><li>Where can I live?</li></Link>
-                            <Link href='/'><li>Investors</li></Link>
-                            <Link href='/'><li>Morgages</li></Link>
+                            <Link onClick={changeState} href='buy'><li><h3>Buy</h3></li></Link>
+                            <Link onClick={changeState} href='/'><li>Properties for Sale</li></Link>
+                            <Link onClick={changeState} href='/'><li>New home for Sale</li></Link>
+                            <Link onClick={changeState} href='/'><li>Property Valuation</li></Link>
+                            <Link onClick={changeState} href='/'><li>Where can I live?</li></Link>
+                            <Link onClick={changeState} href='/'><li>Investors</li></Link>
+                            <Link onClick={changeState} href='/'><li>Morgages</li></Link>
                             <hr />
                         </ul>
                         <ul className="mobile-nav-ul">
-                            <li><h3>Rent</h3></li>
-                            <Link href='/'><li>Property to rent</li></Link>
-                            <Link href='/'><li>Student property to rent</li></Link>
-                            <Link href='/'><li>Where can I live?</li></Link>
+                            <Link onClick={changeState} href='/rent'><li><h3 >Rent</h3></li></Link>
+                            <Link onClick={changeState} href='/rent'><li>Property to rent</li></Link>
+                            <Link onClick={changeState} href='/'><li>Student property to rent</li></Link>
+                            <Link onClick={changeState} href='/'><li>Where can I live?</li></Link>
                             <hr />
                         </ul>
                         <ul className="mobile-nav-ul">
-                            <li><h3>House prices</h3></li>
-                            <Link href='/'><li>Sold house prices</li></Link>
+                            <Link onClick={changeState} href='/house-prices'><li><h3>House prices</h3></li></Link>
+                            <Link onClick={changeState} href='/'><li>Sold house prices</li></Link>
                             <hr />
                         </ul>
                     </div>

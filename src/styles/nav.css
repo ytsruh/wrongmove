@@ -151,6 +151,12 @@ nav {
     .mobile-nav-ul > li {
         color: rgb(125, 125, 125);
         font-family: EffraReg;
+        cursor: pointer;
+        margin: 0.2rem 0
+    }
+    
+    .mobile-nav-ul > li:hover {
+        color: rgb(70, 70, 70);
     }
 
     .mobile-nav-ul > li > h3 {
