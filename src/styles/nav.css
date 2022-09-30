@@ -59,7 +59,7 @@ nav {
     }
 
 
-    /* nav-links-mobile-modal */
+    /* nav-links-mobile */
 
     .nav-links-mobile-modal {
         position: absolute;
@@ -130,6 +130,8 @@ nav {
 
     .nav-links-popout-login > p:hover {
         cursor: pointer;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;    
     }
 
     .login-img-round {
@@ -141,7 +143,26 @@ nav {
         align-items: center;
         justify-content: center;
     }
-    
+
+    .mobile-nav-ul {
+        padding: 1rem;
+    }
+
+    .mobile-nav-ul > li {
+        color: rgb(125, 125, 125);
+        font-family: EffraReg;
+    }
+
+    .mobile-nav-ul > li > h3 {
+        color: black;
+        font-family: EffraBold;
+        margin-bottom: 0.5rem;
+    }
+
+    .mobile-nav-ul > hr {
+        margin-top: 1rem;
+    }
+
     /* ham */
 
     .hamburger {

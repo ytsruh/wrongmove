@@ -42,8 +42,8 @@ function Nav() {
             <div className="nav-account">
                 <Image src={iconUserPrimary24} alt='user icon'/>
             </div>
-            <div className={`nav-links-mobile-modal ${!mobileNavToggle ? 'hide' : ''}`}>
-                <div className="nav-links-mobile-modal-popout">
+            <div onClick={() => setMobileNavToggle(!mobileNavToggle)} className={`nav-links-mobile-modal ${!mobileNavToggle ? 'hide' : ''}`}></div>
+                <div className={`nav-links-mobile-modal-popout ${!mobileNavToggle ? 'hide' : ''}`}>
                     <div className="nav-links-popout-header">
                         <div className="mobile-links-exit-btn" onClick={() => setMobileNavToggle(!mobileNavToggle)}>
                             <div className="crossline cl1"></div>
@@ -62,14 +62,30 @@ function Nav() {
                     </div>
                     <div className="nav-links-mobile-modal-content">
                         <div className="mobile-links">
-                        {/* <ul>
-                            <li>link1</li>
-                            <li>link2</li>
-                            <li>link3</li>
-                        </ul> */}
+                        <ul className="mobile-nav-ul">
+                            <li><h3>Buy</h3></li>
+                            <Link href='/'><li>Properties for Sale</li></Link>
+                            <Link href='/'><li>New home for Sale</li></Link>
+                            <Link href='/'><li>Property Valuation</li></Link>
+                            <Link href='/'><li>Where can I live?</li></Link>
+                            <Link href='/'><li>Investors</li></Link>
+                            <Link href='/'><li>Morgages</li></Link>
+                            <hr />
+                        </ul>
+                        <ul className="mobile-nav-ul">
+                            <li><h3>Rent</h3></li>
+                            <Link href='/'><li>Property to rent</li></Link>
+                            <Link href='/'><li>Student property to rent</li></Link>
+                            <Link href='/'><li>Where can I live?</li></Link>
+                            <hr />
+                        </ul>
+                        <ul className="mobile-nav-ul">
+                            <li><h3>House prices</h3></li>
+                            <Link href='/'><li>Sold house prices</li></Link>
+                            <hr />
+                        </ul>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </nav>
