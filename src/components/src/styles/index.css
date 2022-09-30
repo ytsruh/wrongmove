@@ -1,0 +1,58 @@
+/* fonts */
+
+@font-face {
+    font-family: EffraBold;
+    src: url(../assets/Effra_Std_Bd.ttf);
+}
+
+@font-face {
+    font-family: EffraLt;
+    src: url(../assets/Effra_Std_Lt.ttf);
+}
+
+/* body */
+body {
+    background-color: #f4f4f5;
+}
+
+/* coming soon */
+
+.comingSoonLogoDiv h1 {
+    font-family: EffraBold;
+    color: #262637;
+}
+
+.comingSoonLogoDiv > * {
+    display: inline-block
+}
+
+/* remove defaults */
+
+a, li, ul {
+    text-decoration: none;
+    list-style: none;
+    color: black;
+}
+
+/* reusable classes */
+
+.two-column-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.text-center {
+    text-align: center;
+}

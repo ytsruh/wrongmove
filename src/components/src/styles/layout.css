@@ -1,0 +1,43 @@
+body {
+    font-size: 16px;
+    font-family: EffraLt;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* layout */
+
+.page-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav, main, footer {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 78rem;
+    padding: 0 3rem;
+}
+
+.hide {
+    display: none;
+}
+
+@media screen and (max-width: 55rem) {
+    .container {
+        padding: 0 1rem;
+    }
+}
