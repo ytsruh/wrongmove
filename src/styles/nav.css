@@ -77,19 +77,20 @@ nav {
         background-color: whitesmoke;
         height: 100vh;
         width: 18rem;
-        padding: 0.5rem;
     }
 
     .nav-links-popout-header {
         display: grid;
         grid-template-columns: 0.2fr 0.8fr;
         font-size: 1.3rem;
+        padding: 0.5rem;
     }
 
     .mobile-links-exit-btn {
         width: 1.6rem;
         position: relative;
         left: 0.5rem;
+        cursor: pointer;
     }
 
     .crossline {
@@ -113,11 +114,39 @@ nav {
         display: flex;
         margin-left: auto;
     }
+
+    .nav-links-popout-login {
+        background-color: #010431;
+        width: 100%;
+        padding: 1rem;
+        margin: 1rem 0;
+        display: flex;
+        grid-template-columns: auto 1fr;
+        gap: 2rem;
+        color: white;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .nav-links-popout-login > p:hover {
+        cursor: pointer;
+    }
+
+    .login-img-round {
+        background-color: grey;
+        border-radius: 50px;
+        width: 2.5rem;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
     
     /* ham */
 
     .hamburger {
         grid-area: hamburger;
+        cursor: pointer;
         width: 1.6rem;
         display: none;
         display: flex;

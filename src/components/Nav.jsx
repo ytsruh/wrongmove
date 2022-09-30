@@ -54,6 +54,12 @@ function Nav() {
                             <Image class src={wrongmoveSmallLogo} alt='wrongmove logo - click for home' />
                         </div>
                     </div>
+                    <div className="nav-links-popout-login">
+                        <div className="login-img-round">
+                            <Image src={iconUserPrimary24} alt='user icon'/>
+                        </div>
+                        <Link href='/login/user'><p>Sign In</p></Link>
+                    </div>
                     <div className="nav-links-mobile-modal-content">
                         <div className="mobile-links">
                         {/* <ul>
