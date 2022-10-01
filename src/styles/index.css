@@ -69,3 +69,19 @@ a, li, ul {
 .w-100 {
     width: 100%;
 }
+
+.h-100 {
+    height: 100%;
+}
+
+.effraBold {
+    font-family: EffraBold;
+}
+
+.effraLt {
+    font-family: EffraLt;
+}
+
+.effraReg {
+    font-family: EffraReg;
+}

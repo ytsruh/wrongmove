@@ -1,11 +1,11 @@
 .dash-card {
     border-radius: 15px;
+    box-shadow: grey 2px 2px 4px;
+    min-height: 15rem;
 }
 
-.dash-card-content {
+.dash-card-img {
     color: white;
-    width: 100%;
-    height: 10rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -14,14 +14,24 @@
 
 .dark-overlay {
     background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
     width: 100%;
     height: 100%;
     padding: 1rem;
     transition: 300ms ease-in-out;
-    border-radius: 15px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .dark-overlay:hover {
-    background-color: rgba(0, 0, 0, 0.3)
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.dash-card-content > h3 {
+    font-size: 2rem;
+}
+
+.dash-card-content > p {
+    font-size: 1.25rem;
 }
