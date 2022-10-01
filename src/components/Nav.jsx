@@ -70,25 +70,25 @@ function Nav() {
                     <div className="nav-links-mobile-modal-content">
                         <div className="mobile-links">
                         <ul className="mobile-nav-ul">
-                            <Link onClick={changeState} href='buy'><li><h3>Buy</h3></li></Link>
-                            <Link onClick={changeState} href='/'><li>Properties for Sale</li></Link>
-                            <Link onClick={changeState} href='/'><li>New home for Sale</li></Link>
-                            <Link onClick={changeState} href='/'><li>Property Valuation</li></Link>
-                            <Link onClick={changeState} href='/'><li>Where can I live?</li></Link>
-                            <Link onClick={changeState} href='/'><li>Investors</li></Link>
-                            <Link onClick={changeState} href='/'><li>Morgages</li></Link>
+                            <Link href='buy'><li onClick={changeState}><h3>Buy</h3></li></Link>
+                            <Link href='/'><li onClick={changeState}>Properties for Sale</li></Link>
+                            <Link href='/'><li onClick={changeState}>New home for Sale</li></Link>
+                            <Link href='/'><li onClick={changeState}>Property Valuation</li></Link>
+                            <Link href='/'><li onClick={changeState}>Where can I live?</li></Link>
+                            <Link href='/'><li onClick={changeState}>Investors</li></Link>
+                            <Link href='/'><li onClick={changeState}>Morgages</li></Link>
                             <hr />
                         </ul>
                         <ul className="mobile-nav-ul">
-                            <Link onClick={changeState} href='/rent'><li><h3 >Rent</h3></li></Link>
-                            <Link onClick={changeState} href='/rent'><li>Property to rent</li></Link>
-                            <Link onClick={changeState} href='/'><li>Student property to rent</li></Link>
-                            <Link onClick={changeState} href='/'><li>Where can I live?</li></Link>
+                            <Link href='/rent'><li onClick={changeState}><h3 >Rent</h3></li></Link>
+                            <Link href='/rent'><li onClick={changeState}>Property to rent</li></Link>
+                            <Link href='/'><li onClick={changeState}>Student property to rent</li></Link>
+                            <Link href='/'><li onClick={changeState}>Where can I live?</li></Link>
                             <hr />
                         </ul>
                         <ul className="mobile-nav-ul">
-                            <Link onClick={changeState} href='/house-prices'><li><h3>House prices</h3></li></Link>
-                            <Link onClick={changeState} href='/'><li>Sold house prices</li></Link>
+                            <Link href='/house-prices'><li onClick={changeState}><h3>House prices</h3></li></Link>
+                            <Link href='/'><li onClick={changeState}>Sold house prices</li></Link>
                             <hr />
                         </ul>
                     </div>
