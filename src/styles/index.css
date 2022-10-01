@@ -41,7 +41,7 @@ a, li, ul {
 
 /* reusable classes */
 
-.two-column-grid{
+.two-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -54,10 +54,18 @@ a, li, ul {
     flex-direction: column;
 }
 
+.gap-2 {
+    gap: 2rem;
+}
+
 .mt-1 {
     margin-top: 1rem;
 }
 
 .text-center {
     text-align: center;
+}
+
+.w-100 {
+    width: 100%;
 }

@@ -4,6 +4,7 @@ import "../styles/form.css"
 import '../styles/input.css'
 import "../styles/button.css"
 import "../styles/nav.css"
+import "../styles/agentDashboard.css"
 
 import Layout from "../components/Layout";
 

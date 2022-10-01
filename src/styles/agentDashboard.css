@@ -1,0 +1,27 @@
+.dash-card {
+    border-radius: 15px;
+}
+
+.dash-card-content {
+    color: white;
+    width: 100%;
+    height: 10rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+}
+
+.dark-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    transition: 300ms ease-in-out;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.dark-overlay:hover {
+    background-color: rgba(0, 0, 0, 0.3)
+}
