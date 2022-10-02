@@ -91,6 +91,13 @@ function Nav() {
                             <Link href='/'><li onClick={changeState}>Sold house prices</li></Link>
                             <hr />
                         </ul>
+                        <ul className="mobile-nav-ul">
+                            <Link href='/agent/dashboard'><li onClick={changeState}><h3>Agent</h3></li></Link>
+                            <Link href='/login/agent'><li onClick={changeState}>Agent Login</li></Link>
+                            <Link href='/register/agent'><li onClick={changeState}>Agent Registration</li></Link>
+                            <Link href='/agent/dashboard'><li onClick={changeState}>Agent Dashboard</li></Link>
+                            <hr />
+                        </ul>
                     </div>
                 </div>
             </div>
