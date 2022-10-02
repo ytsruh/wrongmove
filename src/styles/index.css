@@ -44,7 +44,13 @@ a, li, ul {
 .two-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 3rem;
+}
+
+.one-column-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
 }
 
 .center {
@@ -56,6 +62,10 @@ a, li, ul {
 
 .gap-2 {
     gap: 2rem;
+}
+
+.gap-3 {
+    gap: 3rem;
 }
 
 .mt-1 {
