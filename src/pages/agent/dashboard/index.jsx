@@ -4,6 +4,8 @@ import DashboardCard from "../../../components/DashboardCard"
 import sale from "../../../assets/sale.jpeg"
 import rent from "../../../assets/rent.webp"
 import newListing from "../../../assets/newListing.png"
+import sold from "../../../assets/sold.png"
+import charts from "../../../assets/charts.png"
 
 function index() {
 
@@ -40,6 +42,19 @@ function index() {
                         image={newListing.src}
                     />
                 </div>
+                <div className="two-column-grid w-100">
+                    <DashboardCard 
+                        title='Past Listings.'
+                        text='Click to view your past (unactive) listings.'
+                        image={sold.src}
+                    />
+                    <DashboardCard 
+                        title='Agent Statistics.'
+                        text='See your account statistics.'
+                        image={charts.src}
+                    />
+                </div>
+
             </div>
         )
     }
