@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 function DashboardCard(props) {
   return (
@@ -8,12 +9,14 @@ function DashboardCard(props) {
                     className="dash-card-img w-100 h-100"
                     style={{backgroundImage: `url(${props.image})`}}
                 >
-                    <div className="dark-overlay">
-                        <div className="dash-card-content">
-                            <h3 className='effraBold'>{props.title}</h3>
-                            <p>{props.text}</p>
+                    <Link href={props.to}>
+                        <div className="dark-overlay">
+                            <div className="dash-card-content">
+                                <h3 className='effraBold'>{props.title}</h3>
+                                <p>{props.text}</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>

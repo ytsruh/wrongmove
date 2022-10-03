@@ -1,3 +1,7 @@
+.dashboard-container {
+    gap: 1.5rem;
+}
+
 .dash-card {
     border-radius: 15px;
     box-shadow: grey 2px 2px 4px;
@@ -39,4 +43,15 @@
 
 .dash-card-content > p {
     font-size: 1.25rem;
+}
+
+/* media queries */
+
+@media screen and (max-width: 55rem) {
+    .dashboard-container {
+        gap: 1rem;
+    }
+    .dash-card {
+        min-height: 10rem;
+    }
 }

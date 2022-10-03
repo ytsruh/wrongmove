@@ -44,7 +44,7 @@ a, li, ul {
 .two-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 1.5rem;
 }
 
 .one-column-grid {
@@ -94,4 +94,11 @@ a, li, ul {
 
 .effraReg {
     font-family: EffraReg;
+}
+
+@media screen and (max-width: 55rem) {
+    .two-column-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
