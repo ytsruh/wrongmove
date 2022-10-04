@@ -29,7 +29,7 @@ nav, main, footer {
 .container {
     width: 100%;
     max-width: 78rem;
-    padding: 0 3rem;
+    padding: 6rem 3rem;
 }
 
 .hide {
@@ -38,6 +38,6 @@ nav, main, footer {
 
 @media screen and (max-width: 55rem) {
     .container {
-        padding: 0 1rem;
+        padding: 3rem 1rem;
     }
 }

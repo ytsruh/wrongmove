@@ -24,12 +24,11 @@ function index() {
             <div className="dashboard-container center w-100">
                 <h1>Agent Dashboard</h1>
                 <div className="one-column-grid w-100">
-                <DashboardCard 
-                        title={`This won't be a link.`}
-                        text="It'll be agent statistics at a glace."
-                        image={newListing.src}
-                        to='/agent/new-listing'
-                    />
+                    <div className="dash-card">
+                        <div className="agent-summary">
+                            <h3>Summary</h3>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="two-column-grid w-100">

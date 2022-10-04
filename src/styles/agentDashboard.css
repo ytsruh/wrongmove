@@ -1,10 +1,16 @@
 .dashboard-container {
+    padding: 3rem 0;
     gap: 1.5rem;
+}
+
+.dashboard-container > h1 {
+    padding-bottom: 3rem;
 }
 
 .dash-card {
     border-radius: 15px;
     box-shadow: grey 2px 2px 4px;
+    color: white;
     min-height: 15rem;
     transition: 300ms ease-in-out;
 }
@@ -45,6 +51,16 @@
     font-size: 1.25rem;
 }
 
+/* summary */
+
+.agent-summary {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+    padding: 2rem;
+}
+
 /* media queries */
 
 @media screen and (max-width: 55rem) {
@@ -54,4 +70,5 @@
     .dash-card {
         min-height: 10rem;
     }
+    
 }
