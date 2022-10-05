@@ -5,7 +5,7 @@ function Layout({ children }) {
   return (
     <div className="page-layout">
       <Nav />
-        <main className="container">{children}</main>
+        <main className='container'>{children}</main>
         <Footer />
     </div>
   )

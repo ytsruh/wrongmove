@@ -1,4 +1,4 @@
-input {
+.form-input {
     width: 100%;
     display: block;
     padding: 0.8rem;
@@ -7,10 +7,10 @@ input {
     border-radius: 5px;
 }
 
-input:active {
+.form-input:active {
     border: 1px black solid;
 }
 
-input:valid {
+.form-input:valid {
     border: green 1.5px solid;
 }
