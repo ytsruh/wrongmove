@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/router"
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Doughnut } from 'react-chartjs-2';
+
 import DashboardCard from "../../../components/DashboardCard"
 import sale from "../../../assets/sale.jpeg"
 import rent from "../../../assets/rent.webp"
 import newListing from "../../../assets/newListing.png"
 import sold from "../../../assets/sold.png"
 import charts from "../../../assets/charts.png"
+import Image from "next/image";
+
+import tempBar from "../../../assets/tempBar.png"
+import tempDoughnut from "../../../assets/tempDoughnut.png"
 
 function index() {
 
@@ -23,11 +30,10 @@ function index() {
         return (
             <div className="dashboard-container center w-100">
                 <h1>Agent Dashboard</h1>
-                <div className="one-column-grid w-100">
-                    <div className="dash-card">
-                        <div className="agent-summary">
-                            <h3>Summary</h3>
-                        </div>
+                    <div className="agent-summary">
+                        <div className="two-column-grid w-100">
+                            <Image className="temporaryImage" src={tempBar}/>
+                            <Image className="temporaryImage" src={tempDoughnut}/>
                     </div>
                 </div>
 
@@ -47,7 +53,7 @@ function index() {
                 </div>
                 <div className="one-column-grid w-100">
                 <DashboardCard 
-                        title='Create a New Listings.'
+                        title='Create a New Listing.'
                         text='Click here to add a new listing.'
                         image={newListing.src}
                         to='/agent/new-listing'
