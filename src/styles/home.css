@@ -27,15 +27,23 @@
     position: absolute;
     top: 50%;
     padding: 1rem;
+    border-radius: 5px;
+    box-shadow: grey 0px 0px 5px;
+}
+
+.home-title > * {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.home-title > p {
+    font-size: 1.2rem;
 }
 
 .home-title h1 {
     color: #00DEB6;
     font-family: EffraReg;
-}
-
-.home-title {
-    text-align: center;
+    font-size: 2.5rem;
 }
 
 .home-hero-search {
@@ -45,6 +53,6 @@
 }
 
 .home-hero-search input {
-    padding: 0.5rem 1rem;
+    padding: 1rem 1rem;
     border-radius: 5px;
 }

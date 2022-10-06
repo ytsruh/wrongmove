@@ -18,5 +18,8 @@ button:hover {
 
 .btn-primary {
     background-color: #65dbb8;
+    color: #262637;
+    font-family: EffraBold;
+    font-size: 1.05rem;
 }
 

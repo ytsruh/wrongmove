@@ -1,6 +1,14 @@
 import Input from './Input'
+import { useState } from 'react'
 
 function HomeContent() {
+
+    const [searchData, setSearchData] = useState()
+
+    const onChange = (e) => {
+        setSearchData(e.target.value)
+    }
+
   return (
     <>
         <div className="home-hero">
@@ -11,7 +19,11 @@ function HomeContent() {
                         <p>Search properties for sale and to rent in the UK</p>
                     </div>
                     <div className="home-hero-search w-100">
-                        <input type="text" placeholder={`e.g. 'York', 'NW3', 'NW3 5TY' or 'Waterloo Station'`} />
+                        <input 
+                            type="text" 
+                            placeholder={`e.g. 'York', 'NW3', 'NW3 5TY' or 'Waterloo Station'`} 
+                            onChange={onChange}
+                        />
                         <button className="btn btn-primary">For Sale</button>
                         <button className="btn btn-primary">To Rent</button>
                     </div>
