@@ -1,6 +1,8 @@
 import Input from './Input'
 import { useState } from 'react'
 import Card from './Card'
+import propertyNews from '../assets/propertyNews.jpeg'
+import movingStories from '../assets/movingStories.jpeg'
 
 function HomeContent() {
 
@@ -39,10 +41,29 @@ function HomeContent() {
         </div>
 
         <div className="home-content four-column-grid gap-1">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <Card 
+                label='AGENTS'
+                title='Agent Registration'
+                copy='List your properties on wrongmove by registering as an agent.'
+                linkTo='/register/agent'
+                linkText='Register'
+            />
+            <Card 
+                img={propertyNews.src}
+                label='PROPERTY NEWS'
+                title='Help to buy equity scheme in England set to end close'
+                copy='Read more...'
+                linkTo='/register/agent'
+                linkText='Visit the Wrongmove blog'
+            />
+            <Card 
+                img={movingStories.src}
+                label='MOVING STORIES'
+                title='Moving to my childhood dream home was our right move'
+                copy={`Read Siobhan's story...`}
+                linkTo='/register/agent'
+                linkText='Find out more'
+            />
         </div>
 
     </>

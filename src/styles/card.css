@@ -1,5 +1,6 @@
 .card {
     width: 100%;
+    box-shadow: grey 0px 0px 2px;
 }
 
 .card-image {
@@ -13,7 +14,7 @@
     padding: 1rem;
     border: 1px solid rgb(195, 195, 195);
     border-top: none;
-    border-radius: 0 0 2.5px 2.5px;
+    min-height: 12rem;
 }
 
 .card-content label {
@@ -24,4 +25,26 @@
 
 .card-content .card-content-title {
     font-family: EffraBold;
+}
+
+.card-content > * {
+    margin: 0.5rem 0;
+}
+
+.card-link {
+    padding: 1rem;
+    border: 1px solid rgb(195, 195, 195);
+    border-top: none;
+    border-radius: 0 0 2.5px 2.5px;
+}
+
+.card-link > p > a {
+    font-family: EffraReg;
+    color: #64a5b0;
+    margin: 0.5rem 0;
+}
+
+.card-link > p > a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

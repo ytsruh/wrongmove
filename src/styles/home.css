@@ -20,7 +20,8 @@
 
 .home-hero-container {
     background: #262637;
-    min-width: 75%;
+    width: 75%;
+    max-width: 750px;
     min-height: 10rem;
     display: grid;
     place-items: center;
@@ -28,7 +29,7 @@
     top: 2.5rem;
     padding: 1rem;
     border-radius: 5px;
-    box-shadow: grey 0px 0px 5px;
+    box-shadow: grey 0px 0px 2px;
 }
 
 .home-title > * {
@@ -61,7 +62,7 @@
 .home-content {
     width: 100%;
     display: grid;
-    margin-top: 15rem;
+    margin-top: 10rem;
 }
 
 .home-card-section {
