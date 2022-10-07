@@ -24,8 +24,8 @@
     min-height: 10rem;
     display: grid;
     place-items: center;
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 2.5rem;
     padding: 1rem;
     border-radius: 5px;
     box-shadow: grey 0px 0px 5px;
@@ -38,6 +38,7 @@
 
 .home-title > p {
     font-size: 1.2rem;
+    font-family: EffraBold;
 }
 
 .home-title h1 {
@@ -55,4 +56,18 @@
 .home-hero-search input {
     padding: 1rem 1rem;
     border-radius: 5px;
+}
+
+.home-content {
+    width: 100%;
+    display: grid;
+    margin-top: 15rem;
+}
+
+.home-card-section {
+    background: red;
+    height: 15rem;
+    width: 100%;
+    display: flex;
+    margin-top: 15rem;
 }

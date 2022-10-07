@@ -41,15 +41,27 @@ a, li, ul {
 
 /* reusable classes */
 
+.one-column-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
 .two-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
-.one-column-grid {
+.three-column-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.four-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 3rem;
 }
 
@@ -58,6 +70,10 @@ a, li, ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.gap-1 {
+    gap: 1rem;
 }
 
 .gap-2 {

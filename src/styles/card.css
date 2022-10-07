@@ -1,0 +1,27 @@
+.card {
+    width: 100%;
+}
+
+.card-image {
+    width: 100%;
+    min-height: 9rem;
+    background-size: cover;
+    border-radius: 2.5px 2.5px 0 0;
+}
+
+.card-content {
+    padding: 1rem;
+    border: 1px solid rgb(195, 195, 195);
+    border-top: none;
+    border-radius: 0 0 2.5px 2.5px;
+}
+
+.card-content label {
+    font-size: 0.9rem;
+    font-family: EffraReg;
+    color: grey;
+}
+
+.card-content .card-content-title {
+    font-family: EffraBold;
+}
