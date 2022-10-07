@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Card from './Card'
 import propertyNews from '../assets/propertyNews.jpeg'
 import movingStories from '../assets/movingStories.jpeg'
+import AccountCard from './AccountCard'
 
 function HomeContent() {
 
@@ -64,6 +65,7 @@ function HomeContent() {
                 linkTo='/register/agent'
                 linkText='Find out more'
             />
+            <AccountCard />
         </div>
 
     </>

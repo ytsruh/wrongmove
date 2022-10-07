@@ -1,6 +1,5 @@
 .card {
     width: 100%;
-    box-shadow: grey 0px 0px 2px;
 }
 
 .card-image {
@@ -47,4 +46,28 @@
 .card-link > p > a:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+/* account-card */
+
+.account-card {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid rgb(195, 195, 195);
+    min-height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account-card > *, .account-card-buttons > * {
+    margin: 0.2rem 0;
+    text-align: center;
+}
+
+.account-card .account-card-img {
+    background-image: url(../assets/accountCardImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 50%;
 }
