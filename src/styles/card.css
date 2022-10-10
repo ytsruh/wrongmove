@@ -66,8 +66,11 @@
 
 .whereCanILive {
     grid-area: whereCanILive;
-    height: 3rem;
     width: 100%;
-    background-color: red;
+    border-radius: 5px;
+    border: 1px solid rgb(195, 195, 195);
 }
 
+.whereCanILive > .content {
+    padding: 1rem;
+}
