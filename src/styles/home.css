@@ -63,6 +63,7 @@
     width: 100%;
     display: grid;
     margin-top: 10rem;
+    gap: 1rem;
 }
 
 .home-card-section {
@@ -71,4 +72,11 @@
     width: 100%;
     display: flex;
     margin-top: 15rem;
+}
+
+.home-cards-section-2 {
+    display: grid;
+    grid-template-columns: repeat(1fr, 4);
+    grid-template-areas: 
+    "whereCanILive whereCanILive whereCanILive";
 }

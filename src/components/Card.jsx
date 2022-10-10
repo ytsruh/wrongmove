@@ -11,7 +11,7 @@ function Card(props) {
             <p className='card-content-title'>{props.title}</p>
             <p className="card-content-copy">{props.copy}</p>
         </div>
-        <div className="card-link">
+        <div className="card-link inline-link">
             <p><Link href={props.linkTo}>{props.linkText}</Link></p>
         </div>
     </div>

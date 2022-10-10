@@ -37,17 +37,6 @@
     border-radius: 0 0 2.5px 2.5px;
 }
 
-.card-link > p > a {
-    font-family: EffraReg;
-    color: #64a5b0;
-    margin: 0.5rem 0;
-}
-
-.card-link > p > a:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
 /* account-card */
 
 .account-card {
@@ -58,6 +47,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    border-radius: 5px;
 }
 
 .account-card > *, .account-card-buttons > * {
@@ -71,3 +61,13 @@
     background-size: cover;
     min-height: 50%;
 }
+
+/* where can i live */
+
+.whereCanILive {
+    grid-area: whereCanILive;
+    height: 3rem;
+    width: 100%;
+    background-color: red;
+}
+
