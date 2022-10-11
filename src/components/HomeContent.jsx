@@ -44,7 +44,7 @@ function HomeContent() {
             </div>
         </div>
         <div className="home-content">
-            <div className="four-column-grid gap-1">
+            <div className="four-column-grid gap-1 mobile-hide">
                 <Card 
                     label='AGENTS'
                     title='Agent Registration'
@@ -70,11 +70,11 @@ function HomeContent() {
                 />
                 <AccountCard />
             </div>
-            <div className="four-column-grid gap-1 home-cards-section-2">
+            <div className="four-column-grid gap-1 home-cards-section-2 mobile-hide">
                 <WhereCanILive />
                 <RecentSearches />
             </div>
-            <div className="four-column-grid">
+            <div className="four-column-grid mobile-hide">
                 <BorderlessCard />
                 <BorderlessCard 
                     title='Commercial property'
@@ -88,6 +88,16 @@ function HomeContent() {
                     linkText='Sign up now'
                     linkTo='/'
                 />
+            </div>
+        </div>
+        <div className="mobile-home-content w-100">
+            <div className="home-title home-title-background">
+                <h1>Find your sad</h1>
+                <p>Search properties for sale and to rent in the UK</p>
+                <div className="btn-container">
+                    <button className="btn-primary">For Sale</button>
+                    <button className="btn-primary">To Rent</button>
+                </div>
             </div>
         </div>
     </>

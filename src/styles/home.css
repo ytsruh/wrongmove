@@ -80,3 +80,28 @@
     grid-template-areas: 
     "whereCanILive whereCanILive whereCanILive";
 }
+
+/* mobile */
+
+.home-title-background {
+    padding: 1rem;
+    background-color: #262637;
+    border-radius: 5px;
+}
+
+.mobile-home-content .btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* media query */
+
+@media screen and (max-width: 55rem) {
+    .home-hero-image {
+        display: none;
+    }
+    .mobile-hide {
+        display: none;
+    }
+}
