@@ -9,6 +9,11 @@
     border-radius: 2.5px 2.5px 0 0;
 }
 
+.card-border {
+    border-radius: 5px;
+    border: 1px solid rgb(195, 195, 195);
+}
+
 .card-content {
     padding: 1rem;
     border: 1px solid rgb(195, 195, 195);
@@ -66,11 +71,31 @@
 
 .whereCanILive {
     grid-area: whereCanILive;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    "whereCanILiveContent whereCanILiveContent whereCanILiveImg";
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid rgb(195, 195, 195);
+    background-color: rgb(248, 248, 248);
 }
 
 .whereCanILive > .content {
+    padding: 1rem;
+    grid-area: whereCanILiveContent;
+}
+
+.whereCanILive > .content > * {
+    margin: 0.5rem 0;
+}
+
+.whereCanILive > .whereCanILiveImg {
+    background-image: url(../assets/whereCanILive.jpeg);
+    background-size: cover;
+    border-radius: 0 5px 5px 0;
+}
+
+/* recent-searches */
+
+.recent-searches {
     padding: 1rem;
 }
