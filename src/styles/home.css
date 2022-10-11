@@ -83,10 +83,13 @@
 
 /* mobile */
 
+.mobile-home-content {
+    display: none;
+}
+
 .home-title-background {
     padding: 1rem;
     background-color: #262637;
-    border-radius: 5px;
 }
 
 .mobile-home-content .btn-container {
@@ -103,5 +106,25 @@
     }
     .mobile-hide {
         display: none;
+    }
+    .mobile-home-content {
+        display: block;
+    }
+
+    /* title */
+
+    .mobile-home-content .home-title {
+        padding: 0.5rem;
+        margin: 0 -1rem;
+    }
+
+    .mobile-home-content .home-title h1 {
+        font-size: 2rem;
+    }
+    .mobile-home-content .home-title p {
+        color: white;
+    }
+    .mobile-home-content .home-title > * {
+        margin: 0.4rem 0;
     }
 }
