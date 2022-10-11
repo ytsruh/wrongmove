@@ -99,3 +99,15 @@
 .recent-searches {
     padding: 1rem;
 }
+
+.recent-searches .recent-search {
+    margin: 0.5rem 0;
+}
+
+.recent-search > p {
+    font-size: 0.9rem;
+}
+
+.recent-search > * {
+    margin: 0.3rem 0;
+}
