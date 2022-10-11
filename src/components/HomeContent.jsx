@@ -5,6 +5,7 @@ import propertyNews from '../assets/propertyNews.jpeg'
 import movingStories from '../assets/movingStories.jpeg'
 import AccountCard from './AccountCard'
 import WhereCanILive from './WhereCanILive'
+import RecentSearches from './RecentSearches'
 
 function HomeContent() {
 
@@ -70,6 +71,7 @@ function HomeContent() {
             </div>
             <div className="four-column-grid gap-1 home-cards-section-2">
                 <WhereCanILive />
+                <RecentSearches />
             </div>
         </div>
     </>
