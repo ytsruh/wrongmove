@@ -7,6 +7,16 @@ import AccountCard from './cards/AccountCard'
 import WhereCanILive from './cards/WhereCanILive'
 import RecentSearches from './RecentSearches'
 import BorderlessCard from './cards/BorderlessCard'
+import MobileHomeLink from './cards/MobileHomeLink'
+
+import createAccount from '../assets/icons/createAccount.png'
+import soldPricesSearch from '../assets/icons/soldPricesSearch.png'
+import requestAgentValuation from '../assets/icons/requestAgentValuation.png'
+import overseasProperties from '../assets/icons/overseasProperties.png'
+import commercialPropertyForSale from '../assets/icons/commercialPropertyForSale.png'
+import commercialPropertyForRent from '../assets/icons/commercialPropertyForRent.png'
+import whereCanILiveIcon from '../assets/icons/whereCanILiveIcon.png'
+import drawASearch from '../assets/icons/drawASearch.png'
 
 function HomeContent() {
 
@@ -98,6 +108,51 @@ function HomeContent() {
                     <button className="btn-primary">For Sale</button>
                     <button className="btn-primary">To Rent</button>
                 </div>
+            </div>
+            <div className="home-mobile-links">
+                <MobileHomeLink />
+                <MobileHomeLink 
+                    to='/register/user'
+                    image={createAccount.src}
+                    title='Create an account'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={soldPricesSearch.src}
+                    title='Sold prices search'
+                    text='See what properties in your local area sold for'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={requestAgentValuation.src}
+                    title='Request agent valuation'
+                    text='Accurate market valuation from local property experts'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={overseasProperties.src}
+                    title='Overseas properties'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={commercialPropertyForSale.src}
+                    title='Commercial property for sale'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={commercialPropertyForRent.src}
+                    title='Commercial property for rent'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={whereCanILiveIcon.src}
+                    title='Where can I live'
+                />
+                <MobileHomeLink 
+                    to='/somewhere'
+                    image={drawASearch.src}
+                    title='Draw a search'
+                />
             </div>
         </div>
     </>
