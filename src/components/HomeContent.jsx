@@ -1,11 +1,12 @@
 import Input from './Input'
 import { useState } from 'react'
-import Card from './Card'
+import Card from './cards/Card'
 import propertyNews from '../assets/propertyNews.jpeg'
 import movingStories from '../assets/movingStories.jpeg'
-import AccountCard from './AccountCard'
-import WhereCanILive from './WhereCanILive'
+import AccountCard from './cards/AccountCard'
+import WhereCanILive from './cards/WhereCanILive'
 import RecentSearches from './RecentSearches'
+import BorderlessCard from './cards/BorderlessCard'
 
 function HomeContent() {
 
@@ -31,7 +32,7 @@ function HomeContent() {
                         <p>Search properties for sale and to rent in the UK</p>
                     </div>
                     <div className="home-hero-search w-100">
-                        <input 
+                        <Input 
                             type="text" 
                             placeholder={`e.g. 'York', 'NW3', 'NW3 5TY' or 'Waterloo Station'`} 
                             onChange={onChange}
@@ -72,6 +73,21 @@ function HomeContent() {
             <div className="four-column-grid gap-1 home-cards-section-2">
                 <WhereCanILive />
                 <RecentSearches />
+            </div>
+            <div className="four-column-grid">
+                <BorderlessCard />
+                <BorderlessCard 
+                    title='Commercial property'
+                    desc='Search freehold and leasehold commercial properties in the UK'
+                    linkText='Search now'
+                    linkTo='/'
+                />
+                <BorderlessCard 
+                    title='Investors and landlords'
+                    desc='Get the latest rent and yield figures direct to your inbox'
+                    linkText='Sign up now'
+                    linkTo='/'
+                />
             </div>
         </div>
     </>

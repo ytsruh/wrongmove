@@ -111,3 +111,13 @@
 .recent-search > * {
     margin: 0.3rem 0;
 }
+
+/* borderless-card */
+
+.borderless-card {
+    padding: 1rem 0;
+}
+
+.borderless-card > * {
+    margin: 0.5rem 0;
+}

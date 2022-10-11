@@ -1,5 +1,4 @@
-import newListing from '../assets/newListing.png'
-import InlineLink from './InlineLink'
+import newListing from '../../assets/newListing.png'
 import Link from 'next/link'
 
 function Card(props) {

@@ -1,5 +1,4 @@
-import WhereCanILiveImg from '../assets/whereCanILive.jpeg'
-import InlineLink from './InlineLink'
+import InlineLink from '../InlineLink'
 
 function WhereCanILive() {
   return (
