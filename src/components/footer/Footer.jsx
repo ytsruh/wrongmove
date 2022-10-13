@@ -1,4 +1,5 @@
 import FooterSection from "./FooterSection"
+import Link from "next/link"
 
 function Footer() {
   return (
@@ -101,7 +102,13 @@ function Footer() {
               />
             </div>
             <div className="footer-site-links">
-              eggs
+              <h3>This site:</h3>
+              <Link href={'/something'}><p>Site map</p></Link>
+              <Link href={'/something'}><p>Help</p></Link>
+              <Link href={'/something'}><p>Cookies</p></Link>
+              <Link href={'/something'}><p>Safety and security</p></Link>
+              <Link href={'/something'}><p>Terms of Use</p></Link>
+              <Link href={'/something'}><p>Privacy Policy</p></Link>
             </div>
           </div>
         </footer>
