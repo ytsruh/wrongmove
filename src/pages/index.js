@@ -1,8 +1,6 @@
 import Head from "next/head";
-import Image from 'next/image'
 
 // components
-import Nav from '../components/Nav'
 import HomeContent from '../components/HomeContent'
 
 import wrongmoveSmallLogo from '../assets/wrongmoveSmallLogo.png'

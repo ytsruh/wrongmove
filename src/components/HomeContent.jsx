@@ -154,6 +154,9 @@ function HomeContent() {
                     title='Draw a search'
                 />
             </div>
+            <div className="mobile-recent-searches">
+                <RecentSearches className='no-border'/>
+            </div>
         </div>
     </>
   )
