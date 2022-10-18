@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-import DashboardCard from "../../../components/DashboardCard"
+import DashboardCard from '../../../components/cards/DashboardCard'
 import sale from "../../../assets/sale.jpeg"
 import rent from "../../../assets/rent.webp"
 import newListing from "../../../assets/newListing.png"
@@ -14,7 +14,7 @@ import Image from "next/image";
 import tempBar from "../../../assets/tempBar.png"
 import tempDoughnut from "../../../assets/tempDoughnut.png"
 
-function index() {
+function Dashboard() {
 
     const [user, setUser] = useState(true)
 
@@ -22,7 +22,7 @@ function index() {
         if(!user) {
             router.push('/login/agent')
         }
-    }, [])
+    }, [user])
 
     if(user) {
         return (
@@ -30,8 +30,8 @@ function index() {
                 <h1>Agent Dashboard</h1>
                     <div className="agent-summary">
                         <div className="two-column-grid w-100">
-                            <Image className="temporaryImage" src={tempBar}/>
-                            <Image className="temporaryImage" src={tempDoughnut}/>
+                            <Image className="temporaryImage" src={tempBar} alt='tenporary bar chart'/>
+                            <Image className="temporaryImage" src={tempDoughnut} alt='temporary doughnut'/>
                     </div>
                 </div>
 
@@ -77,4 +77,4 @@ function index() {
     }
 }
 
-export default index
+export default Dashboard
