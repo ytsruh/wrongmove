@@ -6,9 +6,17 @@ button {
 }
 
 button:hover {
-    background-color: #fff;
+    background-color: #6be8c3;
+    cursor: pointer;
+}
+
+.btn-nav:hover {
+    background-color: #f2f3f4;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 .btn-primary {
     background-color: #65dbb8;
 }
+

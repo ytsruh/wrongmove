@@ -34,17 +34,10 @@ function index() {
 
 const formArr = [
   {
-    label: 'First Name',
-    name: 'fname',
+    label: 'Agent Name',
+    name: 'agent-name',
     type: 'text',
-    placeholder: 'John',
-    required: true
-  },
-  {
-    label: 'Surname',
-    name: 'lname',
-    type: 'text',
-    placeholder: 'McManning',
+    placeholder: 'Wrongmove',
     required: true
   },
   {
@@ -61,13 +54,6 @@ const formArr = [
     placeholder: '01214960830',
     minLength: 11,
     maxLength: 11,
-    required: true
-  },
-  {
-    label: 'Agent Name',
-    name: 'agent-name',
-    type: 'text',
-    placeholder: 'Wrongmove',
     required: true
   },
   {

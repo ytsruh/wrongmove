@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import Input from '../components/Input'
+import Input from './Input'
 import Button from "./Button";
 
 const prepareForm = (formArr) => {
