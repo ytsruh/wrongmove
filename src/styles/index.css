@@ -41,15 +41,27 @@ a, li, ul {
 
 /* reusable classes */
 
+.one-column-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
 .two-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
-.one-column-grid {
+.three-column-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.four-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 3rem;
 }
 
@@ -58,6 +70,10 @@ a, li, ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.gap-1 {
+    gap: 1rem;
 }
 
 .gap-2 {
@@ -72,12 +88,25 @@ a, li, ul {
     margin-top: 1rem;
 }
 
+.mx-1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .text-center {
     text-align: center;
 }
 
+.no-border {
+    border: none;
+}
+
 .w-100 {
     width: 100%;
+}
+
+.w-50 {
+    width: 50%;
 }
 
 .h-100 {
@@ -94,6 +123,19 @@ a, li, ul {
 
 .effraReg {
     font-family: EffraReg;
+}
+
+/* inline-link */
+
+.inline-link > p > a {
+    font-family: EffraReg;
+    color: #64a5b0;
+    margin: 0.5rem 0;
+}
+
+.inline-link > p > a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 55rem) {

@@ -8,6 +8,7 @@ function Input(props) {
         maxLength={props.maxLength}
         required={props.required}
         type={props.type}
+        className='form-input'
       />
   )
 }

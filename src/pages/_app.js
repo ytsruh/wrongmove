@@ -5,6 +5,9 @@ import '../styles/input.css'
 import "../styles/button.css"
 import "../styles/nav.css"
 import "../styles/agentDashboard.css"
+import "../styles/home.css"
+import "../styles/card.css"
+import "../styles/footer.css"
 
 import Layout from "../components/Layout";
 

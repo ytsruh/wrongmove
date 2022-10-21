@@ -68,6 +68,7 @@ nav {
         height: 100vh;
         width: 100vw;
         background-color: rgba(0, 0, 0, 0.389);
+        z-index: 10;
     }
 
     .nav-links-mobile-modal-popout {
@@ -77,6 +78,7 @@ nav {
         background-color: whitesmoke;
         height: 100vh;
         width: 18rem;
+        z-index: 11;
     }
 
     .nav-links-popout-header {

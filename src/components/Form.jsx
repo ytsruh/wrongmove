@@ -7,12 +7,12 @@ const prepareForm = (formArr) => {
     return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
 };
 
-const Form = ({ title, formArr, submitBtn, onSubmit, redirect}) => {
+const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
     const initialForm = useMemo(() => prepareForm(formArr), [formArr]);
     const [form, setForm] = useState(initialForm);
 
     const onChangeHandler = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-    const onSumbitHandler = () => onSubmit(form, () => setForm(initialForm));
+    const onSubmitHandler = () => onSubmit(form, () => setForm(initialForm));
 
     const hasRedirect = !!redirect;
     return (
@@ -37,7 +37,7 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect}) => {
             <Button
                 onClick={(e) => {
                     e.preventDefault();
-                    onSumbitHandler();
+                    onSubmitHandler();
                 }}
                 submitBtn={submitBtn}
                 className='btn-primary'

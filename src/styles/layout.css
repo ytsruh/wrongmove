@@ -30,6 +30,8 @@ nav, main, footer {
     width: 100%;
     max-width: 78rem;
     padding: 6rem 3rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .hide {

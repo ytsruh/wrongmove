@@ -16,8 +16,6 @@ import tempDoughnut from "../../../assets/tempDoughnut.png"
 
 function index() {
 
-    const router = useRouter()
-
     const [user, setUser] = useState(true)
 
     useEffect(() => {
