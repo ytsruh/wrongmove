@@ -1,5 +1,4 @@
 import React, { useState, useMemo } from "react";
-import Input from '../components/Input'
 
 const prepareForm = (formArr) => {
     return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
@@ -10,16 +9,16 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
     const [form, setForm] = useState(initialForm);
 
     const onChangeHandler = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-    const onSubmitHandler = () => onSubmit(form, () => setForm(initialForm));
+    const onSumbitHandler = () => onSubmit(form, () => setForm(initialForm));
 
     const hasRedirect = !!redirect;
     return (
-        <form>
-            <h2>{title}</h2>
+        <form autoComplete={"off"}>
+            <h3>{title}</h3>
             {formArr.map(({ label, name, type, placeholder, maxLength, minLength, required}, index) => (
                 <div className="input-div" key={index}>
                     <label htmlFor={name}>{label}</label>
-                    <Input
+                    <input
                         id={name}
                         name={name}
                         type={type}
@@ -29,18 +28,24 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
                         maxLength={maxLength}
                         minLength={minLength}
                         required={required}
+                        className='form-input'
                     />
                 </div>
             ))}
             <button
-                className="btn btn-primary"
                 onClick={(e) => {
                     e.preventDefault();
-                    onSubmitHandler();
+                    onSumbitHandler();
                 }}
             >
                 {submitBtn}
             </button>
+            {hasRedirect && (
+                <div>
+                    <label>{redirect.label}&nbsp;</label>
+                    <a to={redirect.link.to}>{redirect.link.label}</a>
+                </div>
+            )}
         </form>
     );
 };
