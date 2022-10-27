@@ -17,7 +17,7 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
         <form>
             <h2>{title}</h2>
             {formArr.map(({ label, name, type, placeholder, maxLength, minLength, required}, index) => (
-                <div key={index}>
+                <div className="input-div" key={index}>
                     <label htmlFor={name}>{label}</label>
                     <Input
                         id={name}
@@ -33,6 +33,7 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
                 </div>
             ))}
             <button
+                className="btn btn-primary"
                 onClick={(e) => {
                     e.preventDefault();
                     onSubmitHandler();
