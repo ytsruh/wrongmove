@@ -1,11 +1,13 @@
-import { useState } from "react"
 import Form from "../../../components/Form"
 
 function index() {
 
   const onSubmitHandler = async (form, callback) => {
-    // callback()
-    // Send data to backend
+    callback()
+    // check passwords match
+    if(password !== confirmPassword) {
+      return alert('Passwords do not match')
+    } 
     try {
       const response = await fetch('/api/auth/agent/register', {
         method: 'POST', 
@@ -77,13 +79,13 @@ const formArr = [
     placeholder: '*********',
     required: true,
   },
-  // {
-  //   label: 'Confirm Password',
-  //   name: 'confirm-password',
-  //   type: 'password',
-  //   placeholder: '*********',
-  //   required: true,
-  // }
+  {
+    label: 'Confirm Password',
+    name: 'confirmPassword',
+    type: 'password',
+    placeholder: '*********',
+    required: true,
+  }
 ]
 
 const redirect = {
