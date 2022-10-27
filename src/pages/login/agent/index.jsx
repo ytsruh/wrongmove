@@ -1,6 +1,6 @@
-import Form from "../../../components/Form"
+import Form from '../../../components/Form'
 
-function index() {
+function index({ form }) {
 
     const onSubmitHandler = (form, callback) => {
         console.log(form)
@@ -15,8 +15,9 @@ function index() {
             formArr={formArr}
             submitBtn='Login'
             redirect={null}
-        onSubmit={onSubmitHandler}
-      />    </div>
+            onSubmit={onSubmitHandler}
+      />    
+    </div>
   )
 }
 
