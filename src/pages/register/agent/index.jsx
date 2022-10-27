@@ -3,9 +3,23 @@ import Form from "../../../components/Form"
 
 function index() {
 
-  const onSubmitHandler = (form, callback) => {
-    console.log(form)
-    callback()
+  const onSubmitHandler = async (form, callback) => {
+    // callback()
+    // Send data to backend
+    try {
+      const response = await fetch('/api/auth/agent/register', {
+        method: 'POST', 
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   return (
@@ -35,9 +49,9 @@ function index() {
 const formArr = [
   {
     label: 'Agent Name',
-    name: 'agent-name',
+    name: 'name',
     type: 'text',
-    placeholder: 'Wrongmove',
+    placeholder: 'John Smith',
     required: true
   },
   {
@@ -48,8 +62,8 @@ const formArr = [
     required: true
   },
   {
-    label: 'Contact Number',
-    name: 'phone',
+    label: 'Telephone Number',
+    name: 'telephoneNumber',
     type: 'tel',
     placeholder: '01214960830',
     minLength: 11,
@@ -63,13 +77,13 @@ const formArr = [
     placeholder: '*********',
     required: true,
   },
-  {
-    label: 'Confirm Password',
-    name: 'confirm-password',
-    type: 'password',
-    placeholder: '*********',
-    required: true,
-  }
+  // {
+  //   label: 'Confirm Password',
+  //   name: 'confirm-password',
+  //   type: 'password',
+  //   placeholder: '*********',
+  //   required: true,
+  // }
 ]
 
 const redirect = {
