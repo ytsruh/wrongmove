@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react"; 
+import Link from "next/link";
 
 const prepareForm = (formArr) => {
     return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
@@ -37,13 +38,14 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
                     e.preventDefault();
                     onSumbitHandler();
                 }}
+                className='btn btn-primary'
             >
                 {submitBtn}
             </button>
             {hasRedirect && (
                 <div>
                     <label>{redirect.label}&nbsp;</label>
-                    <a to={redirect.link.to}>{redirect.link.label}</a>
+                    <Link href={redirect.link.to}>{redirect.link.label}</Link>
                 </div>
             )}
         </form>
