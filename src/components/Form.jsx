@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import Input from '../components/Input'
 
 const prepareForm = (formArr) => {
     return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
@@ -15,15 +16,19 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
     return (
         <form>
             <h2>{title}</h2>
-            {formArr.map(({ label, name, type }, index) => (
+            {formArr.map(({ label, name, type, placeholder, maxLength, minLength, required}, index) => (
                 <div key={index}>
                     <label htmlFor={name}>{label}</label>
-                    <input
+                    <Input
                         id={name}
                         name={name}
                         type={type}
                         value={form[name]}
                         onChange={(e) => onChangeHandler(e)}
+                        placeholder={placeholder}
+                        maxLength={maxLength}
+                        minLength={minLength}
+                        required={required}
                     />
                 </div>
             ))}
@@ -100,10 +105,10 @@ export default Form;
 //                         type={type}
 //                         value={form[name]}
 //                         onChange={(e) => onChangeHandler(e)}
-//                         // placeholder={placeholder}
-//                         // maxLength={maxLength}
-//                         // minLength={minLength}
-//                         // required={required}
+                        // placeholder={placeholder}
+                        // maxLength={maxLength}
+                        // minLength={minLength}
+                        // required={required}
 //                     />
 //                 </div>
 //             ))}

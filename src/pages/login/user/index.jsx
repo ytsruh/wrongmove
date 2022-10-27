@@ -25,13 +25,15 @@ const formArr = [
       label: 'Email',
       name: 'email',
       type: 'email',
-      placeholder: 'john@wrongmove.com'
+      placeholder: 'john@wrongmove.com',
+      required: true,
     },
     {
       label: 'Password',
       name: 'password',
       type: 'password',
-      placeholder: '*********'
+      placeholder: '*********',
+      required: true,
     },
   ]
   
