@@ -22,17 +22,10 @@ function index() {
 
 const formArr = [
     {
-      label: 'First Name',
-      name: 'fname',
+      label: 'Namer',
+      name: 'name',
       type: 'text',
-      placeholder: 'John',
-      required: true
-    },
-    {
-      label: 'Surname',
-      name: 'lname',
-      type: 'text',
-      placeholder: 'McManning',
+      placeholder: 'John Smith',
       required: true
     },
     {

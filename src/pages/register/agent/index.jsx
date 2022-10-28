@@ -5,9 +5,12 @@ function index() {
   const onSubmitHandler = async (form, callback) => {
     callback()
     // check passwords match
-    if(password !== confirmPassword) {
-      return alert('Passwords do not match')
+    if(form.password !== form.confirmPassword) {
+      alert('Passwords do not match')
     } 
+    else {
+      delete form.confirmPassword
+    }
     try {
       const response = await fetch('/api/auth/agent/register', {
         method: 'POST', 
@@ -21,7 +24,6 @@ function index() {
     } catch (error) {
       console.log(error);
     }
-
   }
 
   return (
