@@ -2,9 +2,26 @@ import Form from '../../../components/Form'
 
 function index({ form }) {
 
-    const onSubmitHandler = (form, callback) => {
+    const onSubmitHandler = async (form, callback) => {
         console.log(form)
         callback()
+
+    try {
+      const response = await fetch('/api/auth/agent/login', {
+        method: 'POST', 
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const data = await response.json()
+      console.log(data)
+      sessionStorage.setItem('JWT', data.token)
+    } catch (error) {
+      console.log(error);
+    }
+
+
       }
 
   return (
@@ -22,13 +39,6 @@ function index({ form }) {
 }
 
 const formArr = [
-    {
-      label: 'Agent Name',
-      name: 'agent-name',
-      type: 'text',
-      placeholder: 'Wrongmove',
-      required: true,
-    },
     {
       label: 'Email',
       name: 'email',
