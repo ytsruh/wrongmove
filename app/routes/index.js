@@ -1,5 +1,7 @@
 import express from "express";
 import auth from "./auth";
+import sales from "./sales";
+import site from "./public";
 import * as utils from "../lib/utils";
 
 const router = express.Router();
@@ -9,10 +11,11 @@ router.get("/", (req, res) => {
   res.json({ message: "Welcome to the Wrongmove API" });
 });
 
-// Unprotected Auth routes to register & login
+// Unprotected routes
+router.use("/public", site);
 router.use("/auth", auth);
 
-//Route protection
+// Route protection
 router.use("*", async (req, res, next) => {
   try {
     const auth = await utils.checkAuth(req);
@@ -26,8 +29,7 @@ router.use("*", async (req, res, next) => {
   }
 });
 
-router.get("/protected", async (req, res) => {
-  res.status(200).json({ message: "This is a protected route" });
-});
+// Protected routes
+router.use("/sales", sales);
 
 export default router;
