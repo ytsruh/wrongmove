@@ -12,7 +12,7 @@ generator client {
 model User {
   id            String    @id @default(cuid())   
   name          String?
-  email         String   @unique
+  email         String    @unique
   password      String 
   image         String?
 }
@@ -20,12 +20,29 @@ model User {
 model Agent {
   id              String    @id @default(cuid())   
   name            String
-  email           String   @unique
+  email           String    @unique
   password        String 
   image           String?
   description     String?
   telephoneNumber String?
   website         String?
+  salesListings   SalesListing[]
 }
 
+model SalesListing {
+  id              String            @id @default(cuid())  
+  agent           Agent             @relation(fields: [agentId], references: [id])
+  agentId         String            // relation scalar field  (used in the `@relation` attribute above) 
+  active          Boolean           @default(true)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  address         String
+  price           Int
+  propertyType    String?
+  bedrooms        Int?
+  bathrooms       Int?
+  keyFeatures     String?
+  description     String?
+  mapCoordinates  String?  
+}
 
