@@ -36,8 +36,8 @@ model SalesListing {
   active          Boolean           @default(true)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
-  address         String?
-  price           Int?
+  address         String
+  price           Int
   propertyType    String?
   bedrooms        Int?
   bathrooms       Int?
