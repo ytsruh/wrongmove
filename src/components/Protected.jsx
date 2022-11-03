@@ -9,7 +9,7 @@ function Protected(props) {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const fetchUser = async () => {
+        const fetchUser = () => {
             setUser(JSON.parse(sessionStorage.getItem('user')))
             setLoading(false)
         }
@@ -19,15 +19,15 @@ function Protected(props) {
         if(loading) return <p>Loading</p>
 
         if(!loading && !user) {
-            {console.log('not loading, no user');}
+            router.push('/login/agent')
         }
 
         if(!loading && user && now > user.expiry) {
-            {console.log('not loading, user, but expired jwt');}
+            sessionStorage.removeItem('user')
+            router.push('login/agent')
         }
 
         if(!loading && user && now < user.expiry) {
-            {console.log('all good');}
             return <>{props.children}</>
         }
 }
