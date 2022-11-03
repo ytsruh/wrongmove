@@ -6,7 +6,6 @@ function index({ form }) {
     const router = useRouter()
 
     const onSubmitHandler = async (form, callback) => {
-        console.log(form)
         callback()
 
     try {
