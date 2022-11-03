@@ -1,29 +1,35 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 
-export default function Protected(props) {
-  const router = useRouter();
-  const now = Math.floor(Date.now() / 1000);
-  const [user, setUser] = useState(null);
+function Protected(props) {
 
-  useEffect(() => {
-    setUser(JSON.parse(sessionStorage.getItem("user")));
-  }, []);
+    const now = Math.floor(Date.now() / 1000)
+    const router = useRouter()
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
 
-  //Test for user & that token is valid
-  if (user && now > user.expiry) {
-    router.push("/logout");
-  }
+    useEffect(() => {
+        const fetchUser = async () => {
+            setUser(JSON.parse(sessionStorage.getItem('user')))
+            setLoading(false)
+        }
+        fetchUser()
+    }, [])
 
-  //Test for user & that token is valid
-  if (user && now < user.expiry) {
-    return (
-      <>
-        <Navigation icon={user.userData.icon} />
-        <div className="min-h-screen bg-salt dark:bg-coal text-coal dark:text-salt">{props.children}</div>
-      </>
-    );
-  }
+        if(loading) return <p>Loading</p>
 
-  return <p>Loading...</p>;
+        if(!loading && !user) {
+            {console.log('not loading, no user');}
+        }
+
+        if(!loading && user && now > user.expiry) {
+            {console.log('not loading, user, but expired jwt');}
+        }
+
+        if(!loading && user && now < user.expiry) {
+            {console.log('all good');}
+            return <>{props.children}</>
+        }
 }
+
+export default Protected
