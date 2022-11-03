@@ -3,8 +3,8 @@ import Form from '../../../components/Form'
 function index({ form }) {
 
     const onSubmitHandler = async (form, callback) => {
-        console.log(form)
         callback()
+
 
     try {
       const response = await fetch('/api/auth/agent/login', {
@@ -14,15 +14,18 @@ function index({ form }) {
           'Content-Type': 'application/json'
         }
       })
+      // Get JWT
       const data = await response.json()
-      console.log(data)
-      sessionStorage.setItem('JWT', data.token)
+
+      // save JWT + Expiry to Session Storage
+      if(data) {
+        sessionStorage.setItem('JWT', data.token)
+        sessionStorage.setItem('Expiry', data.expiry)
+      }
     } catch (error) {
       console.log(error);
     }
-
-
-      }
+  }
 
   return (
     <div>
