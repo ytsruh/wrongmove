@@ -1,7 +1,7 @@
 import Form from '../../../components/Form'
 import { useRouter } from 'next/router'
 
-function index({ form }) {
+function AgentLogin({ form }) {
 
     const router = useRouter()
 
@@ -58,4 +58,4 @@ const formArr = [
   ]
   
 
-export default index
+export default AgentLogin
