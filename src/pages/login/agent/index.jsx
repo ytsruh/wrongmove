@@ -1,7 +1,5 @@
 import Form from "../../../components/Form"
 import { useEffect } from "react"
-
-import Form from '../../../components/Form'
 import { useRouter } from 'next/router'
 
 function AgentLogin({ form }) {
