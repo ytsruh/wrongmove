@@ -4,6 +4,7 @@ const db = new PrismaClient();
 
 module.exports = {
   prisma: db,
+  Prisma: Prisma,
   checkAuth: async (req) => {
     try {
       const token = req.headers.token;

@@ -38,9 +38,9 @@ model SalesListing {
   updatedAt       DateTime          @updatedAt
   address         String
   price           Int
-  propertyType    String?
-  bedrooms        Int?
-  bathrooms       Int?
+  propertyType    String
+  bedrooms        Int
+  bathrooms       Int
   keyFeatures     String?
   description     String?
   mapCoordinates  String?  
