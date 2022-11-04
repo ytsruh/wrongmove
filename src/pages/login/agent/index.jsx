@@ -1,6 +1,10 @@
 import Form from "../../../components/Form"
+import useDocTitle from '../../../hooks/useDocTitle'
+import { useEffect } from "react"
 
 function index() {
+
+  useDocTitle('Agent Login')
 
     const onSubmitHandler = (form, callback) => {
         console.log(form)
@@ -15,8 +19,9 @@ function index() {
             formArr={formArr}
             submitBtn='Login'
             redirect={null}
-        onSubmit={onSubmitHandler}
-      />    </div>
+            onSubmit={onSubmitHandler}
+      />    
+    </div>
   )
 }
 
