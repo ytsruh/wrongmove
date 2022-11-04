@@ -16,12 +16,10 @@ import tempDoughnut from "../../../assets/tempDoughnut.png"
 
 function Dashboard() {
 
-const [user, setUser] = useState(true)
+     const [user, setUser] = useState(true)
 
-import Protected from "../../../components/Protected";
+     import Protected from "../../../components/Protected";
 
-function Dashboard() {
-     {
         return (
             <Protected>
                 <div className="dashboard-container center w-100">
