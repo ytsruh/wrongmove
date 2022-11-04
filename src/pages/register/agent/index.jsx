@@ -1,6 +1,9 @@
 import Form from "../../../components/Form"
+import useDocTitle from "../../../hooks/useDocTitle"
 
-function index() {
+function AgentReg() {
+
+  useDocTitle('Agent Registration')
 
   const onSubmitHandler = async (form, callback) => {
     callback()
@@ -98,4 +101,4 @@ const redirect = {
   }
 }
 
-export default index
+export default AgentReg

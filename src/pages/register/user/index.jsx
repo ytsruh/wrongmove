@@ -1,6 +1,9 @@
 import Form from "../../../components/Form"
+import useDocTitle from "../../../hooks/useDocTitle"
 
-function index() {
+function UserReg() {
+
+  useDocTitle('User Registration')
 
     const onSubmitHandler = (form, callback) => {
         console.log(form)
@@ -52,4 +55,4 @@ const formArr = [
   ]
   
 
-export default index
+export default UserReg
