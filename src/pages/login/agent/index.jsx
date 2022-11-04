@@ -2,7 +2,7 @@ import Form from "../../../components/Form"
 import useDocTitle from '../../../hooks/useDocTitle'
 import { useEffect } from "react"
 
-function index() {
+function AgentLogin() {
 
   useDocTitle('Agent Login')
 
@@ -47,4 +47,4 @@ const formArr = [
   ]
   
 
-export default index
+export default AgentLogin

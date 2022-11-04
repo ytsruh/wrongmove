@@ -2,7 +2,7 @@ import { useState } from "react"
 import Form from "../../../components/Form"
 import useDocTitle from "../../../hooks/useDocTitle"
 
-function index() {
+function AgentReg() {
 
   useDocTitle('Agent Registration')
 
@@ -83,4 +83,4 @@ const redirect = {
   }
 }
 
-export default index
+export default AgentReg

@@ -1,7 +1,7 @@
 import Form from "../../../components/Form"
 import useDocTitle from "../../../hooks/useDocTitle"
 
-function index() {
+function UserLogin() {
 
   useDocTitle('User Login')
 
@@ -39,4 +39,4 @@ const formArr = [
   ]
   
 
-export default index
+export default UserLogin
