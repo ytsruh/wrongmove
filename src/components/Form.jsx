@@ -1,7 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react"; 
 import Link from "next/link";
-import Input from './Input'
-import Button from "./Button";
 
 const prepareForm = (formArr) => {
     return formArr.reduce((r, v) => ({ ...r, [v.name]: "" }), {});
@@ -12,16 +10,16 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
     const [form, setForm] = useState(initialForm);
 
     const onChangeHandler = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
-    const onSubmitHandler = () => onSubmit(form, () => setForm(initialForm));
+    const onSumbitHandler = () => onSubmit(form, () => setForm(initialForm));
 
     const hasRedirect = !!redirect;
     return (
         <form autoComplete={"off"}>
-            <h2>{title}</h2>
+            <h3>{title}</h3>
             {formArr.map(({ label, name, type, placeholder, maxLength, minLength, required}, index) => (
-                <div className='input-div' key={index}>
+                <div className="input-div" key={index}>
                     <label htmlFor={name}>{label}</label>
-                    <Input
+                    <input
                         id={name}
                         name={name}
                         type={type}
@@ -31,27 +29,46 @@ const Form = ({ title, formArr, submitBtn, onSubmit, redirect }) => {
                         maxLength={maxLength}
                         minLength={minLength}
                         required={required}
+                        className='form-input'
                     />
                 </div>
             ))}
-            <Button
-                onClick={(e) => {
+            <button
+                    onClick={(e) => {
                     e.preventDefault();
-                    onSubmitHandler();
+                    onSumbitHandler();
                 }}
-                submitBtn={submitBtn}
-                className='btn-primary'
+                className='btn btn-primary'
             >
                 {submitBtn}
-            </Button>
+            </button>
             {hasRedirect && (
-                <div className="form-redirect-container">
-                    <label>{redirect.label}</label>
-                    <Link href={redirect.link.to}>{` ${redirect.link.label}`}</Link>
+                <div>
+                    <label>{redirect.label}&nbsp;</label>
+                    <Link href={redirect.link.to}>{redirect.link.label}</Link>
                 </div>
             )}
         </form>
     );
+};
+
+Form.defaultProps = {
+    title: "Sign In",
+    formArr: [
+        {
+            label: "Email",
+            name: "email",
+            type: "text",
+        },
+        {
+            label: "Password",
+            name: "password",
+            type: "password",
+        },
+    ],
+    submitBtn: "Sign In",
+    onSubmit: (form) => console.log(form),
+    redirect: null,
 };
 
 export default Form;

@@ -1,11 +1,30 @@
-import Form from "../../../components/Form"
+import Form from '../../../components/Form'
+import { useRouter } from 'next/router'
 
-function index() {
+function AgentLogin({ form }) {
 
-    const onSubmitHandler = (form, callback) => {
-        console.log(form)
+    const router = useRouter()
+
+    const onSubmitHandler = async (form, callback) => {
         callback()
+
+    try {
+      const response = await fetch('/api/auth/agent/login', {
+        method: 'POST', 
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const data = await response.json()
+      if(data.token) {
+        sessionStorage.setItem('user', JSON.stringify(data))
+        router.push('/agent/dashboard')
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div>
@@ -15,31 +34,28 @@ function index() {
             formArr={formArr}
             submitBtn='Login'
             redirect={null}
-        onSubmit={onSubmitHandler}
-      />    </div>
+            onSubmit={onSubmitHandler}
+      />    
+    </div>
   )
 }
 
 const formArr = [
     {
-      label: 'Agent Name',
-      name: 'agent-name',
-      type: 'text',
-      placeholder: 'Wrongmove'
+      label: 'Email',
+      name: 'email',
+      type: 'email',
+      placeholder: 'john@wrongmove.com',
+      required: true,
     },
-    {
-        label: 'Email',
-        name: 'email',
-        type: 'email',
-        placeholder: 'john@wrongmove.com'
-      },
     {
       label: 'Password',
       name: 'password',
       type: 'password',
-      placeholder: '*********'
+      placeholder: '*********',
+      required: true,
     }
   ]
   
 
-export default index
+export default AgentLogin
