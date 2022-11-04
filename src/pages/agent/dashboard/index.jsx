@@ -71,6 +71,5 @@ function Dashboard() {
             </Protected>
         )
     }
-}
 
 export default Dashboard
