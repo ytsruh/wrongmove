@@ -14,7 +14,11 @@ import Image from "next/image";
 import tempBar from "../../../assets/tempBar.png"
 import tempDoughnut from "../../../assets/tempDoughnut.png"
 
+import useDocTitle from "../../../hooks/useDocTitle";
+
 function Dashboard() {
+
+    useDocTitle('Agent Dashboard')
 
     const [user, setUser] = useState(true)
 

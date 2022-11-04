@@ -18,7 +18,11 @@ import commercialPropertyForRent from '../assets/icons/commercialPropertyForRent
 import whereCanILiveIcon from '../assets/icons/whereCanILiveIcon.png'
 import drawASearch from '../assets/icons/drawASearch.png'
 
+import useDocTitle from '../hooks/useDocTitle'
+
 function HomeContent() {
+
+    useDocTitle('Home')
 
     const [searchData, setSearchData] = useState()
 

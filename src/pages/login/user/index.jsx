@@ -1,6 +1,9 @@
 import Form from "../../../components/Form"
+import useDocTitle from "../../../hooks/useDocTitle"
 
 function index() {
+
+  useDocTitle('User Login')
 
     const onSubmitHandler = (form, callback) => {
         console.log(form)
