@@ -76,5 +76,3 @@ function Dashboard() {
 }
 
 export default Dashboard
-
-import React from 'react'
