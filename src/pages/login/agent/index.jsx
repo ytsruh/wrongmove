@@ -1,15 +1,35 @@
 import Form from "../../../components/Form"
-import useDocTitle from '../../../hooks/useDocTitle'
 import { useEffect } from "react"
 
-function AgentLogin() {
+function index() {
 
-  useDocTitle('Agent Login')
+import Form from '../../../components/Form'
+import { useRouter } from 'next/router'
 
-    const onSubmitHandler = (form, callback) => {
-        console.log(form)
+function AgentLogin({ form }) {
+
+    const router = useRouter()
+
+    const onSubmitHandler = async (form, callback) => {
         callback()
+
+    try {
+      const response = await fetch('/api/auth/agent/login', {
+        method: 'POST', 
+        body: JSON.stringify(form),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      const data = await response.json()
+      if(data.token) {
+        sessionStorage.setItem('user', JSON.stringify(data))
+        router.push('/agent/dashboard')
       }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div>
@@ -27,22 +47,18 @@ function AgentLogin() {
 
 const formArr = [
     {
-      label: 'Agent Name',
-      name: 'agent-name',
-      type: 'text',
-      placeholder: 'Wrongmove'
+      label: 'Email',
+      name: 'email',
+      type: 'email',
+      placeholder: 'john@wrongmove.com',
+      required: true,
     },
-    {
-        label: 'Email',
-        name: 'email',
-        type: 'email',
-        placeholder: 'john@wrongmove.com'
-      },
     {
       label: 'Password',
       name: 'password',
       type: 'password',
-      placeholder: '*********'
+      placeholder: '*********',
+      required: true,
     }
   ]
   

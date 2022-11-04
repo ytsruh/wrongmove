@@ -9,7 +9,7 @@ function UserReg() {
         console.log(form)
         callback()
       }
-      
+
   return (
     <div>
         <h1>Create an account</h1>
@@ -25,17 +25,10 @@ function UserReg() {
 
 const formArr = [
     {
-      label: 'First Name',
-      name: 'fname',
+      label: 'Namer',
+      name: 'name',
       type: 'text',
-      placeholder: 'John',
-      required: true
-    },
-    {
-      label: 'Surname',
-      name: 'lname',
-      type: 'text',
-      placeholder: 'McManning',
+      placeholder: 'John Smith',
       required: true
     },
     {
