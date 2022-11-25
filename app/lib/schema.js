@@ -34,5 +34,6 @@ export const SalesListingSchema = z
     keyFeatures: z.string().optional().nullish(),
     description: z.string().optional().nullish(),
     mapCoordinates: z.string().optional().nullish(),
+    images: z.string().array().optional().nullish(),
   })
   .passthrough();

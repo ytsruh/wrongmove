@@ -43,6 +43,15 @@ model SalesListing {
   bathrooms       Int
   keyFeatures     String?
   description     String?
-  mapCoordinates  String?  
+  mapCoordinates  String?
+  images          SalesImage[]
 }
 
+model SalesImage {
+  id              String            @id @default(cuid())  
+  file            String
+  salesListing    SalesListing      @relation(fields: [salesListingId], references: [id])
+  salesListingId  String            // relation scalar field  (used in the `@relation` attribute above)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}

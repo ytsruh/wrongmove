@@ -7,7 +7,7 @@ const prisma = utils.prisma;
 // Get multiple sales listings
 router.get("/sales", async (req, res) => {
   try {
-    const data = await prisma.salesListing.findMany();
+    const data = await prisma.salesListing.findMany({ include: { images: true } });
     // Send response back
     res.status(200).json({ data });
   } catch (error) {
@@ -21,7 +21,10 @@ router.get("/sales", async (req, res) => {
 router.get("/sales/:id", async (req, res) => {
   try {
     const { params } = req;
-    const data = await prisma.salesListing.findUnique({ where: { id: params.id } });
+    const data = await prisma.salesListing.findUnique({
+      where: { id: params.id },
+      include: { images: true },
+    });
     // Send response back
     res.status(200).json({ data });
   } catch (error) {
