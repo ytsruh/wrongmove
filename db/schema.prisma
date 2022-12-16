@@ -1,5 +1,3 @@
-//When using the MySQL connector for Prisma, the Prisma String type gets mapped to varchar(191) which may not be long enough to store fields such as id_token in the Account model. This can be avoided by explicitly using the Text type with @db.Text.
-
 datasource db {
   provider = "mysql"
   url = env("DATABASE_URL")

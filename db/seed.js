@@ -11,7 +11,6 @@ async function main() {
       { name: "Chris", email: "chris@gmail.com", password: encryptedPassword },
       { name: "Ryan", email: "ryan@gmail.com", password: encryptedPassword },
     ],
-    skipDuplicates: true,
   });
 
   const addAgents = await prisma.agent.createMany({
@@ -19,7 +18,6 @@ async function main() {
       { name: "Agent Alpha", email: "alpha@gmail.com", password: encryptedPassword },
       { name: "Special Agent", email: "jamesbond@gmail.com", password: encryptedPassword },
     ],
-    skipDuplicates: true,
   });
 
   console.log({ addUsers, addAgents });
