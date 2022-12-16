@@ -1,5 +1,5 @@
 datasource db {
-  provider = "sqlserver"
+  provider = "mysql"
   url = env("DATABASE_URL")
 }
 

@@ -1,7 +1,7 @@
 import express from "express";
 import * as utils from "../lib/utils";
 import { zod, SalesListingSchema } from "../lib/schema";
-import { createStorage } from "../lib/azureUpload";
+import { createStorage } from "../lib/storage";
 
 const router = express.Router();
 const prisma = utils.prisma;
@@ -61,7 +61,7 @@ router.post("/", upload.single("img"), async (req, res) => {
       // Create SalesImage DB entry with saleslisting ID
       const image = await prisma.salesImage.create({
         data: {
-          file: req.file.blob,
+          file: req.file.key,
           salesListingId: data.id,
         },
       });
