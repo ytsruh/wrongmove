@@ -125,6 +125,12 @@ a, li, ul {
     font-family: EffraReg;
 }
 
+/* padding  */
+
+.py-3 {
+    padding: 3rem 0;
+}
+
 /* inline-link */
 
 .inline-link > p > a {
