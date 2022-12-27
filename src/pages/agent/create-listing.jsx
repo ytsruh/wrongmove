@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
+import InlineLink from "../../components/InlineLink";
 import Protected from "../../components/Protected";
 import DashboardCard from "../../components/cards/DashboardCard";
-import Header from "../../components/Header";
 import Form from '../../components/Form'
 import sale from '../../assets/sale.jpeg'
 import rent from '../../assets/rent.webp'
@@ -18,7 +18,7 @@ function CreateListing({ form }) {
             body: JSON.stringify(form),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
-                token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiY2w4OG9vczc4MDAwNThhczhlbHkxbWUzMCIsImVtYWlsIjoiamFtZXNib25kQGdtYWlsLmNvbSIsInR5cGUiOiJhZ2VudCJ9LCJleHAiOjE2NzEwMTM3NDAsImlhdCI6MTY3MDkyNzM0MH0.cdmmFlXYMzTJmp6EZYyRmnR3D1SEOxDgw6hEFH67NWE'
+                token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiY2xicXR6YnkwMDAwM3M4bWJwZXBqM3d2byIsImVtYWlsIjoiamFtZXNib25kQGdtYWlsLmNvbSIsInR5cGUiOiJhZ2VudCJ9LCJleHAiOjE2NzIyNTAxNTksImlhdCI6MTY3MjE2Mzc1OX0.KevOScUT4kJfHf7Uj7J_SqbsDmSV8095Z0SzkmA9uWU",
             }
             })
             .then(response => response.json()) 
@@ -32,19 +32,17 @@ function CreateListing({ form }) {
 
     const [propertyType, setPropertyType] = useState(null)
 
-    useEffect(() => {
-        
-    }, [propertyType])
-
         return (
             <Protected>
+                <div className="dashboard-container center w-100">
+                    <h1>Create a New Listing</h1>
+                    <div className="agent-summary text-center">
+                        <InlineLink to="/agent/dashboard" text="Back to Dashboard" />
+                    </div>
+                </div>
                 <div className="flex f-ver gap-3">
-                    <Header
-                        title='Create a New Listing'
-                        desc='Add a new sales or rental property to Wrongmove.'
-                    />
                     <div className="create-listing">
-                        <div className="two-column-grid">
+                        <div className="two-column-grid py-3">
                             <DashboardCard
                                 title='List a Property for Sale'
                                 image={sale.src}
