@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 import InlineLink from "../../components/InlineLink";
 import Protected from "../../components/Protected";
@@ -8,6 +9,11 @@ import sale from '../../assets/sale.jpeg'
 import rent from '../../assets/rent.webp'
 
 function CreateListing({ form }) {
+
+    const router = useRouter()
+
+    const [error, setError] = useState(false)
+    const [success, setSuccess] = useState(false)
 
     const onSubmitHandler = async (form, callback) => {
         callback()
@@ -24,9 +30,11 @@ function CreateListing({ form }) {
             .then(response => response.json()) 
             .then(json => console.log(json))
             .catch(err => console.log(err))
+            // router.push('/')
 
         } catch (error) {
             console.log(error);
+            setError(true)
         }
   }
 
@@ -56,6 +64,7 @@ function CreateListing({ form }) {
                                 to=''
                                 onClick={() => setPropertyType('rent')}
                             />
+                            {error ? <p>error</p> : <></>}
                         </div>
 
                         {(() => {
@@ -116,20 +125,23 @@ const saleFormArr = [
       name: 'propertyType',
       type: 'text',
       placeholder: 'Terrace House',
+      required: true,
     },
     {
       // should take up 50% width on desktop
       label: 'Bedrooms',
       name: 'bedrooms',
       type: 'number',
-      placeholder: 3
+      placeholder: 3,
+      required: true,
     },
     {
       // should take up 50% width on desktop
       label: 'Bathrooms',
       name: 'bathrooms',
       type: 'number',
-      placeholder: 3
+      placeholder: 3,
+      required: true,
     },
     {
       label: 'Key Features',
