@@ -150,3 +150,18 @@ a, li, ul {
         gap: 1rem;
     }
 }
+
+/* alert component */
+
+.alert {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.error {
+    background-color: #f57b77;
+}
+
+.success {
+    background-color: #5cb85c;
+}
