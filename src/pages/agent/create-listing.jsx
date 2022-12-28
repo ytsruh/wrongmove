@@ -40,9 +40,9 @@ function CreateListing({ form }) {
                         <InlineLink to="/agent/dashboard" text="Back to Dashboard" />
                     </div>
                 </div>
-                <div className="flex f-ver gap-3">
-                    <div className="create-listing">
-                        <div className="two-column-grid py-3">
+                <div className="flex f-ver gap-3 w-100">
+                    <div className="create-listing w-100">
+                        <div className="two-column-grid py-3 w-100">
                             <DashboardCard
                                 title='List a Property for Sale'
                                 image={sale.src}
@@ -60,7 +60,7 @@ function CreateListing({ form }) {
 
                         {(() => {
                             if (propertyType === null){
-                                return <></> 
+                                return <></>
                             } 
                             if(propertyType === 'sale'){
                                 return (
