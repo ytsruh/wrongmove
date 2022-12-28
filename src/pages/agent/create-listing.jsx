@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 import InlineLink from "../../components/InlineLink";
 import Protected from "../../components/Protected";
 import DashboardCard from "../../components/cards/DashboardCard";
 import Form from '../../components/Form'
+import Alert from '../../components/Alert'
+
 import sale from '../../assets/sale.jpeg'
 import rent from '../../assets/rent.webp'
 
@@ -12,8 +14,7 @@ function CreateListing({ form }) {
 
     const router = useRouter()
 
-    const [error, setError] = useState(false)
-    const [success, setSuccess] = useState(false)
+    const [errMsg, setErrMsg] = useState(false)
 
     const onSubmitHandler = async (form, callback) => {
         callback()
@@ -34,7 +35,7 @@ function CreateListing({ form }) {
 
         } catch (error) {
             console.log(error);
-            setError(true)
+            setErrMsg(error)
         }
   }
 
@@ -64,7 +65,6 @@ function CreateListing({ form }) {
                                 to=''
                                 onClick={() => setPropertyType('rent')}
                             />
-                            {error ? <p>error</p> : <></>}
                         </div>
 
                         {(() => {
@@ -96,6 +96,7 @@ function CreateListing({ form }) {
                                 )
                             }
                         })()}
+                        {errMsg ? <Alert msg={errMsg} type='error'></Alert> : <></>}
                     </div>
                 </div>
             </Protected>
@@ -121,7 +122,7 @@ const saleFormArr = [
     },
     {
       // change this to show radio boxes
-      label: 'Property Type',
+      label: 'Property Type*',
       name: 'propertyType',
       type: 'text',
       placeholder: 'Terrace House',
@@ -129,7 +130,7 @@ const saleFormArr = [
     },
     {
       // should take up 50% width on desktop
-      label: 'Bedrooms',
+      label: 'Bedrooms*',
       name: 'bedrooms',
       type: 'number',
       placeholder: 3,
@@ -137,7 +138,7 @@ const saleFormArr = [
     },
     {
       // should take up 50% width on desktop
-      label: 'Bathrooms',
+      label: 'Bathrooms*',
       name: 'bathrooms',
       type: 'number',
       placeholder: 3,
