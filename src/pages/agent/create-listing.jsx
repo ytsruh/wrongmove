@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import InlineLink from "../../components/InlineLink";
@@ -13,8 +13,18 @@ import rent from '../../assets/rent.webp'
 function CreateListing({ form }) {
 
     const router = useRouter()
-
     const [errMsg, setErrMsg] = useState(false)
+    const [propertyType, setPropertyType] = useState(null)
+    const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        const fetchUser = () => {
+            setUser(JSON.parse(sessionStorage.getItem('user')))
+            setLoading(false)
+        }
+        fetchUser()
+    }, [loading])
 
     const onSubmitHandler = async (form, callback) => {
         callback()
@@ -25,7 +35,7 @@ function CreateListing({ form }) {
             body: JSON.stringify(form),
             headers: {
                 "Content-type": "application/json; charset=UTF-8",
-                token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoiY2xicXR6YnkwMDAwM3M4bWJwZXBqM3d2byIsImVtYWlsIjoiamFtZXNib25kQGdtYWlsLmNvbSIsInR5cGUiOiJhZ2VudCJ9LCJleHAiOjE2NzIyNTAxNTksImlhdCI6MTY3MjE2Mzc1OX0.KevOScUT4kJfHf7Uj7J_SqbsDmSV8095Z0SzkmA9uWU",
+                token: `${user.token}`,
             }
             })
             .then(response => response.json()) 
@@ -39,7 +49,7 @@ function CreateListing({ form }) {
         }
   }
 
-    const [propertyType, setPropertyType] = useState(null)
+    if(loading) return <h1>Loading...</h1>
 
         return (
             <Protected>
