@@ -48,7 +48,7 @@ function Dashboard() {
             title="Create a New Listing."
             text="Click here to add a new listing."
             image={newListing.src}
-            to="/agent/new-listing"
+            to="/agent/create-listing"
           />
         </div>
         <div className="two-column-grid w-100">

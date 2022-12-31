@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 function DashboardCard(props) {
   return (
-        <div className="w-100 center dash-card">
+        <div className="w-100 center dash-card" onClick={props.onClick}>
             <div className="w-100 h-100">
                 <div 
                     className="dash-card-img w-100 h-100"

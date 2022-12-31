@@ -125,6 +125,12 @@ a, li, ul {
     font-family: EffraReg;
 }
 
+/* padding  */
+
+.py-3 {
+    padding: 3rem 0;
+}
+
 /* inline-link */
 
 .inline-link > p > a {
@@ -143,4 +149,19 @@ a, li, ul {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+}
+
+/* alert component */
+
+.alert {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.error {
+    background-color: #f57b77;
+}
+
+.success {
+    background-color: #5cb85c;
 }
