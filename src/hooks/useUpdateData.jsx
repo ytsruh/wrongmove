@@ -34,7 +34,7 @@ const useUpdateData = (url, submit, data) => {
     if (submit) {
       updateData();
     }
-  }, [url, submit]);
+  }, [url, submit, data]);
 
   return { isSubmitting, updatedData, updateError };
 };

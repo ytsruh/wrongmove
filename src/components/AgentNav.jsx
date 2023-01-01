@@ -1,50 +1,59 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 function AgentNav() {
   const router = useRouter();
-  console.log(router.pathname);
+
   return (
     <div className="w-100">
       <ul className="agent-nav">
         <li>
-          <a
-            className={`${router.pathname === "/agent/dashboard" ? "agent-nav-selected" : "agent-nav-item"}`}
-            href="/agent/dashboard"
-          >
-            Dashboard
-          </a>
+          <Link href="/agent/dashboard" passHref>
+            <a
+              className={`${
+                router.pathname === "/agent/dashboard" ? "agent-nav-selected" : "agent-nav-item"
+              }`}
+            >
+              Dashboard
+            </a>
+          </Link>
         </li>
         <li>
-          <a
-            className={`${
-              router.pathname === "/agent/create-listing" ? "agent-nav-selected" : "agent-nav-item"
-            }`}
-            href="/agent/create-listing"
-          >
-            Create Listing
-          </a>
+          <Link href="/agent/create-listing" passHref>
+            <a
+              className={`${
+                router.pathname === "/agent/create-listing" ? "agent-nav-selected" : "agent-nav-item"
+              }`}
+            >
+              Create Listing
+            </a>
+          </Link>
         </li>
         <li>
-          <a
-            className={`${router.pathname === "/agent/profile" ? "agent-nav-selected" : "agent-nav-item"}`}
-            href="/agent/profile"
-          >
-            Profile
-          </a>
+          <Link href="/agent/profile" passHref>
+            <a
+              className={`${router.pathname === "/agent/profile" ? "agent-nav-selected" : "agent-nav-item"}`}
+            >
+              Profile
+            </a>
+          </Link>
         </li>
         <li>
-          <a
-            className={`${router.pathname === "/agent/statistics" ? "agent-nav-selected" : "agent-nav-item"}`}
-            href="/agent/statistics"
-          >
-            Statistics
-          </a>
+          <Link href="/agent/statistics" passHref>
+            <a
+              className={`${
+                router.pathname === "/agent/statistics" ? "agent-nav-selected" : "agent-nav-item"
+              }`}
+            >
+              Statistics
+            </a>
+          </Link>
         </li>
         <li>
-          <a className="agent-nav-item" href="/agent/logout">
-            Logout
-          </a>
+          <Link href="/agent/logout" passHref>
+            <a className="agent-nav-item">Logout</a>
+          </Link>
         </li>
       </ul>
     </div>
