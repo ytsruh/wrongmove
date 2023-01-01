@@ -14,8 +14,8 @@ export const UserSchema = z
 export const AgentSchema = z
   .object({
     name: z.string().min(3, { message: "Name must be 3 or more characters long" }).optional(),
-    email: z.string().email({ message: "Invalid email address" }),
-    password: z.string().min(5, { message: "Password must be 5 or more characters long" }),
+    email: z.string().email({ message: "Invalid email address" }).optional(),
+    password: z.string().min(5, { message: "Password must be 5 or more characters long" }).optional(),
     image: z.string().optional().nullish(),
     description: z.string().optional().nullish(),
     telephoneNumber: z.string().optional().nullish(),

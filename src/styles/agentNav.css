@@ -1,0 +1,37 @@
+.agent-nav {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 5px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.agent-nav-item {
+  font-family: EffraBold;
+  padding: 0.8rem;
+  border: 1px solid rgb(220, 220, 220);
+  color: #262637;
+  border-radius: 5px;
+}
+
+.agent-nav-item:hover {
+  background-color: #65dbb8;
+  color: #262637;
+}
+
+.agent-nav-selected {
+  font-family: EffraBold;
+  padding: 0.8rem;
+  border: 2px solid #65dbb8;
+  color: #262637;
+  border-radius: 5px;
+}
+
+.agent-nav-selected:hover {
+  background-color: #65dbb8;
+  color: #262637;
+}

@@ -7,8 +7,9 @@ import DashboardCard from "../../../components/cards/DashboardCard";
 import sale from "../../../assets/sale.jpeg";
 import rent from "../../../assets/rent.webp";
 import newListing from "../../../assets/newListing.png";
-import sold from "../../../assets/sold.png";
 import charts from "../../../assets/charts.png";
+import office from "../../../assets/estate-office.jpg";
+import logout from "../../../assets/agent-logout.jpg";
 import Image from "next/image";
 
 import tempBar from "../../../assets/tempBar.png";
@@ -51,18 +52,24 @@ function Dashboard() {
             to="/agent/create-listing"
           />
         </div>
-        <div className="two-column-grid w-100">
+        <div className="three-column-grid w-100">
           <DashboardCard
-            title="Past Listings."
-            text="Click to view your past (unactive) listings."
-            image={sold.src}
-            to="/agent/archive/listings"
+            title="Agency Profile"
+            text="Click here to update the agency profile"
+            image={office.src}
+            to="/agent/profile"
           />
           <DashboardCard
             title="Agent Statistics."
             text="See your account statistics."
             image={charts.src}
             to="/agent/statistics"
+          />
+          <DashboardCard
+            title="Logout"
+            text="Logout from your account."
+            image={logout.src}
+            to="/agent/logout"
           />
         </div>
       </div>

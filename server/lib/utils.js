@@ -27,4 +27,9 @@ module.exports = {
     const decoded = jsonwebtoken.verify(token, process.env.JWTSECRET);
     return decoded;
   },
+  filterProfile: async (profile) => {
+    delete profile.email;
+    delete profile.password;
+    return profile;
+  },
 };
