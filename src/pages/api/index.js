@@ -1,3 +1,5 @@
-import api from "../../../server";
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
-module.exports = api;
+export default function handler(req, res) {
+  res.status(200).json({ message: "Welcome to Wrongmove" });
+}

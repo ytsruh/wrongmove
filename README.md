@@ -1,13 +1,3 @@
 # Wrongmove
 
 The Rightmove clone
-
-## Envinroment variables
-
-- DATABASE_URL
-- JWTSECRET
-- STORAGE_KEY
-- STORAGE_SECRET
-- STORAGE_ENDPOINT
-- STORAGE_BUCKET
-- STORAGE_REGION

@@ -1,22 +1,7 @@
 import "../styles/index.css";
-import "../styles/layout.css"
-import "../styles/form.css"
-import '../styles/input.css'
-import "../styles/button.css"
-import "../styles/nav.css"
-import "../styles/agentDashboard.css"
-import "../styles/home.css"
-import "../styles/card.css"
-import "../styles/footer.css"
-
-import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
-  ) 
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
