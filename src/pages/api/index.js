@@ -1,3 +1,3 @@
-import api from "../../../app";
+import api from "../../../server";
 
 module.exports = api;

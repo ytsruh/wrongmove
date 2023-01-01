@@ -21,6 +21,7 @@ export const createStorage = (name) => {
   return multer({
     storage: multerS3({
       s3: s3,
+      acl: "public-read", // Has to be set as the default setting is 'private'
       bucket: process.env.STORAGE_BUCKET,
       key: (req, file, cb) => {
         cb(null, generateFileName(file));

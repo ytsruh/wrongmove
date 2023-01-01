@@ -1,16 +1,18 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import { formatPrice, parsePropertyType } from "../../utils";
 
 import Protected from "../../components/Protected";
 import InlineLink from "../../components/InlineLink";
 import useFetchData from "../../hooks/useFetchData";
+import useDeleteData from "../../hooks/useDeleteData";
 
 export default function SalesListings() {
   const { isLoading, serverError, apiData } = useFetchData("/api/sales");
 
   if (isLoading) return <h1>Loading...</h1>;
   if (serverError) return <h1>Error</h1>;
-  console.log(apiData);
+
   const rows = apiData?.data.map((item, i) => {
     return <Row key={i} data={item} />;
   });
@@ -46,19 +48,44 @@ export default function SalesListings() {
 }
 
 const Row = (props) => {
-  console.log(props);
+  const { data } = props;
+  const [url, setUrl] = useState(false);
+  const { isLoading, serverError, apiData } = useDeleteData(url);
+  const router = useRouter();
+
+  if (apiData) {
+    router.push("/agent/dashboard");
+  }
+
+  if (isLoading)
+    return (
+      <tr>
+        <td>Loading...</td>
+      </tr>
+    );
+  if (serverError)
+    return (
+      <tr>
+        <td>Loading...</td>
+      </tr>
+    );
+
   return (
     <tr className="text-center">
-      <td>7 Anson Close</td>
-      <td>£190,000</td>
-      <td>Detached</td>
-      <td>3</td>
-      <td>2</td>
+      <td>{data.address}</td>
+      <td>{formatPrice(data.price)}</td>
+      <td>{parsePropertyType(data.propertyType)}</td>
+      <td>{parseInt(data.bedrooms)}</td>
+      <td>{parseInt(data.bathrooms)}</td>
       <td>
-        <button className="btn-primary">Edit</button>
+        <a href={`/agent/sales/edit-listing/${data.id}`}>
+          <button className="btn-primary">Edit</button>
+        </a>
       </td>
       <td>
-        <button className="btn-secondary">Delete</button>
+        <button onClick={() => setUrl(`/api/sales/${data.id}`)} className="btn-secondary">
+          Delete
+        </button>
       </td>
     </tr>
   );
