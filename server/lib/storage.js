@@ -12,9 +12,9 @@ const s3 = new S3Client({
   },
 });
 
-const generateFileName = (file) => {
+const generateFileName = (file, name) => {
   const identifier = Math.random().toString().replace(/0\./, ""); // remove "0." from start of string
-  return `wrongmove/${identifier}-${file.originalname}`;
+  return `wrongmove/${name}/${identifier}-${file.originalname}`;
 };
 
 export const createStorage = (name) => {
@@ -24,7 +24,7 @@ export const createStorage = (name) => {
       acl: "public-read", // Has to be set as the default setting is 'private'
       bucket: process.env.STORAGE_BUCKET,
       key: (req, file, cb) => {
-        cb(null, generateFileName(file));
+        cb(null, generateFileName(file, name));
       },
     }),
   });

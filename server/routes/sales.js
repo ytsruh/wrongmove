@@ -5,7 +5,7 @@ import { createStorage } from "../lib/storage";
 
 const router = express.Router();
 const prisma = utils.prisma;
-const upload = createStorage("sales-images");
+const upload = createStorage("sales");
 
 // Get multiple sales
 router.get("/", async (req, res) => {

@@ -4,6 +4,7 @@ import { formatPrice, parsePropertyType } from "../../utils";
 
 import Protected from "../../components/Protected";
 import InlineLink from "../../components/InlineLink";
+import AgentNav from "../../components/AgentNav";
 import useFetchData from "../../hooks/useFetchData";
 import useDeleteData from "../../hooks/useDeleteData";
 
@@ -21,9 +22,7 @@ export default function SalesListings() {
     <Protected>
       <div className="dashboard-container center w-100">
         <h1>Sales Listings</h1>
-        <div className="agent-summary text-center">
-          <InlineLink to="/agent/dashboard" text="Back to Dashboard" />
-        </div>
+        <AgentNav />
         <div className="agent-summary">
           <div className="one-column-grid w-100">
             <table>
@@ -78,7 +77,7 @@ const Row = (props) => {
       <td>{parseInt(data.bedrooms)}</td>
       <td>{parseInt(data.bathrooms)}</td>
       <td>
-        <a href={`/agent/sales/edit-listing/${data.id}`}>
+        <a href={`/agent/edit-listing/${data.id}`}>
           <button className="btn-primary">Edit</button>
         </a>
       </td>
