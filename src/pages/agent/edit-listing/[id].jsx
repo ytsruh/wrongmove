@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import Alert from '../../../components/Alert';
 import Form from '../../../components/Form'
-import Protected from '../../../components/Protected';
+import Protected from '../../../components/Protected'
 import InlineLink from '../../../components/InlineLink'
 
 import useFetchData from '../../../hooks/useFetchData'
@@ -15,7 +15,21 @@ function EditListing() {
 
   const [loading, setLoading] = useState(true)
   const [singleListing, setSingleListing] = useState(null)
+  const [fetchingUser, setFetchingUser] = useState(true)
+  const [user, setUser] = useState(null)
   const [errMsg, setErrMsg] = useState(false)
+
+  useEffect(() => {
+    const fetchUser = () => {
+      setUser(JSON.parse(sessionStorage.getItem("user")));
+      setFetchingUser(false);
+    };
+    fetchUser();
+  }, [loading]);
+
+  if(!fetchingUser && !user) {
+    router.push('/login/agent')
+}
 
   const { isLoading, serverError, apiData } = useFetchData(`/api/sales/${id}`)
 
@@ -28,6 +42,7 @@ function EditListing() {
     setLoading(false)
   }, [id, apiData, router.isReady])
   
+  if (fetchingUser) return <h1>Loading...</h1>
   if (isLoading || loading) return <h1>Loading...</h1>;
   if (serverError) return <h1>Server Error</h1>
   
