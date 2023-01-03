@@ -145,7 +145,7 @@ a, li, ul {
 }
 
 @media screen and (max-width: 55rem) {
-    .two-column-grid {
+    .two-column-grid, .three-column-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
