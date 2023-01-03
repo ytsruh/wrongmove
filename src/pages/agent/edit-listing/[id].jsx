@@ -25,7 +25,7 @@ function EditListing() {
       setFetchingUser(false);
     };
     fetchUser();
-  }, [loading]);
+  }, []);
 
   if(!fetchingUser && !user) {
     router.push('/login/agent')
@@ -36,14 +36,16 @@ function EditListing() {
   useEffect(() => {
     if (!router.isReady) return;
     if (!apiData) return;
-    if (apiData.data.length === 0) {
+    if (apiData.data.length !== 1) {
         return
-    } else setSingleListing(apiData)
-    setLoading(false)
+    } else {
+      setSingleListing(apiData)
+      setLoading(false)
+    }
   }, [id, apiData, router.isReady])
   
   if (fetchingUser) return <h1>Loading...</h1>
-  if (isLoading || loading) return <h1>Loading...</h1>;
+  if (isLoading && loading) return <h1>Loading...</h1>;
   if (serverError) return <h1>Server Error</h1>
   
   if (!isLoading && singleListing) {
@@ -127,7 +129,7 @@ function EditListing() {
           console.log(error);
           setErrMsg(error)
       }
-    }   
+    }
 
     return (
         <Protected>
@@ -150,6 +152,8 @@ function EditListing() {
         </Protected>
     )
   }
+  return <h1>Listing does not exist</h1>
+
 }
 
 export default EditListing
