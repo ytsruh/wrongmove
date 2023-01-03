@@ -88,17 +88,17 @@ function Footer() {
                 link8Text='France'
               />
               <FooterSection
-                title='Professional'
-                link1=''
-                link1Text='Data services'
-                link2=''
-                link2Text='Agents, Developers and Build to Rent                '
-                link3=''
-                link3Text='Overseas Agents and Developers'
-                link4=''
-                link4Text='Home and Property Related Services'
-                link5=''
-                link5Text='Advertise commercial property'
+                title='Agents'
+                link1='/login/agent'
+                link1Text='Agent Login'
+                link2='/register/agent'
+                link2Text='Agent Register                '
+                link3='/agent/dashboard'
+                link3Text='Agent Dashboard'
+                link4='/agent/sales'
+                link4Text='Sales Listings'
+                link5='/agent/rental'
+                link5Text='Rental Listings'
               />
             </div>
             <div className="footer-site-links">
