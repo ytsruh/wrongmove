@@ -8,51 +8,37 @@ function AgentNav() {
   return (
     <div className="w-100">
       <ul className="agent-nav">
-        <li>
+        <li className={`my-0_5 ${router.pathname === "/agent/dashboard" ? "agent-nav-selected" : "agent-nav-item"}`}>
           <Link href="/agent/dashboard" passHref>
-            <a
-              className={`${
-                router.pathname === "/agent/dashboard" ? "agent-nav-selected" : "agent-nav-item"
-              }`}
-            >
+            <a>
               Dashboard
             </a>
           </Link>
         </li>
-        <li>
+        <li className={`my-0_5 ${router.pathname === "/agent/create-listing" ? "agent-nav-selected" : "agent-nav-item"}`}>
           <Link href="/agent/create-listing" passHref>
-            <a
-              className={`${
-                router.pathname === "/agent/create-listing" ? "agent-nav-selected" : "agent-nav-item"
-              }`}
-            >
+            <a>
               Create Listing
             </a>
           </Link>
         </li>
-        <li>
+        <li className={`my-0_5 ${router.pathname === "/agent/profile" ? "agent-nav-selected" : "agent-nav-item"}`}>
           <Link href="/agent/profile" passHref>
-            <a
-              className={`${router.pathname === "/agent/profile" ? "agent-nav-selected" : "agent-nav-item"}`}
-            >
+            <a>
               Profile
             </a>
           </Link>
         </li>
-        <li>
+        <li className={`my-0_5 ${router.pathname === "/agent/statistics" ? "agent-nav-selected" : "agent-nav-item"}`}>
           <Link href="/agent/statistics" passHref>
-            <a
-              className={`${
-                router.pathname === "/agent/statistics" ? "agent-nav-selected" : "agent-nav-item"
-              }`}
-            >
+            <a>
               Statistics
             </a>
           </Link>
         </li>
-        <li>
+        <li className="my-0_5 agent-nav-item">
           <Link href="/agent/logout" passHref>
-            <a className="agent-nav-item">Logout</a>
+            <a>Logout</a>
           </Link>
         </li>
       </ul>
