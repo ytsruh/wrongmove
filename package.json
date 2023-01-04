@@ -13,7 +13,7 @@
     "seed": "node db/seed.js"
   },
   "dependencies": {
-    "@prisma/client": "^4.7.1",
+    "@prisma/client": "^4.8.0",
     "bcryptjs": "^2.4.3",
     "chart.js": "^3.9.1",
     "cors": "^2.8.5",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
-    "prisma": "^4.7.1",
+    "prisma": "^4.8.0",
     "vercel": "^28.2.5"
   }
 }

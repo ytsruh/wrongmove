@@ -1,18 +1,10 @@
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url = env("DATABASE_URL")
 }
 
 generator client {
   provider        = "prisma-client-js"
-}
-
-model User {
-  id            String    @id @default(cuid())   
-  name          String?
-  email         String    @unique
-  password      String 
-  image         String?
 }
 
 model Agent {
@@ -31,7 +23,6 @@ model SalesListing {
   id              String            @id @default(cuid())  
   agent           Agent             @relation(fields: [agentId], references: [id])
   agentId         String            // relation scalar field  (used in the `@relation` attribute above) 
-  active          Boolean           @default(true)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
   address         String
@@ -41,7 +32,6 @@ model SalesListing {
   bathrooms       Int
   keyFeatures     String?
   description     String?
-  mapCoordinates  String?
   images          SalesImage[]
 }
 

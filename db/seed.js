@@ -6,13 +6,6 @@ const salt = bcrypt.genSaltSync();
 const encryptedPassword = bcrypt.hashSync("password", salt);
 
 async function main() {
-  const addUsers = await prisma.user.createMany({
-    data: [
-      { name: "Chris", email: "chris@gmail.com", password: encryptedPassword },
-      { name: "Ryan", email: "ryan@gmail.com", password: encryptedPassword },
-    ],
-  });
-
   const addAgents = await prisma.agent.createMany({
     data: [
       { name: "Agent Alpha", email: "alpha@gmail.com", password: encryptedPassword },
@@ -20,7 +13,7 @@ async function main() {
     ],
   });
 
-  console.log({ addUsers, addAgents });
+  console.log({ addAgents });
 }
 
 main()
