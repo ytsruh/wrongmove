@@ -32,4 +32,8 @@ module.exports = {
     delete profile.password;
     return profile;
   },
+  filterAgent: async (agent) => {
+    delete agent.password;
+    return agent;
+  },
 };
