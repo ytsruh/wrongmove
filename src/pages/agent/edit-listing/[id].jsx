@@ -5,6 +5,8 @@ import Alert from '../../../components/Alert';
 import Form from '../../../components/Form'
 import Protected from '../../../components/Protected'
 import InlineLink from '../../../components/InlineLink'
+import ImageForm from '../../../components/ImageForm'
+import DeleteImages from '../../../components/DeleteImages';
 
 import useFetchData from '../../../hooks/useFetchData'
 
@@ -139,7 +141,7 @@ function EditListing() {
                     <InlineLink to="/agent/dashboard" text="Back to Dashboard" />
                 </div>
             </div>
-            <div className='w-100'>
+            <div className='w-100 two-column-grid'>
                 <Form 
                     formArr={editFormArr}
                     onSubmit={onSubmit}
@@ -147,6 +149,23 @@ function EditListing() {
                     submitBtn='Submit Changes'
                     redirect={null}
                 />
+                <div className='flex'>
+                  <ImageForm
+                    formTitle="Add A Property Image"
+                    buttonText="Upload Image"
+                    // update redirect to sales listing when page is finished
+                    redirectUrl="/agent/dashboard"
+                    apiEndpoint={`/api/sales/${id}/image`}
+                  />
+                  {console.log(apiData)}
+                  {apiData?.data[0].images.length !== 0 ? 
+                    <DeleteImages 
+                      images={apiData.data[0].images}
+                    />
+                  : 
+                    <></>
+                  }
+                </div>
             {errMsg ? <Alert msg={errMsg} type='error'></Alert> : <></>}
             </div>
         </Protected>

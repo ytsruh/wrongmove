@@ -72,6 +72,10 @@ a, li, ul {
     flex-direction: column;
 }
 
+.gap-05 {
+    gap: 0.5rem;
+}
+
 .gap-1 {
     gap: 1rem;
 }
@@ -91,6 +95,10 @@ a, li, ul {
 .mx-1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.mx-15p {
+    margin: 15px 0;
 }
 
 .my-0_5 {margin: 0.5rem 0;}

@@ -1,0 +1,8 @@
+.delete-image-container {
+    background-color: white;
+    border: 1px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    padding: 30px;
+    margin: 15px;
+    min-width: 20rem;
+}
