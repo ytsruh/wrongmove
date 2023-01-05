@@ -3,6 +3,7 @@ import auth from "./auth";
 import sales from "./sales";
 import site from "./public";
 import profile from "./profile";
+import statistics from "./stats";
 import * as utils from "../lib/utils";
 
 const router = express.Router();
@@ -33,5 +34,6 @@ router.use("*", async (req, res, next) => {
 // Protected routes
 router.use("/sales", sales);
 router.use("/profile", profile);
+router.use("/stats", statistics);
 
 export default router;

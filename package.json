@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "studio": "prisma studio"
+    "studio": "prisma studio",
+    "faker": "node db/faker"
   },
   "prisma": {
     "schema": "db/schema.prisma",
@@ -29,6 +30,7 @@
     "zod": "^3.19.1"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "eslint": "8.23.1",
     "eslint-config-next": "12.3.0",
     "prisma": "^4.8.0",

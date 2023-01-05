@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { Doughnut } from "react-chartjs-2";
 
 import DashboardCard from "../../../components/cards/DashboardCard";
 import sale from "../../../assets/sale.jpeg";
@@ -10,25 +8,21 @@ import newListing from "../../../assets/newListing.png";
 import charts from "../../../assets/charts.png";
 import office from "../../../assets/estate-office.jpg";
 import logout from "../../../assets/agent-logout.jpg";
-import Image from "next/image";
-
-import tempBar from "../../../assets/tempBar.png";
-import tempDoughnut from "../../../assets/tempDoughnut.png";
 import Protected from "../../../components/Protected";
+import useFetchData from "../../../hooks/useFetchData";
 
 function Dashboard() {
-  const [user, setUser] = useState(true);
+  const { isLoading, serverError, apiData } = useFetchData("/api/stats/dashboard");
+
+  if (isLoading) return <h1>Loading...</h1>;
+  if (serverError) return <h1>Error</h1>;
+  console.log(apiData);
 
   return (
     <Protected>
       <div className="dashboard-container center w-100">
         <h1>Agent Dashboard</h1>
-        <div className="agent-summary">
-          <div className="two-column-grid w-100">
-            <Image className="temporaryImage" src={tempBar} alt="tenporary bar chart" />
-            <Image className="temporaryImage" src={tempDoughnut} alt="temporary doughnut" />
-          </div>
-        </div>
+        <div className="agent-summary">Key statistics go here from API call</div>
 
         <div className="two-column-grid w-100">
           <DashboardCard

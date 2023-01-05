@@ -11,7 +11,6 @@ const upload = createStorage("sales");
 router.get("/", async (req, res) => {
   try {
     const { body } = req;
-    console.log(body);
     const token = await utils.decode(req.headers.token);
     const data = await prisma.salesListing.findMany({
       where: { agentId: token.data.id },
