@@ -38,7 +38,7 @@ model SalesListing {
 model SalesImage {
   id              String            @id @default(cuid())  
   file            String
-  salesListing    SalesListing      @relation(fields: [salesListingId], references: [id])
+  salesListing    SalesListing      @relation(fields: [salesListingId], references: [id], onDelete: Cascade)
   salesListingId  String            // relation scalar field  (used in the `@relation` attribute above)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
