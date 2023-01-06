@@ -72,6 +72,11 @@ a, li, ul {
     flex-direction: column;
 }
 
+.end {
+    display: flex;
+    align-items: flex-end;
+}
+
 .gap-05 {
     gap: 0.5rem;
 }

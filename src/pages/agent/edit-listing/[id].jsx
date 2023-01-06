@@ -149,7 +149,7 @@ function EditListing() {
                     submitBtn='Submit Changes'
                     redirect={null}
                 />
-                <div className='flex'>
+                <div className='w-100'>
                   <ImageForm
                     formTitle="Add A Property Image"
                     buttonText="Upload Image"
@@ -157,14 +157,13 @@ function EditListing() {
                     redirectUrl="/agent/dashboard"
                     apiEndpoint={`/api/sales/${id}/image`}
                   />
-                  {console.log(apiData)}
-                  {apiData?.data[0].images.length !== 0 ? 
-                    <DeleteImages 
-                      images={apiData.data[0].images}
-                    />
-                  : 
-                    <></>
-                  }
+                    {apiData?.data[0].images.length !== 0 ? 
+                      <DeleteImages 
+                        images={apiData.data[0].images}
+                      />
+                    : 
+                      <></>
+                    }
                 </div>
             {errMsg ? <Alert msg={errMsg} type='error'></Alert> : <></>}
             </div>
