@@ -128,6 +128,10 @@ a, li, ul {
     height: 100%;
 }
 
+.h-300x600 {
+    min-height: 300px;
+}
+
 .effraBold {
     font-family: EffraBold;
 }
@@ -163,6 +167,9 @@ a, li, ul {
     .two-column-grid, .three-column-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+    .h-300x600 {
+        min-height: 500px;
     }
 }
 

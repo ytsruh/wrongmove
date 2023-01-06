@@ -1,25 +1,14 @@
 import { useEffect, useState } from "react"
 import useDeleteData from "../hooks/useDeleteData"
-
-import { useKeenSlider } from "keen-slider/react"
-import "keen-slider/keen-slider.min.css"
+import { useRouter } from "next/router"
 
 export default function DeleteImages(props) {
 
-    // state
+    const router = useRouter()
 
-    const [loading, setLoading] = useState(true)
     const [images, setImages] = useState(props.images ? props.images : null)
     const [url, setUrl] = useState(false)
     const { isLoading, serverError } = useDeleteData(url);
-
-    const [sliderRef] = useKeenSlider({
-        loop: true,
-        slides: {
-            perView: 2,
-          },
-      
-      })
 
     console.log(images)
 
@@ -32,19 +21,20 @@ export default function DeleteImages(props) {
                     <div style={{
                           backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + image.file})`,
                           width: '100%',
-                          minHeight: 300,
                           backgroundSize: 'cover',
                           backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'center',
                           borderRadius: '0.5rem',
                           padding: '1rem'
                         }}
-                        className='end'
+                        className='end h-300x600'
                         >
                         {/* <img src={process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + image.file} style={{height: '100%', maxHeight: 300}} /> */}
                         <button className="btn btn-primary" 
                         onClick={() => {
                             setUrl(`/api/sales/image/${image.id}`)
                             setImages(props.images)
+                            router.push('/agent/dashboard')
                             }
                         }
                         >Delete Image</button>

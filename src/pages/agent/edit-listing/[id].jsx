@@ -157,9 +157,9 @@ function EditListing() {
                     redirectUrl="/agent/dashboard"
                     apiEndpoint={`/api/sales/${id}/image`}
                   />
-                    {apiData?.data[0].images.length !== 0 ? 
+                    {apiData?.data[0]?.images.length !== 0 ? 
                       <DeleteImages 
-                        images={apiData.data[0].images}
+                        images={apiData.data[0]?.images}
                       />
                     : 
                       <></>
