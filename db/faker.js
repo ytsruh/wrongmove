@@ -83,7 +83,7 @@ const createFakeRentals = async (totalListings) => {
 */
 
 if (totalListings > 0 && totalListings <= 10) {
-  //createFakeSales(totalListings);
+  createFakeSales(totalListings);
   createFakeRentals(totalListings);
 } else if (totalListings > 10) {
   console.error("Error: Cannot create more than 10 at one time");
