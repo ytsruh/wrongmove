@@ -17,6 +17,7 @@ model Agent {
   telephoneNumber String?
   website         String?
   salesListings   SalesListing[]
+  rentalListings  RentalListing[]
 }
 
 model SalesListing {
@@ -38,8 +39,33 @@ model SalesListing {
 model SalesImage {
   id              String            @id @default(cuid())  
   file            String
-  salesListing    SalesListing      @relation(fields: [salesListingId], references: [id])
+  salesListing    SalesListing      @relation(fields: [salesListingId], references: [id], onDelete: Cascade)
   salesListingId  String            // relation scalar field  (used in the `@relation` attribute above)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+}
+
+model RentalListing {
+  id              String            @id @default(cuid())  
+  agent           Agent             @relation(fields: [agentId], references: [id])
+  agentId         String            // relation scalar field  (used in the `@relation` attribute above) 
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  address         String
+  price           Int
+  propertyType    String
+  bedrooms        Int
+  bathrooms       Int
+  keyFeatures     String?
+  description     String?
+  images          RentalImage[]
+}
+
+model RentalImage {
+  id              String            @id @default(cuid())  
+  file            String
+  rentalListing   RentalListing     @relation(fields: [rentalListingId], references: [id], onDelete: Cascade)
+  rentalListingId String            // relation scalar field  (used in the `@relation` attribute above)
   createdAt       DateTime          @default(now())
   updatedAt       DateTime          @updatedAt
 }

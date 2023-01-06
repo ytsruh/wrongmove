@@ -1,18 +1,18 @@
 import express from "express";
 import * as utils from "../lib/utils";
-import { zod, SalesListingSchema } from "../lib/schema";
+import { zod, RentalsListingSchema } from "../lib/schema";
 import { createStorage } from "../lib/storage";
 
 const router = express.Router();
 const prisma = utils.prisma;
-const upload = createStorage("sales");
+const upload = createStorage("rentals");
 
-// Get multiple sales
+// Get all rentals
 router.get("/", async (req, res) => {
   try {
     const { body } = req;
     const token = await utils.decode(req.headers.token);
-    const data = await prisma.salesListing.findMany({
+    const data = await prisma.rentalListing.findMany({
       where: { agentId: token.data.id },
       include: { images: true },
     });
@@ -25,12 +25,12 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get single sale
+// Get single rental
 router.get("/:id", async (req, res) => {
   try {
     const { body, params } = req;
     const token = await utils.decode(req.headers.token);
-    const data = await prisma.salesListing.findMany({
+    const data = await prisma.rentalListing.findMany({
       where: { id: params.id, agentId: token.data.id },
       include: { images: true },
     });
@@ -43,30 +43,30 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Create a new sales listing
+// Create a new rental listing
 router.post("/", upload.single("img"), async (req, res) => {
   try {
     const { body } = req;
-    //Parse int incase data is sent in form format instead of json
+    //Parse int in case data is sent in form format instead of json
     body.price = parseInt(body.price);
     body.bedrooms = parseInt(body.bedrooms);
     body.bathrooms = parseInt(body.bathrooms);
     const token = await utils.decode(req.headers.token);
-    const listing = await SalesListingSchema.parse(body);
-    // Save the new agent to database
-    const data = await prisma.salesListing.create({ data: { ...listing, agentId: token.data.id } });
+    const listing = await RentalsListingSchema.parse(body);
+    // Save the new rentallisting to database
+    const data = await prisma.rentalListing.create({ data: { ...listing, agentId: token.data.id } });
     // Check if file is available & create DB entry for image
     if (req.file) {
-      // Create SalesImage DB entry with saleslisting ID
-      const image = await prisma.salesImage.create({
+      // Create RentalImage DB entry with rentallisting ID
+      const image = await prisma.rentalImage.create({
         data: {
           file: req.file.key,
-          salesListingId: data.id,
+          rentalListingId: data.id,
         },
       });
     }
     // Send response back
-    res.status(200).json({ success: "Sales Listing Created", data });
+    res.status(200).json({ success: "Rental Listing Created", data });
   } catch (error) {
     if (error instanceof zod.ZodError) {
       res.status(500).json({ error: `${error.issues[0].message} on ${error.issues[0].path[0]} field` });
@@ -81,17 +81,17 @@ router.post("/", upload.single("img"), async (req, res) => {
   }
 });
 
-// Add image to a sales listing
+// Add image to a rental listing
 router.post("/:id/image", upload.single("img"), async (req, res) => {
   try {
     const { body, params } = req;
     // Check if file is available & create DB entry for image
     if (req.file) {
-      // Create SalesImage DB entry with saleslisting ID
-      const image = await prisma.salesImage.create({
+      // Create RentalImage DB entry with rentallisting ID
+      const image = await prisma.rentalImage.create({
         data: {
-          file: req.file.blob,
-          salesListingId: params.id,
+          file: req.file.key,
+          rentalListingId: params.id,
         },
       });
       // Send response back
@@ -106,11 +106,11 @@ router.post("/:id/image", upload.single("img"), async (req, res) => {
   }
 });
 
-// Delete a sales image
+// Delete a rental image
 router.delete("/image/:id", async (req, res) => {
   try {
     const { body, params } = req;
-    const data = await prisma.salesImage.deleteMany({ where: { id: params.id } });
+    const data = await prisma.rentalImage.deleteMany({ where: { id: params.id } });
     // Send response back
     res.status(200).json({ data });
   } catch (error) {
@@ -120,13 +120,13 @@ router.delete("/image/:id", async (req, res) => {
   }
 });
 
-// Update a sales listing
+// Update a rental listing
 router.put("/:id", async (req, res) => {
   try {
     const { body, params } = req;
-    const listing = await SalesListingSchema.parse(body);
+    const listing = await RentalsListingSchema.parse(body);
     const token = await utils.decode(req.headers.token);
-    const data = await prisma.salesListing.updateMany({
+    const data = await prisma.rentalListing.updateMany({
       where: { id: params.id, agentId: token.data.id },
       data: listing,
     });
@@ -143,12 +143,12 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete a sales listing
+// Delete a rental listing
 router.delete("/:id", async (req, res) => {
   try {
     const { body, params } = req;
     const token = await utils.decode(req.headers.token);
-    const data = await prisma.salesListing.deleteMany({ where: { id: params.id, agentId: token.data.id } });
+    const data = await prisma.rentalListing.deleteMany({ where: { id: params.id, agentId: token.data.id } });
     // Send response back
     res.status(200).json({ data });
   } catch (error) {
