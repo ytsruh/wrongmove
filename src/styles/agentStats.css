@@ -1,0 +1,64 @@
+/*
+  For Dashboard
+*/
+
+.stats-summary {
+  max-width: 100%;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-card {
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stats-card h3 {
+  color: #00deb6;
+  font-size: 3rem;
+}
+
+.stats-card h5 {
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+/*
+  For Statistics page
+*/
+
+.chart-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-flow: row wrap;
+}
+
+.chart-card {
+  background-color: white;
+  height: 300px;
+  width: 48%;
+  border-radius: 15px;
+  padding: 25px 20px 70px 20px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .chart-card {
+    width: 100%;
+    margin: 10px;
+  }
+}
+
+.chart-title {
+  margin-bottom: 15px;
+}
