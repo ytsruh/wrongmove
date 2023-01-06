@@ -72,6 +72,15 @@ a, li, ul {
     flex-direction: column;
 }
 
+.end {
+    display: flex;
+    align-items: flex-end;
+}
+
+.gap-05 {
+    gap: 0.5rem;
+}
+
 .gap-1 {
     gap: 1rem;
 }
@@ -91,6 +100,10 @@ a, li, ul {
 .mx-1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.mx-15p {
+    margin: 15px 0;
 }
 
 .my-0_5 {margin: 0.5rem 0;}
@@ -113,6 +126,10 @@ a, li, ul {
 
 .h-100 {
     height: 100%;
+}
+
+.h-300x600 {
+    min-height: 300px;
 }
 
 .effraBold {
@@ -150,6 +167,9 @@ a, li, ul {
     .two-column-grid, .three-column-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+    .h-300x600 {
+        min-height: 500px;
     }
 }
 

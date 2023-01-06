@@ -90,7 +90,7 @@ router.post("/:id/image", upload.single("img"), async (req, res) => {
       // Create SalesImage DB entry with saleslisting ID
       const image = await prisma.salesImage.create({
         data: {
-          file: req.file.blob,
+          file: req.file.key,
           salesListingId: params.id,
         },
       });
