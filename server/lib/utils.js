@@ -80,4 +80,19 @@ module.exports = {
     }
     return filtered;
   },
+  getRentalsChartData: async (data) => {
+    const filtered = {
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      "5+": 0,
+    };
+    for (let i = 0; i < data.length; i++) {
+      const bedrooms = data[i].bedrooms.toString();
+      filtered[bedrooms]++;
+    }
+    return filtered;
+  },
 };

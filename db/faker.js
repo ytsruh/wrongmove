@@ -50,12 +50,41 @@ const createFakeSales = async (totalListings) => {
   }
 };
 
+const createFakeRentals = async (totalListings) => {
+  try {
+    //Create fake listings
+    const fakeListings = [];
+    for (let i = 0; i < totalListings; i++) {
+      const listing = {
+        agentId: agentId,
+        address: `${faker.address.buildingNumber()} ${faker.address.street()}, ${faker.address.city()}, ${faker.address.state()}, ${genUKPostcode()}`,
+        propertyType: genPropertyType(),
+        price: parseInt(faker.commerce.price(500, 2000, 0)),
+        bedrooms: parseInt(faker.datatype.number(4, 1)),
+        bathrooms: parseInt(faker.datatype.number(4, 1)),
+        keyFeatures: faker.lorem.sentence(),
+        description: faker.lorem.paragraphs(),
+      };
+      fakeListings.push(listing);
+    }
+    //Add to database
+    const createdRentals = await prisma.rentalListing.createMany({
+      data: fakeListings,
+    });
+    console.log(createdRentals);
+    console.log("Success");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 /*
-  Run Scropt
+  Run Script
 */
 
 if (totalListings > 0 && totalListings <= 10) {
-  createFakeSales(totalListings);
+  //createFakeSales(totalListings);
+  createFakeRentals(totalListings);
 } else if (totalListings > 10) {
   console.error("Error: Cannot create more than 10 at one time");
 } else {

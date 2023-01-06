@@ -17,14 +17,25 @@ export const AgentSchema = z
 export const SalesListingSchema = z
   .object({
     address: z.string().nullish(),
-    active: z.boolean().nullish(),
     price: z.number().nullish(),
     propertyType: z.string().nullish(),
     bedrooms: z.number().nullish(),
     bathrooms: z.number().nullish(),
     keyFeatures: z.string().optional().nullish(),
     description: z.string().optional().nullish(),
-    mapCoordinates: z.string().optional().nullish(),
+    images: z.string().array().optional().nullish(),
+  })
+  .passthrough();
+
+export const RentalsListingSchema = z
+  .object({
+    address: z.string().nullish(),
+    price: z.number().nullish(),
+    propertyType: z.string().nullish(),
+    bedrooms: z.number().nullish(),
+    bathrooms: z.number().nullish(),
+    keyFeatures: z.string().optional().nullish(),
+    description: z.string().optional().nullish(),
     images: z.string().array().optional().nullish(),
   })
   .passthrough();

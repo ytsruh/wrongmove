@@ -62,6 +62,64 @@ router.get("/sales/:id", async (req, res) => {
   }
 });
 
+// Get multiple rental listings
+router.get("/rentals", async (req, res) => {
+  try {
+    const data = await prisma.rentalListing.findMany({
+      include: {
+        images: true,
+        agent: {
+          select: {
+            id: true,
+            name: true,
+            image: true,
+            email: true,
+            website: true,
+            description: true,
+            telephoneNumber: true,
+          },
+        },
+      },
+    });
+    // Send response back
+    res.status(200).json({ data });
+  } catch (error) {
+    // For errors, log to console and send a 500 response back
+    console.log(error);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+});
+
+// Get single rental listing
+router.get("/rentals/:id", async (req, res) => {
+  try {
+    const { params } = req;
+    const data = await prisma.rentalListing.findUnique({
+      where: { id: params.id },
+      include: {
+        images: true,
+        agent: {
+          select: {
+            id: true,
+            name: true,
+            image: true,
+            email: true,
+            website: true,
+            description: true,
+            telephoneNumber: true,
+          },
+        },
+      },
+    });
+    // Send response back
+    res.status(200).json({ data });
+  } catch (error) {
+    // For errors, log to console and send a 500 response back
+    console.log(error);
+    res.status(500).json({ error: "Something went wrong" });
+  }
+});
+
 // Get all agents
 router.get("/agents", async (req, res) => {
   try {
