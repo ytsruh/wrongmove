@@ -1,0 +1,53 @@
+.sales-all-image {
+    display: flex;
+    align-items: flex-end;
+}
+
+.sales-all-price {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0.5rem 0.5rem 0;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.sales-all-listing-data {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sales-all-listing-data > * {
+    margin: 0.5rem;
+}
+
+.sales-all-listing-data > div > h3 {
+    margin-bottom: 1rem;
+}
+
+.sales-all-bathbedtype {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.sales-all-bathbedtype > * {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.sales-all-agent {
+    display: flex;
+    gap: 1rem;
+}
+
+.sales-all-agent-contact {
+    
+}
+
+.sales-all-agent-contact > * {
+    margin: 0.2rem 0;
+}
