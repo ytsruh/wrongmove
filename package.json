@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "studio": "prisma studio",
-    "faker": "node db/faker"
+    "faker": "node db/faker",
+    "postinstall": "npx prisma generate"
   },
   "prisma": {
     "schema": "db/schema.prisma",
