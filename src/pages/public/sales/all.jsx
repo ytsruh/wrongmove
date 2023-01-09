@@ -29,6 +29,7 @@ export default function AllSales () {
                             keyFeatures={listing.keyFeatures}
                             createdAt={listing.createdAt}
                             agent={listing.agentId}
+                            propertyID={listing.id}
                         />
                 ))}
             </div>
@@ -44,24 +45,15 @@ function ListingCard (props) {
 
     return (
         <div className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
-            <div className='two-column-grid four-six' style={{gap: 0}}>
-                <div>
+            <div className='listing-card two-column-grid four-six' style={{gap: 0}}>
                     <div
                         className='sales-all-image'
                         style={{
                             backgroundImage: `url(${props.thumbnail})`, 
-                            height: 350, 
-                            width: '100%',
-                            borderRadius: '0.5rem 0 0 0.5rem',
-                            backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center',
-                            padding: '1rem',
-                            paddingLeft: 0
+
                         }}>
                         <p className='sales-all-price'>{formatPrice(thousandsFormatting(props.price))}</p>
                     </div>
-                </div>
                 <div className='sales-all-listing-data'>
                     <div>
                         <h3>{capitaliseEachWord(props.address)}</h3>
@@ -81,7 +73,12 @@ function ListingCard (props) {
                     <div>
                         <h4 style={{paddingBottom: '0.5rem'}}>Added on {formatCreatedAt(props.createdAt)} by {apiData?.agent.name}</h4>
                         <div className='sales-all-agent'>
-                            <img style={{width: 100}} src={process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image} alt="agent image" />
+                            {apiData?.agent.image 
+                                ? 
+                                <img style={{width: 100}} src={process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image} alt="agent image" />
+                                :
+                                <></>
+                            }
                             <div className='sales-all-agent-contact'>
                                 <p>{apiData?.agent.telephoneNumber}</p>
                                 <p>{apiData?.agent.description ? apiData?.agent.description : ''}</p>
