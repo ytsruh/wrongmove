@@ -1,13 +1,13 @@
-import useFetchData from '../../../hooks/useFetchData'
-import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../../utils';
+import useFetchPublicData from '../../hooks/useFetchPublicData'
+import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../utils';
 import { useRouter } from 'next/router';
 
-import bath from '../../../assets/icons/listings/bath.png'
-import bed from '../../../assets/icons/listings/bed.png'
+import bath from '../../assets/icons/listings/bath.png'
+import bed from '../../assets/icons/listings/bed.png'
 
 export default function AllSales () {
     
-    const { isLoading, serverError, apiData } = useFetchData("/api/sales");
+    const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/sales");
 
     if(isLoading) return <h1>Loading...</h1>
     if(serverError) return <h1>Server Error</h1>
@@ -43,13 +43,13 @@ export default function AllSales () {
 
 function ListingCard (props) {
 
-    const { serverError, apiData } = useFetchData(`/api/public/agents/${props.agent}`);
+    const { serverError, apiData } = useFetchPublicData(`/api/public/agents/${props.agent}`);
     const router = useRouter()
 
     if(serverError) return <h1>Server Error</h1>
 
     return (
-        <div onClick={() => router.push(`/public/sales/${props.listingID}`)} className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
+        <div onClick={() => router.push(`/sales/${props.listingID}`)} className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
             <div className='listing-card two-column-grid four-six' style={{gap: 0}}>
                     <div
                         className='sales-all-image'
