@@ -65,6 +65,10 @@ a, li, ul {
     gap: 3rem;
 }
 
+.four-six {
+    grid-template-columns: 0.4fr 0.6fr;
+}
+
 .center {
     display: flex;
     align-items: center;
@@ -93,20 +97,23 @@ a, li, ul {
     gap: 3rem;
 }
 
-.mt-1 {
-    margin-top: 1rem;
-}
+.mt-1 {margin-top: 1rem;}
+.mt-2 {margin-top: 2rem;}
 
 .mx-1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
+.mx-05 {margin-top: 0.5rem; margin-bottom: 0.5rem;}
+
 .mx-15p {
     margin: 15px 0;
 }
 
 .my-0_5 {margin: 0.5rem 0;}
+
+.m-3 {margin: 3rem;}
 
 .text-center {
     text-align: center;
@@ -146,9 +153,12 @@ a, li, ul {
 
 /* padding  */
 
-.py-3 {
-    padding: 3rem 0;
-}
+.p-1 {padding: 1rem;}
+.px-1 {padding-left: 1rem; padding-right: 1rem;}
+.py-3 {padding: 3rem 0;}
+.p-3 {padding: 3rem;}
+
+.br-05 {border-radius: 0.5rem;}
 
 /* inline-link */
 

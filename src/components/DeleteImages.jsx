@@ -29,7 +29,6 @@ export default function DeleteImages(props) {
                         }}
                         className='end h-300x600'
                         >
-                        {/* <img src={process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + image.file} style={{height: '100%', maxHeight: 300}} /> */}
                         <button className="btn btn-primary" 
                         onClick={() => {
                             setUrl(`/api/sales/image/${image.id}`)
