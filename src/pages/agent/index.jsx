@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import DashboardCard from "../../../components/cards/DashboardCard";
-import sale from "../../../assets/sale.jpeg";
-import rent from "../../../assets/rent.webp";
-import newListing from "../../../assets/newListing.png";
-import charts from "../../../assets/charts.png";
-import office from "../../../assets/estate-office.jpg";
-import logout from "../../../assets/agent-logout.jpg";
-import Protected from "../../../components/Protected";
-import useFetchData from "../../../hooks/useFetchData";
-import AgentStats from "../../../components/AgentStats";
+import DashboardCard from "../../components/cards/DashboardCard";
+import sale from "../../assets/sale.jpeg";
+import rent from "../../assets/rent.webp";
+import newListing from "../../assets/newListing.png";
+import charts from "../../assets/charts.png";
+import office from "../../assets/estate-office.jpg";
+import logout from "../../assets/agent-logout.jpg";
+import Protected from "../../components/Protected";
+import useFetchData from "../../hooks/useFetchData";
+import AgentStats from "../../components/AgentStats";
 
 function Dashboard() {
   const { isLoading, serverError, apiData } = useFetchData("/api/stats/dashboard");
@@ -34,7 +34,7 @@ function Dashboard() {
             title="Rental Listings."
             text="Click to view your rental listings."
             image={rent.src}
-            to="/agent/active/rent"
+            to="/agent/rentals"
           />
         </div>
         <div className="one-column-grid w-100">

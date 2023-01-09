@@ -2,8 +2,8 @@ import React from "react";
 import { formatPrice } from "../utils";
 
 function AgentStats(props) {
-  console.log(props.data);
   const { sales, rentals } = props.data;
+
   return (
     <div className="stats-summary">
       <div className="stats-card">

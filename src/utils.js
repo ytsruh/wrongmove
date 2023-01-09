@@ -1,9 +1,9 @@
 export const formatPrice = (price) => {
   const first = price.toString().charAt(0);
   if (first === "£") {
-    return price.toString();
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-  return "£" + price.toString();
+  return "£" + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 };
 
 export const parsePropertyType = (text) => {
@@ -12,24 +12,23 @@ export const parsePropertyType = (text) => {
   return first + remainder;
 };
 
-
 export const thousandsFormatting = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+};
 
 export const truncate = (text, length) => {
   if (text.length > length) {
-     return text.substring(0, length) + '...';
+    return text.substring(0, length) + "...";
   }
   return text;
 };
 
 export const formatCreatedAt = (date) => {
-  const slice = date.slice(0, 10)
-  let r = slice.replaceAll('-', '/')
-  let [yyyy, mm, dd] = r.split('/')
-  return `${dd}/${mm}/${yyyy}`
-}
+  const slice = date.slice(0, 10);
+  let r = slice.replaceAll("-", "/");
+  let [yyyy, mm, dd] = r.split("/");
+  return `${dd}/${mm}/${yyyy}`;
+};
 
 export const capitaliseEachWord = (string) => {
   const words = string.split(" ");
@@ -38,4 +37,4 @@ export const capitaliseEachWord = (string) => {
     words[i] = words[i][0].toUpperCase() + words[i].substr(1);
   }
   return words.join(" ");
-}
+};
