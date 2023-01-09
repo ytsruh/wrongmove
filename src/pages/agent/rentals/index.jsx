@@ -1,0 +1,91 @@
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { formatPrice, parsePropertyType } from "../../../utils";
+
+import Protected from "../../../components/Protected";
+import InlineLink from "../../../components/InlineLink";
+import AgentNav from "../../../components/AgentNav";
+import useFetchData from "../../../hooks/useFetchData";
+import useDeleteData from "../../../hooks/useDeleteData";
+
+export default function RentalListings() {
+  const { isLoading, serverError, apiData } = useFetchData("/api/rentals");
+
+  if (isLoading) return <h1>Loading...</h1>;
+  if (serverError) return <h1>Error</h1>;
+
+  const rows = apiData?.data.map((item, i) => {
+    return <Row key={i} data={item} />;
+  });
+
+  return (
+    <Protected>
+      <div className="dashboard-container center w-100">
+        <h1>Rental Listings</h1>
+        <AgentNav />
+        <div className="agent-summary">
+          <div className="one-column-grid w-100">
+            <table>
+              <thead>
+                <tr>
+                  <th>Address</th>
+                  <th>Price</th>
+                  <th>Type</th>
+                  <th>Bedrooms</th>
+                  <th>Bathrooms</th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>{rows}</tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </Protected>
+  );
+}
+
+const Row = (props) => {
+  const { data } = props;
+  const [url, setUrl] = useState(false);
+  const { isLoading, serverError, apiData } = useDeleteData(url);
+  const router = useRouter();
+
+  if (apiData) {
+    router.push("/agent/");
+  }
+
+  if (isLoading)
+    return (
+      <tr>
+        <td>Loading...</td>
+      </tr>
+    );
+  if (serverError)
+    return (
+      <tr>
+        <td>Error...</td>
+      </tr>
+    );
+
+  return (
+    <tr className="text-center">
+      <td>{data.address}</td>
+      <td>{formatPrice(data.price)}</td>
+      <td>{parsePropertyType(data.propertyType)}</td>
+      <td>{parseInt(data.bedrooms)}</td>
+      <td>{parseInt(data.bathrooms)}</td>
+      <td>
+        <a href={`/agent/rentals/${data.id}`}>
+          <button className="btn-primary">Edit</button>
+        </a>
+      </td>
+      <td>
+        <button onClick={() => setUrl(`/api/rentals/${data.id}`)} className="btn-secondary">
+          Delete
+        </button>
+      </td>
+    </tr>
+  );
+};

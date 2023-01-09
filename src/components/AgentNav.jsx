@@ -8,32 +8,40 @@ function AgentNav() {
   return (
     <div className="w-100">
       <ul className="agent-nav">
-        <li className={`my-0_5 ${router.pathname === "/agent/dashboard" ? "agent-nav-selected" : "agent-nav-item"}`}>
-          <Link href="/agent/dashboard" passHref>
-            <a>
-              Dashboard
-            </a>
+        <li
+          className={`my-0_5 ${
+            router.pathname === "/agent/dashboard" ? "agent-nav-selected" : "agent-nav-item"
+          }`}
+        >
+          <Link href="/agent" passHref>
+            <a>Dashboard</a>
           </Link>
         </li>
-        <li className={`my-0_5 ${router.pathname === "/agent/create-listing" ? "agent-nav-selected" : "agent-nav-item"}`}>
+        <li
+          className={`my-0_5 ${
+            router.pathname === "/agent/create-listing" ? "agent-nav-selected" : "agent-nav-item"
+          }`}
+        >
           <Link href="/agent/create-listing" passHref>
-            <a>
-              Create Listing
-            </a>
+            <a>Create Listing</a>
           </Link>
         </li>
-        <li className={`my-0_5 ${router.pathname === "/agent/profile" ? "agent-nav-selected" : "agent-nav-item"}`}>
+        <li
+          className={`my-0_5 ${
+            router.pathname === "/agent/profile" ? "agent-nav-selected" : "agent-nav-item"
+          }`}
+        >
           <Link href="/agent/profile" passHref>
-            <a>
-              Profile
-            </a>
+            <a>Profile</a>
           </Link>
         </li>
-        <li className={`my-0_5 ${router.pathname === "/agent/statistics" ? "agent-nav-selected" : "agent-nav-item"}`}>
+        <li
+          className={`my-0_5 ${
+            router.pathname === "/agent/statistics" ? "agent-nav-selected" : "agent-nav-item"
+          }`}
+        >
           <Link href="/agent/statistics" passHref>
-            <a>
-              Statistics
-            </a>
+            <a>Statistics</a>
           </Link>
         </li>
         <li className="my-0_5 agent-nav-item">

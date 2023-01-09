@@ -14,40 +14,52 @@ function CreateListing({ form }) {
   const router = useRouter();
   const [errMsg, setErrMsg] = useState(false);
   const [propertyType, setPropertyType] = useState(null);
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchUser = () => {
-      setUser(JSON.parse(sessionStorage.getItem("user")));
-      setLoading(false);
-    };
-    fetchUser();
-  }, [loading]);
-
-  const onSubmitHandler = async (form, callback) => {
+  const submitSale = async (form, callback) => {
     callback();
-
     try {
-      fetch("/api/sales", {
+      const user = await JSON.parse(sessionStorage.getItem("user"));
+      const res = await fetch("/api/sales", {
         method: "POST",
         body: JSON.stringify(form),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
           token: `${user.token}`,
         },
-      })
-        .then((response) => response.json())
-        .then((json) => console.log(json))
-        .catch((err) => console.log(err));
-      // router.push('/')
+      });
+      if (!res.ok) {
+        setErrMsg("Something went wrong");
+      }
+      const data = await res.json();
+      router.push("/agent/");
     } catch (error) {
       console.log(error);
       setErrMsg(error);
     }
   };
 
-  if (loading) return <h1>Loading...</h1>;
+  const submitRental = async (form, callback) => {
+    callback();
+    try {
+      const user = await JSON.parse(sessionStorage.getItem("user"));
+      const res = await fetch("/api/rentals", {
+        method: "POST",
+        body: JSON.stringify(form),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          token: `${user.token}`,
+        },
+      });
+      if (!res.ok) {
+        setErrMsg("Something went wrong");
+      }
+      const data = await res.json();
+      router.push("/agent/");
+    } catch (error) {
+      console.log(error);
+      setErrMsg(error);
+    }
+  };
 
   return (
     <Protected>
@@ -85,7 +97,7 @@ function CreateListing({ form }) {
                     title="Submit a Property for Sale"
                     submitBtn="List Property"
                     redirect={null}
-                    onSubmit={onSubmitHandler}
+                    onSubmit={submitSale}
                   />
                 </div>
               );
@@ -94,10 +106,11 @@ function CreateListing({ form }) {
               return (
                 <div className="rental-form">
                   <Form
-                    // formArr={rentalFormArr}
-                    title="Rental Option Coming Soon"
-                    formArr={[]}
-                    submitBtn="Coming soon"
+                    formArr={rentalFormArr}
+                    title="Submit a Property for Rental"
+                    submitBtn="List Property"
+                    redirect={null}
+                    onSubmit={submitRental}
                   />
                 </div>
               );

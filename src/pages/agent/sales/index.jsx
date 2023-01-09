@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { formatPrice, parsePropertyType } from "../../utils";
+import { formatPrice, parsePropertyType } from "../../../utils";
 
-import Protected from "../../components/Protected";
-import InlineLink from "../../components/InlineLink";
-import AgentNav from "../../components/AgentNav";
-import useFetchData from "../../hooks/useFetchData";
-import useDeleteData from "../../hooks/useDeleteData";
+import Protected from "../../../components/Protected";
+import InlineLink from "../../../components/InlineLink";
+import AgentNav from "../../../components/AgentNav";
+import useFetchData from "../../../hooks/useFetchData";
+import useDeleteData from "../../../hooks/useDeleteData";
 
 export default function SalesListings() {
   const { isLoading, serverError, apiData } = useFetchData("/api/sales");
@@ -53,7 +53,7 @@ const Row = (props) => {
   const router = useRouter();
 
   if (apiData) {
-    router.push("/agent/dashboard");
+    router.push("/agent/");
   }
 
   if (isLoading)
@@ -65,7 +65,7 @@ const Row = (props) => {
   if (serverError)
     return (
       <tr>
-        <td>Loading...</td>
+        <td>Error...</td>
       </tr>
     );
 
@@ -77,7 +77,7 @@ const Row = (props) => {
       <td>{parseInt(data.bedrooms)}</td>
       <td>{parseInt(data.bathrooms)}</td>
       <td>
-        <a href={`/agent/edit-listing/${data.id}`}>
+        <a href={`/agent/sales/${data.id}`}>
           <button className="btn-primary">Edit</button>
         </a>
       </td>
