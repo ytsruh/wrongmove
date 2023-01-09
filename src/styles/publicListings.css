@@ -3,11 +3,16 @@
     border-radius: 0.5rem;
 }
 
+.listing-card:hover {
+    cursor: pointer;
+}
+
 .sales-all-image {
     display: flex;
     align-items: flex-end;
     border-radius: 0.5rem 0 0 0.5rem;
-    height: 350px;
+    min-height: 350px;
+    height: 100%;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -71,6 +76,6 @@
         border-radius: 0.5rem 0.5rem 0 0;
     }
     .sales-all-listing-data > div > h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 }

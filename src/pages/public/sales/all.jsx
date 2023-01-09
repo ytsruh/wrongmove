@@ -1,5 +1,6 @@
 import useFetchData from '../../../hooks/useFetchData'
 import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../../utils';
+import { useRouter } from 'next/router';
 
 import bath from '../../../assets/icons/listings/bath.png'
 import bed from '../../../assets/icons/listings/bed.png'
@@ -12,12 +13,15 @@ export default function AllSales () {
     if(serverError) return <h1>Server Error</h1>
 
     return (
-        <div className="w-100">
+        <div className="flex center w-100">
+            <h1 className='py-3'>All For Sale Listings</h1>
+            {/* add filters here once backend code is finished */}
+            
+
             <div className="w-100 flex center p-1 br-05" style={{backgroundColor: '#e9e9eb'}}>
                 {apiData?.data.map((listing, index) => (
                         <ListingCard
                             data='eggggggg'
-                            className='etttttt'
                             thumbnail={listing.images[0]?.file ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + listing.images[0]?.file : 'https://via.placeholder.com/600x200.png?text=Placeholder+Image'}
                             key={index}
                             price={listing.price}
@@ -29,7 +33,7 @@ export default function AllSales () {
                             keyFeatures={listing.keyFeatures}
                             createdAt={listing.createdAt}
                             agent={listing.agentId}
-                            propertyID={listing.id}
+                            listingID={listing.id}
                         />
                 ))}
             </div>
@@ -40,11 +44,12 @@ export default function AllSales () {
 function ListingCard (props) {
 
     const { serverError, apiData } = useFetchData(`/api/public/agents/${props.agent}`);
+    const router = useRouter()
 
     if(serverError) return <h1>Server Error</h1>
 
     return (
-        <div className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
+        <div onClick={() => router.push(`/public/sales/${props.listingID}`)} className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
             <div className='listing-card two-column-grid four-six' style={{gap: 0}}>
                     <div
                         className='sales-all-image'
