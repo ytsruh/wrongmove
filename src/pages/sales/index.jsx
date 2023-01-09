@@ -9,6 +9,8 @@ export default function AllSales () {
     
     const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/sales");
 
+    console.log(apiData)
+
     if(isLoading) return <h1>Loading...</h1>
     if(serverError) return <h1>Server Error</h1>
 
