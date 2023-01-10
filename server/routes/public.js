@@ -4,10 +4,46 @@ import * as utils from "../lib/utils";
 const router = express.Router();
 const prisma = utils.prisma;
 
+const queryBuilder = async (queries) => {
+  const query = {
+    AND: [
+      {
+        price: {
+          gte: queries.minprice ? parseInt(queries.minprice) : 0,
+          lte: queries.maxprice ? parseInt(queries.maxprice) : 500000000,
+        },
+      },
+    ],
+  };
+  // If bedrooms is included
+  if (queries.bedrooms) {
+    query.AND.push({
+      bedrooms: {
+        gte: parseInt(queries.bedrooms),
+      },
+    });
+  }
+
+  // If propertyType is included
+  if (queries.propertytype) {
+    query.AND.push({
+      propertyType: {
+        contains: queries.propertytype,
+        mode: "insensitive", // Ignores case sensitivity
+      },
+    });
+  }
+
+  // Return the query
+  return query;
+};
+
 // Get multiple sales listings
 router.get("/sales", async (req, res) => {
+  const query = await queryBuilder(req.query);
   try {
     const data = await prisma.salesListing.findMany({
+      where: query,
       include: {
         images: true,
         agent: {
@@ -64,8 +100,10 @@ router.get("/sales/:id", async (req, res) => {
 
 // Get multiple rental listings
 router.get("/rentals", async (req, res) => {
+  const query = await queryBuilder(req.query);
   try {
     const data = await prisma.rentalListing.findMany({
+      where: query,
       include: {
         images: true,
         agent: {
