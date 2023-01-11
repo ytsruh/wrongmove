@@ -2,6 +2,8 @@ import useFetchPublicData from '../../hooks/useFetchPublicData'
 import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../utils';
 import { useRouter } from 'next/router';
 
+import ListingImages from '../../components/listings/ListingImages.jsx';
+
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
 

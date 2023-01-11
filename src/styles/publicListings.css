@@ -63,12 +63,26 @@
     gap: 1rem;
 }
 
-.sales-all-agent-contact {
-    
+.listing-left > * {
+    margin: 0.5rem 0;
 }
 
 .sales-all-agent-contact > * {
     margin: 0.2rem 0;
+}
+
+.listing-images-grid {
+    grid-template-rows: 1fr 1fr;
+}
+
+/* listingImages Component */
+
+.listing-images > * {
+    max-width: 100%;
+    height: 100px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 55rem) {
