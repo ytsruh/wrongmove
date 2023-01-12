@@ -211,6 +211,9 @@ a, li, ul {
     .h-300x600 {
         min-height: 500px;
     }
+    .mob-w-75 {
+        width: 75%
+    }
 }
 
 @media screen and (max-width: 40rem) {

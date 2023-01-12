@@ -76,7 +76,7 @@ export default function SalesListing() {
                             <p className="effraBold" style={{fontSize: '1.5rem',}}>£{thousandsFormatting(apiData?.data?.price)}</p>
                         </div>
                         <hr style={{margin: '2rem 0'}}/>
-                        <div className="three-column-grid gap-1">
+                        <div className="three-column-grid gap-1 mob-w-75">
                             <div className="property-type" style={{gap: '0.5rem', display: 'flex', flexDirection: 'column'}}>
                                 <h4 className="effraReg" style={{fontSize: '1.2rem'}}>Property Type</h4>
                                 <div className="auto-two-column-grid" style={{alignItems: 'center'}}>
