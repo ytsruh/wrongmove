@@ -6,6 +6,7 @@ import house from '../../assets/icons/listings/house.png'
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
 import ListingImages from "../../components/listings/ListingImages"
+import AgentAd from "../../components/cards/AgentAd"
 
 export default function SalesListing() {
 
@@ -20,7 +21,7 @@ export default function SalesListing() {
     if (apiData?.data) {
     return (
         <>
-            <div className="flex center w-100 gap-2">
+            <div className="center w-100 gap-2">
                 <div className="two-column-grid six-four w-100" style={{gap: '0.5rem'}}>
                     <div
                         style={{
@@ -66,7 +67,7 @@ export default function SalesListing() {
                     </div>
                 </div>
                 <div className="w-100 two-column-grid" style={{
-                    gap: '0.5rem',
+                    gap: '3rem',
                 }}>
                     <div className="listing-left">
                         <h1 style={{fontSize: '1.6rem'}}>{apiData?.data?.address}</h1>
@@ -75,7 +76,7 @@ export default function SalesListing() {
                             <p className="effraBold" style={{fontSize: '1.5rem',}}>£{thousandsFormatting(apiData?.data?.price)}</p>
                         </div>
                         <hr style={{margin: '2rem 0'}}/>
-                        <div className="three-column-grid">
+                        <div className="three-column-grid gap-1">
                             <div className="property-type" style={{gap: '0.5rem', display: 'flex', flexDirection: 'column'}}>
                                 <h4 className="effraReg" style={{fontSize: '1.2rem'}}>Property Type</h4>
                                 <div className="auto-two-column-grid" style={{alignItems: 'center'}}>
@@ -115,8 +116,10 @@ export default function SalesListing() {
 
                     </div>
 
-                    <div className="listing-right">
-                        .agent-
+                    <div className="listing-right w-100">
+                        <AgentAd 
+                            apiData={apiData}
+                        />
                     </div>
                 </div>
             </div>
@@ -128,20 +131,3 @@ export default function SalesListing() {
 
 
 // const { address, agent, bathrooms, bedrooms, createdAt, description, images, keyFeatures, price, propertyType } = apiData.data
-=======
-    // const { address, agent, bathrooms, bedrooms, createdAt, description, images, keyFeatures, price, propertyType } = apiData.data
-
-    if(isLoading) return <h1>Loading...</h1>
-    if(serverError) return <h1>Server Error</h1>
-
-    return (
-        <div className="flex center w-100">
-            <div className="listing-image-grid">
-                <div>{apiData?.data?.address}</div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    )
-}
->>>>>>> d1c5cd754a02cf7f9de71460fcfe073c6baad9bb

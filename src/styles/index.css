@@ -78,6 +78,12 @@ a, li, ul {
 .four-six {grid-template-columns: 0.4fr 0.6fr;}
 .six-four {grid-template-columns: 0.6fr 0.4fr;}
 
+/* flex */
+
+.flex {display: flex;}
+
+.flex-col {flex-direction: column;}
+
 .center {
     display: flex;
     align-items: center;
@@ -171,6 +177,14 @@ a, li, ul {
 .p-3 {padding: 3rem;}
 
 .br-05 {border-radius: 0.5rem;}
+
+/* image */
+
+.bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 /* inline-link */
 
