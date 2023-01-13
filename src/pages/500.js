@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import cat from "../assets/500.jpeg";
 
 export default function Custom500() {
@@ -7,8 +8,12 @@ export default function Custom500() {
       <h2 style={styles.heading}>
         <span style={styles.span}> 500</span> : Error
       </h2>
-      <h5 style={styles.text}>Something went wrong & we don't know why. Please don't try again.</h5>
-      <img src={cat.src} style={styles.img} />
+      <h5 style={styles.text}>Something went wrong & we don&apos;t know why. Please don&apos;t try again.</h5>
+      <Image
+        src={cat.src}
+        style={styles.img}
+        alt="Angry cat that is mad because app has crashed and it wasn't prevented."
+      />
     </div>
   );
 }

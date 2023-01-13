@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import cat from "../assets/404.jpeg";
 
 export default function Custom404() {
@@ -7,8 +8,12 @@ export default function Custom404() {
       <h2 style={styles.heading}>
         <span style={styles.span}> 404</span> : Not Found
       </h2>
-      <h5 style={styles.text}>We can't find the page you're looking for</h5>
-      <img src={cat.src} style={styles.img} />
+      <h5 style={styles.text}>We can&apos;t find the page you&apos;re looking for</h5>
+      <Image
+        src={cat.src}
+        style={styles.img}
+        alt="Angry cat that is mad because user can't seem to direct itself."
+      />
     </div>
   );
 }

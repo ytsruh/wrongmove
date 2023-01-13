@@ -7,7 +7,7 @@ export default function ComingSoon() {
         <span style={styles.span}> Feature</span> Coming Soon
       </h2>
       <h5 style={styles.text}>
-        We're still building Wrongmove so not everything is available yet. Please check back soon and
+        We&apos;re still building Wrongmove so not everything is available yet. Please check back soon and
         hopefully this feature will be ready.
       </h5>
     </div>
