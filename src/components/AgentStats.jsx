@@ -11,7 +11,7 @@ function AgentStats(props) {
         <h5>Total Sales</h5>
       </div>
       <div className="stats-card">
-        <h3>{formatPrice(sales.avgPrice)}</h3>
+        <h3>{sales.avgPrice ? formatPrice(sales.avgPrice) : "-"}</h3>
         <h5>Avg Sales Price</h5>
       </div>
       <div className="stats-card">
@@ -19,7 +19,7 @@ function AgentStats(props) {
         <h5>Total Rentals</h5>
       </div>
       <div className="stats-card">
-        <h3>{formatPrice(rentals.avgPrice)}</h3>
+        <h3>{rentals.avgPrice ? formatPrice(rentals.avgPrice) : "-"}</h3>
         <h5>Avg Rental Price</h5>
       </div>
     </div>
