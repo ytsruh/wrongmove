@@ -104,7 +104,9 @@ export default function SalesListing() {
                         <hr style={{margin: '2rem 0'}}/>
                         <ListingImages 
                             apiData={apiData}
-                            onClick={() => OpenModal()}
+                            onClick={() => {
+                                OpenModal()
+                            }}
                         />
                         <hr style={{margin: '2rem 0'}}/>
                         <div>

@@ -3,6 +3,7 @@ import { useState } from "react"
 export default function ListingImages (props) {
 
     const [apiData, setApiData] = useState(props.apiData)
+    const [imgId, setImgId] = useState()
 
     return (
 
