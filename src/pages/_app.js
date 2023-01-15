@@ -13,6 +13,7 @@ import "../styles/footer.css";
 import "../styles/mobile.css";
 import "../styles/images.css"
 import "../styles/publicListings.css"
+import "../styles/lightbox.css"
 
 import Layout from "../components/Layout";
 

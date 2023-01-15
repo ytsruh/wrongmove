@@ -1,0 +1,40 @@
+.lightbox-wrapper {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* background-color: red; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.lightbox {
+    position: relative;
+    z-index: 1000;
+    width: 90%;
+    height: 75%;
+    background-color: black;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+.lightbox > div {
+    width: 100%;
+    height: 100%
+}
+
+.lightbox-openclose {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+}
+
+#show {display: flex;}
+
+#hide {display: none;}

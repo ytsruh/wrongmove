@@ -1,20 +1,22 @@
 import { useRouter } from "next/router"
 import useFetchPublicData from "../../hooks/useFetchPublicData"
 import { thousandsFormatting } from "../../utils"
+import { useState, useEffect } from "react"
 
 import house from '../../assets/icons/listings/house.png'
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
 import ListingImages from "../../components/listings/ListingImages"
 import AgentAd from "../../components/cards/AgentAd"
+import Lightbox from '../../components/listings/Lightbox'
 
 export default function SalesListing() {
 
     const router = useRouter()
     const { id } = router.query
     const { isLoading, serverError, apiData } = useFetchPublicData(`/api/public/sales/${id}`)
+    const [lightboxOpen, setLightboxOpen] = useState(false)
     
-    console.log(apiData);
     if(isLoading) return <h1>Loading...</h1>
     if(serverError) return <h1>Server Error</h1>
 
@@ -102,6 +104,7 @@ export default function SalesListing() {
                         <hr style={{margin: '2rem 0'}}/>
                         <ListingImages 
                             apiData={apiData}
+                            onClick={() => OpenModal()}
                         />
                         <hr style={{margin: '2rem 0'}}/>
                         <div>
@@ -113,7 +116,6 @@ export default function SalesListing() {
                             <h3 className="effraBold">Property Description</h3>
                             <p style={{fontSize: '1.1rem'}} className="my-0_5">{apiData?.data.description}</p>
                         </div>
-
                     </div>
 
                     <div className="listing-right w-100">
@@ -123,11 +125,12 @@ export default function SalesListing() {
                     </div>
                 </div>
             </div>
+            <Lightbox 
+                apiData={apiData}
+                onClick={() => setLightboxOpen(!lightboxOpen)}
+                lightboxOpen={lightboxOpen}
+            />
         </>
         )
     }
 }
-
-
-
-// const { address, agent, bathrooms, bedrooms, createdAt, description, images, keyFeatures, price, propertyType } = apiData.data
