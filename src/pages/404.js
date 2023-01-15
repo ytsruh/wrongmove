@@ -12,6 +12,8 @@ export default function Custom404() {
       <Image
         src={cat.src}
         style={styles.img}
+        width="500"
+        height="250px"
         alt="Angry cat that is mad because user can't seem to direct itself."
       />
     </div>
@@ -31,7 +33,6 @@ const styles = {
     color: "#65dbb8",
   },
   img: {
-    width: "70%",
-    marginTop: "15px",
+    marginTop: "25px",
   },
 };

@@ -177,19 +177,4 @@ router.get("/agents", async (req, res) => {
   }
 });
 
-// Get single agent
-router.get("/agents/:id", async (req, res) => {
-  try {
-    const { params } = req;
-    const data = await prisma.agent.findUnique({ where: { id: params.id } });
-    const agent = await utils.filterAgent(data);
-    // Send response back
-    res.status(200).json({ agent });
-  } catch (error) {
-    // For errors, log to console and send a 500 response back
-    console.log(error);
-    res.status(500).json({ error: "Something went wrong" });
-  }
-});
-
 export default router;

@@ -36,7 +36,7 @@ function Nav() {
             <Link href="/house-prices">
               <a className="btn btn-nav">House Prices</a>
             </Link>
-            <Link href="/find-agent">
+            <Link href="/agents">
               <a className="btn btn-nav">Find Agent</a>
             </Link>
             <Link href="/login/user">

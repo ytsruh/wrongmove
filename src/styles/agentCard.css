@@ -1,0 +1,71 @@
+.agents-title {
+  font-size: 2.5rem;
+}
+
+.agents-subtitle {
+  font-size: 1.2rem;
+}
+
+.agent-card {
+  width: 70vw;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  background-color: white;
+  margin: 20px 0px 20px 0px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px #262637 solid;
+}
+
+.agent-heading {
+  color: #00deb6;
+  font-family: EffraBold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.agent-description {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.agent-card-break {
+  border: 1px LightGray solid;
+  margin: 5px 10px 5px 10px;
+}
+
+.agent-links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+
+.agent-links > a {
+  font-family: EffraReg;
+  color: #64a5b0;
+}
+
+.agent-card-logo {
+  width: 100%;
+  max-height: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .agent-card {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .agent-card-logo {
+    max-height: 125px;
+    width: 60%;
+  }
+  .agent-card {
+    grid-template-columns: 1fr;
+  }
+}
