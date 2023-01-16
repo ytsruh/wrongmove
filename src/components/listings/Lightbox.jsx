@@ -1,22 +1,21 @@
 import { useState, useEffect } from "react"
 
-export default function Lightbox ({ lightboxOpen, apiData, onClick }) {
+export default function Lightbox ({ lightboxImg, lightboxOpen, onClick }) {
+    
+    const [image, setImage] = useState()
 
-    const [images, setImages] = useState(apiData?.data.images)
-    const [activeImg, setActiveImg] = useState(apiData?.data.images[0].file)
+    useEffect(() => {
+        setImage(lightboxImg)
+    }, [lightboxImg])
 
-    return (
-        <>
-            <button onClick={onClick}>Open Modal</button>
-            <div className="lightbox-wrapper" id={lightboxOpen ? 'show' : 'hide'}>
-                <div className="lightbox">
-                    <div className="bg-img" style={{backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + activeImg})`}}>
-                        <div onClick={() => setActiveImg(active)} className="left"></div>
-                        <div className="right"></div>
+        return (
+            <>
+                <div className="lightbox-wrapper" id={lightboxOpen ? 'show' : 'hide'}>
+                    <div className="lightbox">
+                        <div className="bg-img" style={{backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + image})`}}></div>
                     </div>
+                    <div onClick={onClick} className="lightbox-openclose"></div>
                 </div>
-                <div onClick={onClick} className="lightbox-openclose"></div>
-            </div>
-        </>
-    )
+            </>
+        )
 }

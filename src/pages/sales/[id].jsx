@@ -16,6 +16,7 @@ export default function SalesListing() {
     const { id } = router.query
     const { isLoading, serverError, apiData } = useFetchPublicData(`/api/public/sales/${id}`)
     const [lightboxOpen, setLightboxOpen] = useState(false)
+    const [lightboxImg, setLightboxImg] = useState('')
     
     if(isLoading) return <h1>Loading...</h1>
     if(serverError) return <h1>Server Error</h1>
@@ -82,21 +83,21 @@ export default function SalesListing() {
                             <div className="property-type" style={{gap: '0.5rem', display: 'flex', flexDirection: 'column'}}>
                                 <h4 className="effraReg" style={{fontSize: '1.2rem'}}>Property Type</h4>
                                 <div className="auto-two-column-grid" style={{alignItems: 'center'}}>
-                                    <img style={{width: 30, height: 30}} src={house.src} alt="property type icon" />
+                                    <div className="bg-img" style={{width: 30, height: 30, backgroundImage: `url(${house.src})`}} alt="property type icon" />
                                     <p className="effraReg" style={{fontSize: '1.25rem'}}>{apiData?.data?.propertyType}</p>
                                 </div>
                             </div>
                             <div className="bedrooms" style={{gap: '0.5rem', display: 'flex', flexDirection: 'column'}}>
                                 <h4 className="effraReg" style={{fontSize: '1.2rem'}}>Bedrooms</h4>
                                 <div className="auto-two-column-grid" style={{alignItems: 'center'}}>
-                                    <img style={{width: 30, height: 30}} src={bed.src} alt="bedrooms icon" />
+                                    <div className="bg-img" style={{width: 30, height: 30, backgroundImage: `url(${bed.src})`}} alt="bedrooms icon" />
                                     <p className="effraReg" style={{fontSize: '1.25rem'}}>x {apiData?.data?.bedrooms}</p>
                                 </div>
                             </div>
                             <div className="bathrooms" style={{gap: '0.5rem', display: 'flex', flexDirection: 'column'}}>
                                 <h4 className="effraReg" style={{fontSize: '1.2rem'}}>Bathrooms</h4>
                                 <div className="auto-two-column-grid" style={{alignItems: 'center'}}>
-                                    <img style={{width: 30, height: 30}} src={bath.src} alt="bathrooms icon" />
+                                    <div className="bg-img" style={{width: 30, height: 30, backgroundImage: `url(${bath.src})`}} alt="bathrooms icon" />
                                     <p className="effraReg" style={{fontSize: '1.25rem'}}>x {apiData?.data?.bathrooms}</p>
                                 </div>
                             </div>
@@ -104,8 +105,10 @@ export default function SalesListing() {
                         <hr style={{margin: '2rem 0'}}/>
                         <ListingImages 
                             apiData={apiData}
-                            onClick={() => {
-                                OpenModal()
+                            lightboxImg={lightboxImg}
+                            onClick={(img) => {
+                                setLightboxImg(img)
+                                setLightboxOpen(true)
                             }}
                         />
                         <hr style={{margin: '2rem 0'}}/>
@@ -128,9 +131,9 @@ export default function SalesListing() {
                 </div>
             </div>
             <Lightbox 
-                apiData={apiData}
                 onClick={() => setLightboxOpen(!lightboxOpen)}
                 lightboxOpen={lightboxOpen}
+                lightboxImg={lightboxImg}
             />
         </>
         )

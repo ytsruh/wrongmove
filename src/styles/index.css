@@ -199,6 +199,10 @@ a, li, ul {
     cursor: pointer;
 }
 
+/* hover */
+
+.pointer {cursor: pointer;}
+
 @media screen and (max-width: 55rem) {
     .four-column-grid {
         grid-template-columns: repeat(3, 1fr);

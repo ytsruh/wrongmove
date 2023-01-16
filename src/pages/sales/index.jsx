@@ -69,11 +69,11 @@ function ListingCard (props) {
                         <div className='sales-all-bathbedtype'>
                         <p>{capitaliseEachWord(props.propertyType)}</p>
                         <div className='sales-all-bed'>
-                            <img src={bed.src} style={{width: 20, height: 20}} alt="bedroom icon" />
+                            <div className='bg-img' style={{width: 20, height: 20, backgroundImage: `url(${bed.src})`}} alt="bedroom icon" />
                             <p>{props.bed}</p>
                         </div>
                         <div className='sales-all-bath'>
-                            <img src={bath.src} style={{width: 20, height: 20}} alt="bathroom icon" />
+                            <div className='bg-img' style={{width: 20, height: 20, backgroundImage: `url(${bath.src})`}} alt="bathroom icon" />
                             <p>{props.bed}</p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@ function ListingCard (props) {
                         <div className='sales-all-agent'>
                             {apiData?.agent.image 
                                 ? 
-                                <img style={{width: 100}} src={process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image} alt="agent image" />
+                                <div className='bg-img' style={{width: 100, backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image})`}} alt="agent image" />
                                 :
                                 <></>
                             }
