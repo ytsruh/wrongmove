@@ -7,6 +7,7 @@ import "../styles/nav.css";
 import "../styles/agentDashboard.css";
 import "../styles/agentNav.css";
 import "../styles/agentStats.css";
+import "../styles/agentCard.css";
 import "../styles/home.css";
 import "../styles/card.css";
 import "../styles/footer.css";
