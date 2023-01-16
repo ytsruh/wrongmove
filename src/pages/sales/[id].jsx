@@ -103,11 +103,11 @@ export default function SalesListing() {
                             </div>
                         </div>
                         <hr style={{margin: '2rem 0'}}/>
-                        <ListingImages 
+                        <ListingImages
                             apiData={apiData}
                             lightboxImg={lightboxImg}
-                            onClick={(img) => {
-                                setLightboxImg(img)
+                            onClick={(image) => {
+                                setLightboxImg(image.file)
                                 setLightboxOpen(true)
                             }}
                         />
