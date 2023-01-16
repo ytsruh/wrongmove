@@ -53,6 +53,11 @@ a, li, ul {
     gap: 1.5rem;
 }
 
+.auto-two-column-grid { 
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
 .three-column-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -65,9 +70,19 @@ a, li, ul {
     gap: 3rem;
 }
 
-.four-six {
-    grid-template-columns: 0.4fr 0.6fr;
+.four-column-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
+
+.four-six {grid-template-columns: 0.4fr 0.6fr;}
+.six-four {grid-template-columns: 0.6fr 0.4fr;}
+
+/* flex */
+
+.flex {display: flex;}
+
+.flex-col {flex-direction: column;}
 
 .center {
     display: flex;
@@ -112,7 +127,9 @@ a, li, ul {
 }
 
 .my-0_5 {margin: 0.5rem 0;}
+.my-1_5 {margin: 1.5rem 0;}
 
+.m-1 {margin: 1rem;}
 .m-3 {margin: 3rem;}
 
 .text-center {
@@ -155,10 +172,20 @@ a, li, ul {
 
 .p-1 {padding: 1rem;}
 .px-1 {padding-left: 1rem; padding-right: 1rem;}
+.py-1 {padding: 1rem 0;}
+.py-1_5 {padding: 1.5rem 0;}
 .py-3 {padding: 3rem 0;}
 .p-3 {padding: 3rem;}
 
 .br-05 {border-radius: 0.5rem;}
+
+/* image */
+
+.bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 /* inline-link */
 
@@ -173,7 +200,15 @@ a, li, ul {
     cursor: pointer;
 }
 
+/* hover */
+
+.pointer {cursor: pointer;}
+
 @media screen and (max-width: 55rem) {
+    .four-column-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
     .two-column-grid, .three-column-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -181,6 +216,17 @@ a, li, ul {
     .h-300x600 {
         min-height: 500px;
     }
+    .mob-w-75 {
+        width: 75%
+    }
+}
+
+@media screen and (max-width: 40rem) {
+    .four-column-grid {grid-template-columns: 1fr 1fr;}
+}
+
+@media screen and (max-width: 25rem) {
+    .four-column-grid {grid-template-columns: 1fr;}
 }
 
 /* alert component */

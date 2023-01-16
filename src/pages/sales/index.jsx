@@ -1,13 +1,15 @@
-import useFetchData from '../../../hooks/useFetchData'
-import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../../utils';
+import useFetchPublicData from '../../hooks/useFetchPublicData'
+import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../utils';
 import { useRouter } from 'next/router';
 
-import bath from '../../../assets/icons/listings/bath.png'
-import bed from '../../../assets/icons/listings/bed.png'
+import ListingImages from '../../components/listings/ListingImages.jsx';
+
+import bath from '../../assets/icons/listings/bath.png'
+import bed from '../../assets/icons/listings/bed.png'
 
 export default function AllSales () {
     
-    const { isLoading, serverError, apiData } = useFetchData("/api/sales");
+    const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/sales");
 
     if(isLoading) return <h1>Loading...</h1>
     if(serverError) return <h1>Server Error</h1>
@@ -43,13 +45,13 @@ export default function AllSales () {
 
 function ListingCard (props) {
 
-    const { serverError, apiData } = useFetchData(`/api/public/agents/${props.agent}`);
+    const { serverError, apiData } = useFetchPublicData(`/api/public/agents/${props.agent}`);
     const router = useRouter()
 
     if(serverError) return <h1>Server Error</h1>
 
     return (
-        <div onClick={() => router.push(`/public/sales/${props.listingID}`)} className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
+        <div onClick={() => router.push(`/sales/${props.listingID}`)} className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
             <div className='listing-card two-column-grid four-six' style={{gap: 0}}>
                     <div
                         className='sales-all-image'
@@ -65,11 +67,11 @@ function ListingCard (props) {
                         <div className='sales-all-bathbedtype'>
                         <p>{capitaliseEachWord(props.propertyType)}</p>
                         <div className='sales-all-bed'>
-                            <img src={bed.src} style={{width: 20, height: 20}} alt="bedroom icon" />
+                            <div className='bg-img' style={{width: 20, height: 20, backgroundImage: `url(${bed.src})`}} alt="bedroom icon" />
                             <p>{props.bed}</p>
                         </div>
                         <div className='sales-all-bath'>
-                            <img src={bath.src} style={{width: 20, height: 20}} alt="bathroom icon" />
+                            <div className='bg-img' style={{width: 20, height: 20, backgroundImage: `url(${bath.src})`}} alt="bathroom icon" />
                             <p>{props.bed}</p>
                         </div>
                     </div>
@@ -80,7 +82,7 @@ function ListingCard (props) {
                         <div className='sales-all-agent'>
                             {apiData?.agent.image 
                                 ? 
-                                <img style={{width: 100}} src={process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image} alt="agent image" />
+                                <div className='bg-img' style={{width: 100, backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image})`}} alt="agent image" />
                                 :
                                 <></>
                             }

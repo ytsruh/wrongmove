@@ -160,8 +160,29 @@
     height: 32px;
 }
 
+/* agent ad */
+
+.agent-ad {
+    background-color: #fff;
+    box-shadow: rgb(197, 197, 197) 0px 0px 2px;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.agent-ad-contact-card {
+    background-color: #000433;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+
 /* media query */
 
 @media screen and (max-width: 55rem) {
-    
+    .agent-ad-data {
+        align-items: center;
+    }
 }

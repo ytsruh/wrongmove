@@ -93,7 +93,7 @@ function Footer() {
                 link1Text='Agent Login'
                 link2='/register/agent'
                 link2Text='Agent Register                '
-                link3='/agent/dashboard'
+                link3='/agent'
                 link3Text='Agent Dashboard'
                 link4='/agent/sales'
                 link4Text='Sales Listings'
