@@ -14,8 +14,6 @@ export default function AllSales () {
     const [propertyType, setPropertyType] = useState(null)
     const [minPrice, setMinPrice] = useState(null)
     const [maxPrice, setMaxPrice] = useState(null)
-    
-    // const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/sales");
     const { isLoading, serverError, apiData } = useFetchPublicData(`/api/public/sales?${minBedrooms ? `&bedrooms=${minBedrooms}` : ''}${propertyType ? `&propertytype=${propertyType}` : ''}${minPrice ? `&minprice=${minPrice}` : ''}${maxPrice ? `&maxprice=${maxPrice}` : ''}`);
     
     if(isLoading) return <h1>Loading...</h1>
@@ -24,8 +22,7 @@ export default function AllSales () {
     return (
         <div className="flex center w-100">
             <h1 className='py-1'>Sale Listings</h1>
-            <div className='query p-1 three-column-grid w-100'>
-                
+            <div className='query p-1 four-column-grid gap-1 w-100'>
                 <div className="query-bedrooms">
                     <Dropdown 
                         title='Min Bedrooms'
@@ -33,22 +30,19 @@ export default function AllSales () {
                         items={[1, 2, 3, 4, 5, 6, 7, '8+']}
                     />
                 </div>
-
-                <div className="query-price">
-                    <div className="min">
-                        <Dropdown 
-                            title='Min Price'
-                            onClick={(value) => setMinPrice(value)}
-                            items={[50000, 75000, 100000, 125000, 150000, 200000, 300000, 500000, 750000, '900000+']}
-                        />
-                    </div>
-                    <div className="max">
+                <div className="query-minPrice">
+                    <Dropdown 
+                        title='Min Price'
+                        onClick={(value) => setMinPrice(value)}
+                        items={[50000, 75000, 100000, 125000, 150000, 200000, 300000, 500000, 750000, '900000+']}
+                    />
+                </div>
+                <div className="query-maxPrice">
                     <Dropdown 
                         title='Max Price'
                         onClick={(value) => setMaxPrice(value)}
                         items={[50000, 75000, 100000, 125000, 150000, 200000, 300000, 500000, 750000, '900000+']}
                     />
-                    </div>
                 </div>
                 <div className="property-type">
                     <Dropdown 
@@ -58,11 +52,18 @@ export default function AllSales () {
                     />
                 </div>
             </div>
-
+            <div className='w-100 flex center p-1'>
+                <button
+                    className="btn btn-clear" onClick={() => {
+                        setMinBedrooms(null)
+                        setMinPrice(null)
+                        setMaxPrice(null)
+                        setPropertyType(null)
+                }}>Clear Filters</button>
+            </div>
             <div className="w-100 flex center p-1 br-05 mt-1" style={{backgroundColor: '#e9e9eb'}}>
                 {apiData?.data.map((listing, index) => (
                         <ListingCard
-                            data='eggggggg'
                             thumbnail={listing.images[0]?.file ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + listing.images[0]?.file : 'https://via.placeholder.com/600x200.png?text=Placeholder+Image'}
                             key={index}
                             price={listing.price}

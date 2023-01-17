@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { thousandsFormatting } from '../utils'
 
 function Dropdown(props) {
 
@@ -7,8 +8,8 @@ function Dropdown(props) {
 
   return (
     <div className="dropdown" onClick={() => setOpen(!open)}>
-      <h4>{props.title}</h4>
-      <div style={{display: open ? 'block' : 'none'}}>
+      <h4 className="effraBold">{props.title} &#x25BC;</h4>
+      <div className="dropdown-div" style={{display: open ? 'flex' : 'none'}}>
         {items.map((item, index) => (
           <DropdownItem
             item={item}
@@ -29,6 +30,12 @@ export default Dropdown
 function DropdownItem (props) {
     
     return (
-        <div value={props.item} onClick={() => props.onClick(props.item)}>{props.item}</div>
+        <div 
+          className='dropdown-item effraReg' 
+          value={props.item}
+          onClick={() => props.onClick(props.item)}
+        >
+          {thousandsFormatting(props.item)}
+        </div>
     )
 }
