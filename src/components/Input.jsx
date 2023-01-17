@@ -7,6 +7,7 @@ function Input(props) {
           required={props.required}
           type={props.type}
           className='form-input'
+          onChange={props.onChange}
         />
     )
   }

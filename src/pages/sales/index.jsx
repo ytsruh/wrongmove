@@ -1,24 +1,65 @@
 import useFetchPublicData from '../../hooks/useFetchPublicData'
-import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../utils';
+import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord, parsePropertyType } from '../../utils';
 import { useRouter } from 'next/router';
 
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
 
-export default function AllSales () {
-    
-    const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/sales");
+import Dropdown from '../../components/Dropdown';
+import { useState } from 'react';
 
+export default function AllSales () {
+
+    const [minBedrooms, setMinBedrooms] = useState(null)
+    const [propertyType, setPropertyType] = useState(null)
+    const [minPrice, setMinPrice] = useState(null)
+    const [maxPrice, setMaxPrice] = useState(null)
+    
+    // const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/sales");
+    const { isLoading, serverError, apiData } = useFetchPublicData(`/api/public/sales?${minBedrooms ? `&bedrooms=${minBedrooms}` : ''}${propertyType ? `&propertytype=${propertyType}` : ''}${minPrice ? `&minprice=${minPrice}` : ''}${maxPrice ? `&maxprice=${maxPrice}` : ''}`);
+    
     if(isLoading) return <h1>Loading...</h1>
     if(serverError) return <h1>Server Error</h1>
 
     return (
         <div className="flex center w-100">
-            <h1 className='py-3'>All For Sale Listings</h1>
-            {/* add filters here once backend code is finished */}
-            
+            <h1 className='py-1'>Sale Listings</h1>
+            <div className='query p-1 three-column-grid w-100'>
+                
+                <div className="query-bedrooms">
+                    <Dropdown 
+                        title='Min Bedrooms'
+                        onClick={(value) => setMinBedrooms(value)}
+                        items={[1, 2, 3, 4, 5, 6, 7, '8+']}
+                    />
+                </div>
 
-            <div className="w-100 flex center p-1 br-05" style={{backgroundColor: '#e9e9eb'}}>
+                <div className="query-price">
+                    <div className="min">
+                        <Dropdown 
+                            title='Min Price'
+                            onClick={(value) => setMinPrice(value)}
+                            items={[50000, 75000, 100000, 125000, 150000, 200000, 300000, 500000, 750000, '900000+']}
+                        />
+                    </div>
+                    <div className="max">
+                    <Dropdown 
+                        title='Max Price'
+                        onClick={(value) => setMaxPrice(value)}
+                        items={[50000, 75000, 100000, 125000, 150000, 200000, 300000, 500000, 750000, '900000+']}
+                    />
+                    </div>
+                </div>
+                <div className="property-type">
+                    <Dropdown 
+                        title='Property Type'
+                        onClick={(value) => setPropertyType(value)}
+                        items={['Detached', 'Semi-Detached', 'Bungalow', 'Terraced', 'Flat', 'Land']}
+                    />
+                </div>
+            </div>
+
+            <div className="w-100 flex center p-1 br-05 mt-1" style={{backgroundColor: '#e9e9eb'}}>
                 {apiData?.data.map((listing, index) => (
                         <ListingCard
                             data='eggggggg'
