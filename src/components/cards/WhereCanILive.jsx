@@ -7,7 +7,7 @@ function WhereCanILive() {
           <h3>Where can I live?</h3>
           <p>{`We've created a new tool to help you easily find the areas that match your budget and needs.`}</p>
           <InlineLink
-            to='/'
+            to='/comingsoon'
             text='Discover your perfect location'
           />
         </div>

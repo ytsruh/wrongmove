@@ -16,7 +16,7 @@ function BorderlessCard(props) {
 
 BorderlessCard.defaultProps = {
     linkText: 'Search now',
-    linkTo: '/',
+    linkTo: '/comingsoon',
     desc: 'See what property in your local area sold for',
     title: 'Sold house prices'
 }

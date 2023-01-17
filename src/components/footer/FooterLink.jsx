@@ -9,7 +9,7 @@ function FooterLink(props) {
 }
 
 FooterLink.defaultProps = {
-    href: '/',
+    href: '/comingsoon',
     linkText: 'Home'
 }
 

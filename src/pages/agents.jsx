@@ -53,11 +53,14 @@ function AgentCard(props) {
         </div>
       </div>
       <div className="p-1">
-        <img
-          className="agent-card-logo"
-          src={data.image ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + data.image : placeholder.src}
+        <div
+          className="agent-card-logo w-100 bg-img"
+          style={{
+            backgroundImage: `url(${data.image ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + data.image : placeholder.src})`,
+            minHeight: 100,
+          }}
           alt={`${data.name} logo`}
-        />
+        ></div>
       </div>
     </div>
   );

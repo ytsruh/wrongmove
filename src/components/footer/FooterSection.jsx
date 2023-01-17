@@ -45,27 +45,20 @@ function FooterSection(props) {
 export default FooterSection
 
 FooterSection.defaultProps = {
-    link1: '/',
+    link1: '/comingsoon',
     link1Text: '',
-    
-    link2: '/',
+    link2: '/comingsoon',
     link2Text: '',
-    
-    link3: '/',
+    link3: '/comingsoon',
     link3Text: '',
-
-    link4: '/',
+    link4: '/comingsoon',
     link4Text: '',
-
-    link5: '/',
+    link5: '/comingsoon',
     link5Text: '',
-
-    link6: '/',
+    link6: '/comingsoon',
     link6Text: '',
-
-    link7: '/',
+    link7: '/comingsoon',
     link7Text: '',
-
-    link8: '/',
+    link8: '/comingsoon',
     link8Text: ''
 }

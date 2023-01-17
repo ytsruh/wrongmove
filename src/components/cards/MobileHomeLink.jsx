@@ -17,7 +17,7 @@ function MobileHomeLink(props) {
 export default MobileHomeLink
 
 MobileHomeLink.defaultProps = {
-    to:'/login/user',
+    to:'/comingsoon',
     image: iconUserPrimary24.src,
     title: 'Sign in',
     text: ''
