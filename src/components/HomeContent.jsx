@@ -68,19 +68,19 @@ function HomeContent() {
                 />
                 <Card 
                     img={propertyNews.src}
-                    label='PROPERTY NEWS'
-                    title='Help to buy equity scheme in England set to end close'
-                    copy='Read more...'
-                    linkTo='/register/agent'
-                    linkText='Visit the Wrongmove blog'
+                    label='SALES'
+                    title='All Sales Listings'
+                    copy='Search through all of our properties for sale and find what you have been looking for.'
+                    linkTo='/sales'
+                    linkText='View All'
                 />
                 <Card 
                     img={movingStories.src}
-                    label='MOVING STORIES'
-                    title='Moving to my childhood dream home was our right move'
-                    copy={`Read Siobhan's story...`}
-                    linkTo='/register/agent'
-                    linkText='Find out more'
+                    label='RENTAL'
+                    title='View All Rentals'
+                    copy='Looking to a new place to rent? Have a look at what our agents have on offer.'
+                    linkTo='/rentals'
+                    linkText='See More'
                 />
                 <AccountCard />
             </div>
@@ -94,13 +94,11 @@ function HomeContent() {
                     title='Commercial property'
                     desc='Search freehold and leasehold commercial properties in the UK'
                     linkText='Search now'
-                    linkTo='/'
                 />
                 <BorderlessCard 
                     title='Investors and landlords'
                     desc='Get the latest rent and yield figures direct to your inbox'
                     linkText='Sign up now'
-                    linkTo='/'
                 />
             </div>
         </div>
@@ -114,46 +112,42 @@ function HomeContent() {
                 </div>
             </div>
             <div className="home-mobile-links">
-                <MobileHomeLink />
                 <MobileHomeLink 
-                    to='/register/user'
-                    image={createAccount.src}
-                    title='Create an account'
+                    to='/login/agent'
+                    title='Agent Login'
                 />
                 <MobileHomeLink 
-                    to='/somewhere'
+                    to='/register/agent'
+                    image={createAccount.src}
+                    title='Agent Registration'
+                />
+                <MobileHomeLink 
                     image={soldPricesSearch.src}
                     title='Sold prices search'
                     text='See what properties in your local area sold for'
                 />
                 <MobileHomeLink 
-                    to='/somewhere'
                     image={requestAgentValuation.src}
                     title='Request agent valuation'
                     text='Accurate market valuation from local property experts'
                 />
                 <MobileHomeLink 
-                    to='/somewhere'
                     image={overseasProperties.src}
                     title='Overseas properties'
                 />
-                <MobileHomeLink 
-                    to='/somewhere'
+                <MobileHomeLink
                     image={commercialPropertyForSale.src}
                     title='Commercial property for sale'
                 />
-                <MobileHomeLink 
-                    to='/somewhere'
+                <MobileHomeLink
                     image={commercialPropertyForRent.src}
                     title='Commercial property for rent'
                 />
-                <MobileHomeLink 
-                    to='/somewhere'
+                <MobileHomeLink
                     image={whereCanILiveIcon.src}
                     title='Where can I live'
                 />
-                <MobileHomeLink 
-                    to='/somewhere'
+                <MobileHomeLink
                     image={drawASearch.src}
                     title='Draw a search'
                 />

@@ -13,7 +13,7 @@ function RecentSearch(props) {
 }
 
 RecentSearch.defaultProps = {
-    to: '/user/login',
+    to: '/comingsoon',
     text: 'Covent Garden, London',
     label: 'For Sale - Flats & Houses'
 }
