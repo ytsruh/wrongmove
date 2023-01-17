@@ -2,8 +2,6 @@ import useFetchPublicData from '../../hooks/useFetchPublicData'
 import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord } from '../../utils';
 import { useRouter } from 'next/router';
 
-import ListingImages from '../../components/listings/ListingImages.jsx';
-
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
 
@@ -36,6 +34,9 @@ export default function AllSales () {
                             createdAt={listing.createdAt}
                             agent={listing.agentId}
                             listingID={listing.id}
+                            isLoading={isLoading}
+                            serverError={serverError}
+                            apiData={listing}
                         />
                 ))}
             </div>
@@ -45,10 +46,8 @@ export default function AllSales () {
 
 function ListingCard (props) {
 
-    const { serverError, apiData } = useFetchPublicData(`/api/public/agents/${props.agent}`);
+    const { apiData } = props
     const router = useRouter()
-
-    if(serverError) return <h1>Server Error</h1>
 
     return (
         <div onClick={() => router.push(`/sales/${props.listingID}`)} className={`w-100 br-05 mx-05 ${props.className}`} style={{backgroundColor: '#fff'}}>
@@ -78,17 +77,17 @@ function ListingCard (props) {
                     {props.desc ? <p style={{marginTop: '1rem'}}>{truncate(props.desc, 300)}</p> : <></>}
                     </div>
                     <div>
-                        <h4 style={{paddingBottom: '0.5rem'}}>Added on {formatCreatedAt(props.createdAt)} by {apiData?.agent.name}</h4>
+                        <h4 style={{paddingBottom: '0.5rem'}}>Added on {formatCreatedAt(props.createdAt)} by {apiData?.agent?.name}</h4>
                         <div className='sales-all-agent'>
-                            {apiData?.agent.image 
+                            {apiData?.agent?.image 
                                 ? 
-                                <div className='bg-img' style={{width: 100, backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent.image})`}} alt="agent image" />
+                                <div className='bg-img' style={{width: 100, backgroundImage: `url(${process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData?.agent?.image})`}} alt="agent image" />
                                 :
                                 <></>
                             }
                             <div className='sales-all-agent-contact'>
-                                <p>{apiData?.agent.telephoneNumber}</p>
-                                <p>{apiData?.agent.description ? apiData?.agent.description : ''}</p>
+                                <p>{apiData?.agent?.telephoneNumber}</p>
+                                <p>{apiData?.agent?.description ? truncate(apiData?.agent?.description, 100) : ''}</p>
                             </div>
                         </div>
                     </div>
