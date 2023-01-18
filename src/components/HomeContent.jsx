@@ -17,42 +17,29 @@ import commercialPropertyForSale from '../assets/icons/commercialPropertyForSale
 import commercialPropertyForRent from '../assets/icons/commercialPropertyForRent.png'
 import whereCanILiveIcon from '../assets/icons/whereCanILiveIcon.png'
 import drawASearch from '../assets/icons/drawASearch.png'
-
-import useDocTitle from '../hooks/useDocTitle'
+import Router, { useRouter } from 'next/router'
+import Head from 'next/head'
 
 function HomeContent() {
 
-    useDocTitle('Home')
-
-    const [searchData, setSearchData] = useState()
-
-    // capture search box input
-    const onChange = (e) => {
-        setSearchData(e.target.value)
-    }
-
-    // Search Submit
-    const onClick = (e) => {
-        console.log(e.target.name + ' ' + searchData)
-    }
+    const router = useRouter()
 
   return (
     <>
+        <Head>
+            <title>{`Homepage | Wrongmove`}</title>
+            <meta name="description" content="Homepage listings. The Righmove clone." />
+        </Head>
         <div className="home-hero">
             <div className="home-hero-image w-100">
                 <div className="home-hero-container">
                     <div className="home-title w-100">
-                        <h1>Find your sad</h1>
-                        <p>Search properties for sale and to rent in the UK</p>
+                        <h1>Find your happy</h1>
+                        <p>View properties for sale and to rent in the UK</p>
                     </div>
-                    <div className="home-hero-search w-100">
-                        <Input 
-                            type="text" 
-                            placeholder={`e.g. 'York', 'NW3', 'NW3 5TY' or 'Waterloo Station'`} 
-                            onChange={onChange}
-                        />
-                        <button onClick={onClick} name={'Sale'} className="btn btn-primary">For Sale</button>
-                        <button onClick={onClick} name={'Rent'} className="btn btn-primary">To Rent</button>
+                    <div className="two-column-grid w-100">
+                        <button onClick={() => router.push('/sales')} name={'Sale'} className="btn btn-primary">For Sale</button>
+                        <button onClick={() => router.push('/rentals')} name={'Rent'} className="btn btn-primary">To Rent</button>
                     </div>
                 </div>
             </div>
@@ -104,11 +91,11 @@ function HomeContent() {
         </div>
         <div className="mobile-home-content w-100">
             <div className="home-title home-title-background">
-                <h1>Find your sad</h1>
-                <p>Search properties for sale and to rent in the UK</p>
+                <h1>Find your happy</h1>
+                <p>View properties for sale and to rent in the UK</p>
                 <div className="btn-container">
-                    <button className="btn-primary">For Sale</button>
-                    <button className="btn-primary">To Rent</button>
+                    <button onClick={() => router.push('/sales')} className="btn-primary">For Sale</button>
+                    <button onClick={() => router.push('/rentals')} className="btn-primary">To Rent</button>
                 </div>
             </div>
             <div className="home-mobile-links">
