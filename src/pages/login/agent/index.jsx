@@ -1,9 +1,19 @@
 import Form from "../../../components/Form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Alert from "../../../components/Alert";
 
 function AgentLogin({ form }) {
   const router = useRouter();
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(false);
+      }, 5000);
+    }
+  }, [error]);
 
   const onSubmitHandler = async (form, callback) => {
     callback();
@@ -16,19 +26,23 @@ function AgentLogin({ form }) {
           "Content-Type": "application/json",
         },
       });
+      if (!response.ok) {
+        setError({ msg: "Something went wrong. Please check your username & password." });
+      }
       const data = await response.json();
       if (data.token) {
         sessionStorage.setItem("user", JSON.stringify(data));
         router.push("/agent/");
       }
     } catch (error) {
-      console.log(error);
+      setError({ msg: "Something went wrong with the server. Please try again." });
     }
   };
 
   return (
-    <div>
-      <h1>Agent Login</h1>
+    <div style={{ width: "40vw" }}>
+      <h1 className="p-1">Agent Login</h1>
+      {error ? <Alert type="error" msg={error.msg} /> : null}
       <Form title="Login" formArr={formArr} submitBtn="Login" redirect={null} onSubmit={onSubmitHandler} />
     </div>
   );
