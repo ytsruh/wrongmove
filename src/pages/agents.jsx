@@ -1,10 +1,10 @@
 import React from "react";
-import usePublicData from "../hooks/usePublicData";
+import useFetchPublicData from "../hooks/useFetchPublicData";
 import InlineLink from "../components/InlineLink";
 import placeholder from "../assets/placeholder.png";
 
 function AllAgents() {
-  const { isLoading, serverError, apiData } = usePublicData("/api/public/agents");
+  const { isLoading, serverError, apiData } = useFetchPublicData("/api/public/agents");
 
   if (isLoading) return <h1>Loading...</h1>;
   if (serverError) return <h1>Error</h1>;
@@ -56,7 +56,9 @@ function AgentCard(props) {
         <div
           className="agent-card-logo w-100 bg-img"
           style={{
-            backgroundImage: `url(${data.image ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + data.image : placeholder.src})`,
+            backgroundImage: `url(${
+              data.image ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + data.image : placeholder.src
+            })`,
             minHeight: 100,
           }}
           alt={`${data.name} logo`}
