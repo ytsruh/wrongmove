@@ -243,3 +243,64 @@ a, li, ul {
 .success {
     background-color: #5cb85c;
 }
+
+/* dropdown */
+
+.dropdown {
+    position: relative;
+    width: 100%;
+    border-radius: 2.5px;
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(199,199,199,1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(199,199,199,1);
+    box-shadow: 2px 2px 5px 0px rgba(199,199,199,1);        
+}
+
+.dropdown > h4 {
+    background-color: #6be8c3;
+    padding: 1rem 1.5rem;
+    border-radius: 2.5px 2.5px 0 0;
+    text-align: center;
+    cursor: pointer;
+    font-family: EffraBold;
+    font-size: 1.05rem;
+}
+
+.dropdown > h4:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+.dropdown-div {
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(199,199,199,1);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(199,199,199,1);
+    box-shadow: 2px 2px 5px 0px rgba(199,199,199,1);
+    z-index: 10;
+    position: absolute;
+    background-color: white;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 0 0 2.5px 2.5px;
+    width: 100%;
+}
+
+.dropdown-item {
+    transition: background-color ease-in-out 300ms;
+    border-radius: 0 0 2.5px 2.5px;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #dbdbdb;
+}
+
+.btn-clear {
+    max-width: 20%;
+}
+
+@media screen and (max-width: 55rem) {
+    .btn-clear {
+        min-width: 100%;
+    }
+}
