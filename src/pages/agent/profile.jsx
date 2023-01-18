@@ -7,7 +7,6 @@ import DashboardCard from "../../components/cards/DashboardCard";
 import UpdateForm from "../../components/UpdateForm";
 import ImageForm from "../../components/ImageForm";
 import Alert from "../../components/Alert";
-import Card from "../../components/cards/Card";
 import AgentNav from "../../components/AgentNav";
 
 import useFetchData from "../../hooks/useFetchData";
@@ -23,7 +22,7 @@ function AgentProfile() {
 
   if (isSubmitting) return <h1>Submitting...</h1>;
   if (updatedData || updateError) {
-    router.push("/agent/dashboard");
+    router.push("/agent/");
   }
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -62,18 +61,27 @@ function AgentProfile() {
                 redirectUrl="/agent/dashboard"
               />
               <div className="one-column-grid">
-                <Card
-                  label=""
-                  title="Current Agency Image"
-                  img={
-                    apiData?.image
-                      ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData.image
-                      : "https://via.placeholder.com/600x200.png?text=Placeholder+Image"
-                  }
-                  copy="This is currently shown on your public profile. Update the image to change it immeadiately."
-                  linkTo={`/agents/${apiData?.id}`}
-                  linkText="View your public profile"
-                />
+                <div style={styles.card}>
+                  <img
+                    src={
+                      apiData?.image
+                        ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + apiData.image
+                        : "https://via.placeholder.com/600x200.png?text=Placeholder+Image"
+                    }
+                    alt="Current Agency Image"
+                    style={styles.img}
+                  />
+                  <div style={styles.cardText}>
+                    <h5 style={styles.heading}>Current Agency Image</h5>
+                    <p style={styles.text}>
+                      This is currently shown on your public profile. Update the image to change it
+                      immeadiately.
+                    </p>
+                    <a className="btn-primary" href={`/agents/${apiData?.id}`} style={styles.btn}>
+                      View your public profile
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -112,3 +120,42 @@ const formFields = [
     required: false,
   },
 ];
+
+const styles = {
+  card: {
+    width: "100%",
+    padding: "20px",
+    backgroundColor: "white",
+    border: "1px solid rgb(195, 195, 195)",
+    borderRadius: "2.5px",
+  },
+  img: {
+    width: "100%",
+    height: "150px",
+    borderBottom: "1px solid rgb(195, 195, 195)",
+    objectFit: "contain",
+  },
+  cardText: {
+    paddingTop: "10px",
+    paddingBottom: "20px",
+  },
+  heading: {
+    fontSize: "1.1rem",
+  },
+  text: {
+    fontSize: "1.05rem",
+    paddingTop: "10px",
+    paddingBottom: "25px",
+  },
+  btn: {
+    minWidth: "100%",
+    borderRadius: "2.5px",
+    padding: "0.8rem",
+    border: "none",
+    fontFamily: "EffraBold",
+    fontSize: "1.05rem",
+    transition: "300ms",
+    marginTop: "10px",
+    marginBottom: "20px",
+  },
+};
