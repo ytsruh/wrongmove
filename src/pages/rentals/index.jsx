@@ -1,6 +1,7 @@
 import useFetchPublicData from '../../hooks/useFetchPublicData'
 import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord, parsePropertyType } from '../../utils';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
@@ -20,69 +21,75 @@ export default function AllRentals () {
     if(serverError) return <h1>Server Error</h1>
 
     return (
-        <div className="flex center w-100">
-            <h1 className='py-1'>Sale Listings</h1>
-            <div className='query p-1 four-column-grid gap-1 w-100'>
-                <div className="query-bedrooms">
-                    <Dropdown 
-                        title='Min Bedrooms'
-                        onClick={(value) => setMinBedrooms(value)}
-                        items={[1, 2, 3, 4, 5, 6, 7, '8+']}
-                    />
-                </div>
-                <div className="query-minPrice">
-                    <Dropdown 
-                        title='Min per Month'
-                        onClick={(value) => setMinPrice(value)}
-                        items={[400, 500, 750, 1000, 1500, 2000, 2500, 3000, 4000, '5000+']}
-                    />
-                </div>
-                <div className="query-maxPrice">
-                    <Dropdown 
-                        title='Max per Month'
-                        onClick={(value) => setMaxPrice(value)}
-                        items={[400, 500, 750, 1000, 1500, 2000, 2500, 3000, 4000, '5000+']}
-                    />
-                </div>
-                <div className="property-type">
-                    <Dropdown 
-                        title='Property Type'
-                        onClick={(value) => setPropertyType(value)}
-                        items={['Detached', 'Semi-Detached', 'Bungalow', 'Terraced', 'Flat', 'Land']}
-                    />
-                </div>
-            </div>
-            <div className='w-100 flex center p-1'>
-                <button
-                    className="btn btn-clear" onClick={() => {
-                        setMinBedrooms(null)
-                        setMinPrice(null)
-                        setMaxPrice(null)
-                        setPropertyType(null)
-                }}>Clear Filters</button>
-            </div>
-            <div className="w-100 flex center p-1 br-05 mt-1" style={{backgroundColor: '#e9e9eb'}}>
-                {apiData?.data.map((listing, index) => (
-                        <ListingCard
-                            thumbnail={listing.images[0]?.file ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + listing.images[0]?.file : 'https://via.placeholder.com/600x200.png?text=Placeholder+Image'}
-                            key={index}
-                            price={listing.price}
-                            address={listing.address}
-                            propertyType={listing.propertyType}
-                            bed={listing.bedrooms}
-                            bath={listing.bathrooms}
-                            desc={listing.description}
-                            keyFeatures={listing.keyFeatures}
-                            createdAt={listing.createdAt}
-                            agent={listing.agentId}
-                            listingID={listing.id}
-                            isLoading={isLoading}
-                            serverError={serverError}
-                            apiData={listing}
+        <>
+            <Head>
+                <title>Rentals | Wrongmove</title>
+                <meta name="description" content="Wrongmove rental listings. The Righmove clone." />
+            </Head>
+            <div className="flex center w-100">
+                <h1 className='py-1'>Sale Listings</h1>
+                <div className='query p-1 four-column-grid gap-1 w-100'>
+                    <div className="query-bedrooms">
+                        <Dropdown 
+                            title='Min Bedrooms'
+                            onClick={(value) => setMinBedrooms(value)}
+                            items={[1, 2, 3, 4, 5, 6, 7, '8+']}
                         />
-                ))}
+                    </div>
+                    <div className="query-minPrice">
+                        <Dropdown 
+                            title='Min per Month'
+                            onClick={(value) => setMinPrice(value)}
+                            items={[400, 500, 750, 1000, 1500, 2000, 2500, 3000, 4000, '5000+']}
+                        />
+                    </div>
+                    <div className="query-maxPrice">
+                        <Dropdown 
+                            title='Max per Month'
+                            onClick={(value) => setMaxPrice(value)}
+                            items={[400, 500, 750, 1000, 1500, 2000, 2500, 3000, 4000, '5000+']}
+                        />
+                    </div>
+                    <div className="property-type">
+                        <Dropdown 
+                            title='Property Type'
+                            onClick={(value) => setPropertyType(value)}
+                            items={['Detached', 'Semi-Detached', 'Bungalow', 'Terraced', 'Flat', 'Land']}
+                        />
+                    </div>
+                </div>
+                <div className='w-100 flex center p-1'>
+                    <button
+                        className="btn btn-clear" onClick={() => {
+                            setMinBedrooms(null)
+                            setMinPrice(null)
+                            setMaxPrice(null)
+                            setPropertyType(null)
+                    }}>Clear Filters</button>
+                </div>
+                <div className="w-100 flex center p-1 br-05 mt-1" style={{backgroundColor: '#e9e9eb'}}>
+                    {apiData?.data.map((listing, index) => (
+                            <ListingCard
+                                thumbnail={listing.images[0]?.file ? process.env.NEXT_PUBLIC_IMAGES_ENDPOINT + listing.images[0]?.file : 'https://via.placeholder.com/600x200.png?text=Placeholder+Image'}
+                                key={index}
+                                price={listing.price}
+                                address={listing.address}
+                                propertyType={listing.propertyType}
+                                bed={listing.bedrooms}
+                                bath={listing.bathrooms}
+                                desc={listing.description}
+                                keyFeatures={listing.keyFeatures}
+                                createdAt={listing.createdAt}
+                                agent={listing.agentId}
+                                listingID={listing.id}
+                                isLoading={isLoading}
+                                serverError={serverError}
+                                apiData={listing}
+                            />
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

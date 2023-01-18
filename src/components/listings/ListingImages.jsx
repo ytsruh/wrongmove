@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 export default function ListingImages (props) {
 
     const [apiData, setApiData] = useState(props.apiData)
-    console.log(apiData);
 
     return (
         <div className="four-column-grid listing-images gap-1">

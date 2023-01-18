@@ -3,7 +3,7 @@ import useFetchPublicData from "../../hooks/useFetchPublicData"
 import { thousandsFormatting } from "../../utils"
 import { useState } from "react"
 import Head from "next/head"
-import { truncate } from "../../utils"
+import { truncate } from '../../utils'
 
 import house from '../../assets/icons/listings/house.png'
 import bath from '../../assets/icons/listings/bath.png'
@@ -12,11 +12,11 @@ import ListingImages from "../../components/listings/ListingImages"
 import AgentAd from "../../components/cards/AgentAd"
 import Lightbox from '../../components/listings/Lightbox'
 
-export default function SalesListing() {
+export default function RentalListing() {
 
     const router = useRouter()
     const { id } = router.query
-    const { isLoading, serverError, apiData } = useFetchPublicData(`/api/public/sales/${id}`)
+    const { isLoading, serverError, apiData } = useFetchPublicData(`/api/public/rentals/${id}`)
     const [lightboxOpen, setLightboxOpen] = useState(false)
     const [lightboxImg, setLightboxImg] = useState('')
     
@@ -26,10 +26,10 @@ export default function SalesListing() {
     if (apiData?.data) {
     return (
         <>
-        <Head>
-            <title>{`${truncate(apiData.data.address, 20)} | Wrongmove`}</title>
-            <meta name="description" content="Wrongmove sales listings. The Righmove clone." />
-        </Head>
+            <Head>
+                <title>{`${truncate(apiData.data.address, 20)} | Wrongmove`}</title>
+                <meta name="description" content="Wrongmove rental listings. The Righmove clone." />
+            </Head>
             <div className="center w-100 gap-2">
                 <div className="two-column-grid six-four w-100" style={{gap: '0.5rem'}}>
                     <div

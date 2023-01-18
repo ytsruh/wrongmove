@@ -1,6 +1,7 @@
 import useFetchPublicData from '../../hooks/useFetchPublicData'
 import { formatPrice, thousandsFormatting, truncate, formatCreatedAt, capitaliseEachWord, parsePropertyType } from '../../utils';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import bath from '../../assets/icons/listings/bath.png'
 import bed from '../../assets/icons/listings/bed.png'
@@ -20,6 +21,11 @@ export default function AllSales () {
     if(serverError) return <h1>Server Error</h1>
 
     return (
+        <>
+            <Head>
+                <title>Sales | Wrongmove</title>
+                <meta name="description" content="Wrongmove rental listings. The Righmove clone." />
+            </Head>
         <div className="flex center w-100">
             <h1 className='py-1'>Sale Listings</h1>
             <div className='query p-1 four-column-grid gap-1 w-100'>
@@ -83,6 +89,7 @@ export default function AllSales () {
                 ))}
             </div>
         </div>
+        </>
     )
 }
 
