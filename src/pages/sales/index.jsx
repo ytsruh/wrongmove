@@ -24,7 +24,7 @@ export default function AllSales () {
         <>
             <Head>
                 <title>Sales | Wrongmove</title>
-                <meta name="description" content="Wrongmove rental listings. The Righmove clone." />
+                <meta name="description" content="Wrongmove sales listings. The Righmove clone." />
             </Head>
         <div className="flex center w-100">
             <h1 className='py-1'>Sale Listings</h1>
